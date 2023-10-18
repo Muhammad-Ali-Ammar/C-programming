@@ -1,0 +1,212 @@
+-- it's to define a new type and make it readable 
+
+	typedef unsigned char BYTE;
+	BYTE a1,a2;
+
+-- prefer to make it as use_t 
+
+	typedef unsigned char uint8_t ;
+
+
+
+-- use it in 
+	struct ( c) 
+	function pointer 
+	union (c)
+	enum 
+
+
+
+-- typedef vs #define
+
+	1- typedef for types only 
+	   #define for names 3adii ... #define TRUE 1
+	   
+	2- typedef by compiler , #define pre-processor 
+
+	3- typedef ends by ; ,, #define not 
+
+	4- typedef follows the scope rule ,, #define not 
+
+		void print()
+		{
+			#define True 1 
+			typedef int integr;
+
+
+		}
+
+
+		int main ()
+
+		{
+		if ( True) ;  // da tmam 
+		integr x = 5 ; // Error ( out of scope ) 
+
+
+	Note that : preprocessing mn fooo2 le t7t 
+	
+	••• void func () // al code mashii mn foo2 le t7t 
+		{
+			cout(x);
+		}
+
+
+		int main()
+
+		{
+			#define x 10
+			func(); ####Error### 
+		}
+		
+		
+	•••
+		int main()
+
+		{
+			#define x 10  // al code shaf di al 2wl ,, fa tmam 
+			func(); 
+		}
+		
+		 void func ()
+		{
+			cout(x); 
+		}
+
+
+
+
+
+5- typedef char* ptr ;
+   #define ptr2 char*
+   
+   
+	ptr a,b,c;  // char *a, *b,*c;  
+	ptr2 a,b,c; // char*a , b, c ;  ,, da just replacement only 
+
+	enma al typedef .. new type for the compiler 
+
+}
+
+
+
+6- Note: Usually uppercase letters are used to make it clear that we are dealing with our own data type.
+
+
+	typedef student { int x ; } STUDENT;
+	
+	
+	
+7- standard libary
+
+	typedef unsigned char uint8_t;
+	typedef char sint8_t;
+	typedef unsigned short uint16_t;
+	typedef signed short sint16_t;
+	typedef unsigned long uint32_t;
+	typedef signed long sint32_t;
+	typedef unsigned long long uint64_t;  // long long = 8 bytes
+	typedef signed long long  sint64_t;
+	typedef float float32_t;
+	typedef double float64_t;
+	typedef int* ptoi; 
+	typedef char* string
+	
+	typedef unsigned char byte;
+	
+	
+	typedef unsgined char bool; 
+	#define false 0
+	#define true 1
+	
+	
+
+	
+8- 	you can't use typedef with storage classes 
+
+	typedef static int mystatic; // error 
+	
+########################################################################################################################	
+	
+9- typedef int INT1, INT2;  // m3naha int1 = int , int2 = int 
+
+########################################################################################################
+
+10-
+
+		typedef int arr[10];  // arr now is new data type 
+		
+		int main()
+		{
+
+		arr x; // x is array of 10 integers
+
+		x[5]=4;
+		cout(x[5]);  // 4
+
+		cout(sizeof(x)/sizeof(x[0]));  // 10 elements 
+
+		 }
+
+########################################################################################################
+
+11- typedef struct student student; // 3adii tsmiii the same name 
+
+########################################################################################################
+
+12- use typedef for function pointer 
+	
+	typedef void (*ptr_t )(int);  // ptr_t is a pointer to function takes int and return nothing 
+	
+	
+	ptr_t ptr1 = function 1 ; //
+	
+	..•• example ••.. 
+	
+	
+	typedef void (*ptr_t)(int);
+
+    void func1 (int x)
+    {
+        cout(x);
+    }
+
+	int main()
+	{
+		ptr_t ptr1 = func1;
+
+		ptr1(5);
+	}
+	
+
+########################################################################################################
+
+13- typedef for pointers ,,, bt5leeh variable 3adii 
+
+	typedef int * ptrToInt_t ; 
+	
+	
+	ptrToInt_t ptr1 ;
+	
+	ptrToInt_t x[10] ;  // x is an array of pointer to integer 
+	
+	
+	
+	-- simplify this using typedef 
+		
+		struct Book (*fpa[8]) ( void ) 
+		
+		
+		..•• solution ••.. 
+		
+		typedef struct Book(*fpa_t) ( void) ;
+		
+		fpa_t fpa[8];
+		
+		
+		..•• another solution ••..
+		
+		typedef struck Book fpa_t (void);
+		typedef fpa_t * fpa_t2 ;
+		fpa_t2 fpa[8];
+		

@@ -1,0 +1,114 @@
+1- malloc 
+
+int size = 5 ; 
+int* x = (int*) malloc(size * sizeof(int) ) ;
+
+
+
+// malloc ( number of bytes ) 
+
+	malloc return pointer to allocated memory .. a NULL if it failed to allocate requested memory for any reason (out of memory as an example). 
+	
+	if(pDyArray=(int*) malloc(size*sizeof(int))==NULL) return 1;//terminate the program
+
+
+
+
+
+2- calloc 
+
+
+int *x = calloc(number_of_blocks, number_of_bytes_per_block);
+
+int* x = calloc(5 , sizeof(int )) ; 
+
+// hya hya malloc bs bt5lii al size sperate arguments 
+// initial value = 0 ; 
+
+
+•• note that malloc is faster than calloc, unless you want zero-initialization 
+----------------------------------------------------------------------------------------------
+
+3- realloc , btzayed al size wl qem al 2deema zy ma hya 
+           , al zyada initialized by zero 
+
+  int *arr= malloc(5*sizeof(int));
+  for(int i = 0; i<5;++i)
+    arr[i]=i;
+
+
+	arr = realloc(arr,10*sizeof(int)); // you can check if it returns NULL if failed 
+
+	// arr[2]= 2 ,, arr[9] = 0
+
+•• note that : 
+	
+	outcome Scenario : 
+	
+	1- returned same pointer (address) --> sucessful without moving 
+	2- new pointer returned(not the same old address)  --> sucessful with moving to different part of heap ( to be enough to allocate)
+	3- NULL pointer return --> Not sucessful
+
+
+	
+	-- for checking : 
+		 if(arr=realloc(arr, elements * sizeof(int))== NULL) {return 1;}
+		 
+		 
+
+•• note that : 
+
+	  int *ptr = malloc(2 *sizeof(int));
+	  int *ptr2 = realloc(ptr, 10*sizeof(int));  // ptr2 is the same as ptr 
+
+	  ptr2[0]=5;
+	  cout(ptr[0]);  //5 
+
+	  ptr[2]=6;
+	  cout(ptr2[2]);  //6
+
+-------------------------------------------------------------------------------------------------------
+
+
+-- create 2d-array 3x4 using malloc 
+
+	..••  method one ••.. 
+	
+	array of pointer ,, kol pointer shayel 4 int 
+
+	(•) ----------
+				 |
+				 v
+				 
+				(•   •  •  •)
+	
+	
+	•  ----------
+				|
+				v
+				
+				•   •  •  •
+
+	
+	int **ptr = (int **) malloc(3 * sizeof(int*)); // arr ally mn bara 5als 
+	
+	
+	for(int i = 0;i<3;++i)
+	{
+		ptr[i]=(int*) malloc(4*sizeof(int));   // da kol arr[0] mn gowa kam 3add  
+	}
+	
+	
+	
+	..••  method two ••.. 
+	
+	#define col 4
+	
+	int row = 3;
+	
+	int (*ptr)[col] = malloc(row*col*sizeof(int));  // 3ayz kam row 
+
+
+------------------------------------------------------------------------------------
+
+-- free(NULL); // nothing happens, dunno why 

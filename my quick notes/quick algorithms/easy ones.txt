@@ -1,0 +1,41 @@
+1-
+
+ #include <stdio.h>
+ 
+	 int main()
+	 {
+	 
+	 printf("Hello World! %d \n", x);
+	 return 0;
+	 
+	 }
+	 
+	 
+	 
+	 
+	 // error not garbage value ,, x isn't defined 
+	 
+	 
+	 
+	 
+2- 
+
+
+
+void fun()
+{
+    printf("ay7aga");
+}
+
+
+int main()
+
+{
+	int main = 5;
+	cout(main);
+	int fun = 6;
+	cout(fun);
+}
+
+
+// will print 5 6 3adii 5als ,, talma msh 3amel () ,, yb2a da variable 3adi 

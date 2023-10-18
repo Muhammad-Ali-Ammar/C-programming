@@ -1,0 +1,33 @@
+-- sizeof(char* ) = sizeof(int*) = 8 
+
+-- int arr[3]={1,2,3};
+
+sizeof(arr);  // 3*4 = 12 = size of array * sizeof(int)
+
+
+-- sizeof("x");  // is 2  x ,\'0'
+
+	sizeof('x');  // is 4 
+	
+	
+-- int temp[3][5];
+
+	cout(sizeof(temp[0])); // 5*sizeof(int) = 5*4= 20
+	cout(sizeof(temp));   // 5*2*sizeof(int) = 10*4= 40
+-- dynamic allocation --> msh hat3rf tgeeb al size 
+	int *ptr =malloc(5*sizeof(int));
+	
+	int x = sizeof(ptr)/sizeof(ptr[0]) ;// doesn't work , because sizeof ptr is 8 ( size of pointer ) not 20 
+	
+
+--  the operation inside the sizeof() operator is not evaluated.
+
+	int x = 5; 
+	
+	int y = sizeof(++x);
+	
+	cout(x); // x still 5 
+	
+	// ++x is replaced with int ,, doesn't evaluate the expression 
+	
+	

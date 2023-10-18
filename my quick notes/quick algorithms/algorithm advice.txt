@@ -1,0 +1,19 @@
+  ****** division by Zero *****
+-- tool ma nta bt2sm ,, a3ml 7saabk ino momkn tkoon bt2sm 3ala zero 
+	#define ARRAY_SIZE(arr) ( sizeof(arry)==0? 0: sizeof(arr)/sizeof(arr[0]))
+	
+	
+----------------------------------------------------------------------------------------------------------------------------------
+
+	***** malloc *****
+-- b3d ma btst5dm malloc , shoof at7gz wala mafeesh memory 
+
+  struct student
+	{
+			int x;
+	};
+	
+	struct student *ptr= malloc(sizeof(struct student))  // ally 2bl al asm kolo 
+	if(ptr==0) {printf("no memory "); return 0;}
+	
+	

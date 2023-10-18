@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+
+int array[] = { 23, 34, 12, 17, 204, 99, 16 }; 
+#define TOTAL_ELEMENTS (sizeof(array) / sizeof(array[0])) 
+
+
+	int main() 
+	{
+		 int x= 1; 
+		 int d= 0;
+
+		d--;
+		if (d <= TOTAL_ELEMENTS) 
+		x = array[d+1];
+		printf("%d",x);
+	}
+	
+	
+**** Answer is 1 *****
+
+note that : sizeof(array) = unsinged int 
+
+
+unsigned char <= signed char ---> signed char 
+unsigned short <= signed short ---> signed short 
+
+
+unsigned int <= signed int ---> unsigned int

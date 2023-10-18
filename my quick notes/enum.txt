@@ -1,0 +1,80 @@
+1- syntax
+
+	enum { saturday, sunday , monday=0 , tueseday , wedensady , friday=20};
+
+		// saturday = 0
+		// sunday = 1
+		// monday = 0
+		// tueseday =1
+		// wedensady = 2
+		//friday = 20
+		
+
+	-- you can access saturday without using any name or objectjs
+		printf("%d",saturday); 
+
+	-- 3adii lw atneen leehom nfs al qeema ,, monday = saturday = 0 
+--------------------------------------------------------------------------------------------
+
+2- using typedef to create boolean 
+
+	
+
+ typedef enum { false, true } bool;
+ 
+ bool check= true;
+ cout(check);
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+3- can assign any value 
+
+	enum { saturday , sunday } days;
+
+
+	days = 20; 
+	cout(days); // will work fine , prints 20
+	cout(sizeof(days)); // 4 as integer 
+	cout(sizeof(sunday)); // 4 as integer
+	
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+4- usage 
+	1- create boolean
+	2- error status {ok, nok, outofrange,nullpointer}; ( advanced )
+	
+	
+------------------------------------------------------------------------------------------------------------------
+
+5- enum on 8-bit processor --> 16 bit wide 
+	on 32-bit processor --> 32 bit wide 
+
+------------------------------------------------------------------------------------------------------------------ 
+ 
+6- how to print the name of enum 
+
+	// mapping array, t7od al indx--> ydeek al name 
+	enum { jan , feb,mar,jun,jul,aug,sep,oct,nov,dec} days;
+
+
+
+	int main()
+	{
+
+		char *ch[]={"jan","Feb","March","April","May","June",
+		"August","September","october","nov","decemver"};
+
+
+		printf(ch[jan]);
+	}
+
+
+
+7- enum vs macros 
+
+	1- enum takes space up ( as int ) 
+	2- enum fill values automatically 
+	3- eunm follow scope rules 

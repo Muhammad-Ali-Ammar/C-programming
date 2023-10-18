@@ -1,0 +1,10 @@
+int i = 1;
+
+int x = ++i + i; // works fine  = 4
+int x = i++ + i // works fine = 1 + 2 = 3 
+
+
+int x = i++ + i++; // undefined 
+
+int i = i++ + i ; // undefined 
+int i = i++;		// undefined

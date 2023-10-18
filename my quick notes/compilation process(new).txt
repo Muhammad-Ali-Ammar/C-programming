@@ -1,0 +1,79 @@
+•• compilation process  : 3 stages ( front-end , middle-end , back-end)
+	
+					   
+					  •• front-end = source parsing =  compile error  +  [ remove spaces , tokens , parsing ],
+					  •• middle-end = semantic error + optimization
+					  •• back-end = code generation = (c to asmembly ,generate virtual memory , symbol tables = helps linker  )
+	
+		-- front end : (tokens , parsing , abstraction tree ) 
+		
+					1-  Tokens 			   			 : y3nii howa fahem al letters , operators wala la2  ( y3nii lw fe 7rf 3arbii ,, hydeek error)
+														such as (identifers , keywords , operators)
+										  
+					## parsing= syntax analysis 	 : hal mitratbeen s7 wala la2
+					## abstraction syntax tree (AST) :  for optimization 
+					
+					
+					**** Example : *****
+					
+					   
+					
+					1- remove spaces  --> inty=x+++++x; 
+					1- tokens :
+						<x,variable > , <+ ,operator>   // fa da tmaaam 
+					     
+					   
+					2- parsing :
+							 x++(l7d hena tmam )
+					         x+++ ( triple + ) = error = msh 3arfha 
+					
+					
+							 
+							 
+						
+							 
+							 
+							 
+							 
+		-- middle end : (semantic analysis , optimization )
+			
+					  ## semantic analysis : if it has meaning or not (such as lvalue ,unavaliable in scope  )
+						1- x+y = z; // semantic error 
+						2- scope 
+						3- in-compatible types (object struct + int ) 
+						4- int x = fun(); // in global .. error ,, such as scope 
+						
+				
+					 ## optimization :  // what is the optimization of compiler ? 
+						1- delete dead-code or unreachable
+							while(1)
+							{
+							}
+							
+							for(int i = 0;//...) ; // dead-code, msh hyegii hena aslun 
+							
+						2- delete unused variable
+						3- register allocation (volatile) 
+						4- unrolling loops 
+						5- it creates inline functions 
+						
+		-- back end : (c to assembly , memory section as virtual , symbol table with logical address and debug info )  
+								
+								// debug info is connection between the debugger and the machine code 
+		
+	
+	
+
+## note that : compiler optimization , you can choose optimized using -oflag ( see the picture " compilation optimization)
+									   1- time 
+									   2- code size 
+									   3- memory usage 
+									   4- compilation time 
+									   
+
+hint : first compilation, we turn off the optimizer and see the output, then turn on the optimizer, 
+		if there is a bug, so it's from the optimizer 
+									  
+									 
+									 
+    2- fe file bydeek zy report lel 7agat ally 3ml lha optimization ( listing file ) 

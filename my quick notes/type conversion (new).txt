@@ -1,0 +1,19 @@
+unsigned char with signed char ---> signed char 
+unsigned short with signed short ---> signed short 
+
+any signed with unsigned --> signed wins except int 
+
+
+unsigned int <= signed int ---> unsigned int
+
+unsigned int <= signed char --> unsigned int 
+
+
+
+
+•• integer promotion 
+
+integer promotion : any operand whose type ranks lower than int is automatically converted to the type int.
+If int is not sufficient, the operand is converted to unsigned int.
+
+char <= short int ---> int 

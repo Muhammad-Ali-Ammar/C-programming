@@ -1,0 +1,24 @@
+int main()
+{
+
+        int x,y;
+         y=1 / x=3;
+
+        cout(x);
+        cout(y);
+        return 0;
+
+}
+
+
+
+
+
+
+	// error ,, not compound .. lvalue operand 
+	
+	y = 5 = 3 ;
+	can't assign left value operand
+	5 = 3 ; // error 
+		
+		y/=x=3; right to left 

@@ -1,0 +1,24 @@
+{
+  char arr[5]={1,2,3,4,5};
+
+  char *ptr = arr;
+  char *ptr2= &arr;
+  ++ptr;
+  ++ptr2;
+
+  cout(ptr);
+
+  cout(ptr2);
+ }
+ 
+ 
+ 
+ 
+ 
+		 //  same output ba2a  ,, step size of char is 1 
+		 
+		  cout(arr+1);  // steps  is 1 ,,, 1 *4= 4
+		  cout(&arr+1); // steps is 5 ,,  5*4=20
+		 
+		 
+		 

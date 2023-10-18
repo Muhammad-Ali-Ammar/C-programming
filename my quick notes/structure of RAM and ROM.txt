@@ -1,0 +1,109 @@
+1- RAM  (4)
+
+
+1- stack // local and const local 
+2- heap
+3- data
+4- bss = block started by symbol 
+
+
+
+2- ROM  (5)
+
+1- .vector 
+2- .text ( code , startup code ), note that code is written in machine code 
+3- .rodata (const values global ,strings  ) 
+4- .sdata ( initilized values ) 
+5- .cstartup ( ally hy2oom awl wa7d after power on ) 
+
+	-- startup code runs in run-time (first thing )
+	
+	## it initialzes the volatile memory (RAM) 
+		•• it copies data from .rodata to .data 
+		•• .bss ram to zero values (or any other value ) 
+		•• sp to start of the stack ( note that : in arm, that's done by hardware ,, first value of vector table is the address of SP )  
+		•• pc to main function 
+			
+			notes : you can change name of main funciton 
+			
+			
+			
+	## bootloader is not start-up code 
+		-- da program tanii 
+		-- lw nta 3ayz tdeef new hex file, bdl ma t3ml burn, btb3to 3n taree2 communication protocol (wire/ less ) 
+			wel bootloader da using internal programmer, by7otlk al hex da 
+example : 
+	https://www.youtube.com/watch?v=xACe_ZYuwH4&t=349s
+	
+	
+•• note :
+	1- bss is not in ROM, hyb2a feeh information bt2ool ink m7taag kam byte in RAM w kolhom be asfaar,, msh m7taag t7d kol dolt in Flash 
+	2- lw 3ndk int x = 50; and int = 4 bytes 
+		kda al x reserve 8 bytes ( 4 in ram, 4 in rom ) 
+		
+		
+		famous question : 
+			
+			 int arr[500]; // in global 
+			 
+			 for(int i = 0;i<500;++i)
+				arr[i]=0; 
+				
+		OR
+			int arr[500]={0}; 
+			
+			
+			
+			-- first is better in Memory ( only 500*4)bytes but slower 
+			   second is better in time , but double size 
+				
+---------------------------------------------------
+
+
+notes : 
+	-- kol da logical, not real !! 
+	-- const global in rodata (ROM , can't be changed unless using flash interface )
+	-- const local variable in stack ( RAM , can be changed by using pointer)
+	-- static is like as Global varaible 
+		unintialized = bss 
+		initilized = .data 
+	
+
+	••	why we put that into rom first then copited to RAM ? 
+		because after powering off ,, the initial value backs again .. 
+
+
+	•• can .text copied to RAM ? 
+		yes , it will be von-neuman ... bandwidth will be slow .. DATA and CODE
+	
+	-- the text segment is sharable, so that only a single copy is needed if you want to execute frequently than one (text editors ) 
+	
+	-- why bss doesn't exist in ROM?
+		because it'll always be initilized to zero 
+	
+	•• what variables that converted to assembly, and be pushed and popped ? 
+		local variable ( stack segment only) 
+
+example : 
+	•• where they be in memory ? 
+	
+	#include "..."
+
+	u8 a =2; 
+	static int b; 
+	const int c = 3;
+
+	void main ()
+	{
+		static u8 d = 6; 
+	} 
+
+
+
+
+
+	
+	a = .data ( rom ,ram ) 
+	b = .bss (ram ) 
+	c = .rodata (rom ) 
+	d = .data (rom, ram)

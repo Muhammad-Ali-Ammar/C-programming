@@ -1,0 +1,10 @@
+beside these 32 keywords , there are addtional keywords supported by Turbo C 
+
+
+asm 
+far 
+near 
+huge 
+interrupt 
+pascal 
+cdecl 

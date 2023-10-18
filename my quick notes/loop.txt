@@ -1,0 +1,67 @@
+-- loop noo3 mn flow control statement 
+
+###################################################################################################
+
+
+-- compare the next 2 codes  ( comparsion = memory , exection ) 
+
+
+				sum+=1;           |                    while(i++<6)
+				sum+=1;           |							sum+=1;
+				sum+=1;           |						 
+				sum+=1;           |
+				sum+=1;           |
+								  |
+								  |
+
+
+  ••Code Size :  more            |              less
+  
+  •• exection : faster 		   	 | 				slow because of checking and branching 
+  
+  
+##########################################################################################
+
+
+-- convert do while to while
+
+	do
+	{
+			body;
+	
+	}while(check);
+
+
+
+
+	body ; // execute it first , and then check 
+	while(check )
+	{
+	  body 
+	}
+	
+##########################################################################################
+
+-- break and continue can be used with do- while 
+
+	do
+	{
+		continue; // btrg3o tanii lel do w y3ml al code mn 2wl 
+	
+	}while(i<=6);
+	
+	
+#####################################################################
+
+-- for loop
+	• Loop counter initialization (optional).
+	• Loop termination condition (optional).
+	• Loop stepping (optional).
+	
+##########################################################################################
+
+
+-- using decrement iterator is better than incremenet iterator due to Zero Flag 
+##########################################################################################
+	
+

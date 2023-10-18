@@ -1,0 +1,15 @@
+int main()
+{
+
+        if( (1./3 + 1./3 + 1./3 )==1 )
+        printf("yes ");
+
+        return 0;
+
+}
+
+
+
+
+
+ // depends on the compiler --> my computer prints yes 

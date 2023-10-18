@@ -1,0 +1,25 @@
+1- implicit casting :automatically done by the compiler 
+	
+	float x = 3.5;
+	int y = x;  // implicit casting
+	
+	•• Pormotion type = automatic cast = automatic type conversion = when more than 1 type present = lower to higher
+	
+2- explicit casting : by the programmer 
+
+
+	int x = 3,y=4;
+	float z = (float)x/y;
+	
+	
+
+ // casting = type conversion 
+ // the aim is to convert data type without losing its orignial meaning 
+ 
+ /* but it could be lost due to signed to unsigned conversion 
+	and overflow from long long (8) to float (4) 
+	
+		bool< char<unsigned char  < short int<unsigned short int < int < unsigned int < long <unsigned long <long long <unsigned long long < float < double < long double 
+
+
+	*/ 

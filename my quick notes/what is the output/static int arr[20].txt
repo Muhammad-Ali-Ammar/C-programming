@@ -1,0 +1,23 @@
+int main()
+{
+    static int arr[20];
+    int i =0;
+
+    arr[i]=i++;
+
+    printf("%d%d%d",arr[0],arr[1],i);
+
+
+    return 0;
+}
+
+
+
+
+
+
+
+001 ,, 
+
+
+note that : static int arr[20] = int arr[20]={};

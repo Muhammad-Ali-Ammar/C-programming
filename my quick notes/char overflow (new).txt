@@ -1,0 +1,33 @@
+int main()
+{
+
+    char a = 30, b = 40 , c = 10;
+
+    char result =  (a*b)/c;
+
+    cout(result);
+
+}
+
+
+
+// result is 120 ( fine no overflow ) 
+
+
+// note that arthmatic on char makes (integration promotion) 
+
+
+ (a*b)/c = ((int)a/b)/c ,,, al final result fits to 8 bit = into char 3adiii 
+ 
+ but a*b only and set that into char ---> overflow happens 
+ 
+ 
+ char result = a*b = (int)a*b 
+ 
+ cout(result); // -80 
+
+
+ 
+ 
+ 
+ 

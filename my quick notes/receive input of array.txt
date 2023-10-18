@@ -1,0 +1,16 @@
+
+
+#define Size 5
+
+
+int arr[Size];
+
+for(int i = 0;i<Size;++i)
+    scanf("%d",data+i);  // note data+i not data[i] nor *(data+i)
+	
+	
+for(int i = 0;i<Size;++i)
+   printf("%d",*(data+i) );
+   
+  
+	

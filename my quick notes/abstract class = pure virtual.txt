@@ -1,0 +1,28 @@
+-- base class fadya ,, just for empty functions for childs 
+-- mynf3sh t3ml object mn base 
+-- function () = 0 ;
+
+
+class Stack { 
+
+   public:
+   
+		virtual bool isEmpty() const = 0; 
+		virtual void push(int x) = 0; 
+		virtual int pop() = 0; 
+};
+
+
+
+
+class ConcreteStack : public Stack { 
+
+	public:
+	
+		virtual bool isEmpty() { . . . } // implementation of members
+		virtual void push(int x) { . . . } // . . . (details omitted)
+		virtual int pop() { . . . }
+	private:
+	
+		// . . . member data for the implementation
+};

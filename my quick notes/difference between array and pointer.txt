@@ -1,0 +1,18 @@
+-- pointer is variable , momkn t3ml ino ysawii ay 3nwaaan 
+
+enma al array ,, mynf3sh t5leeh yshawer 3ala 7aga tanii 
+
+
+int a1[10],a2[20];
+
+int*pa = a1;  // tmam 
+a1= a2 ;    // error 
+pa++;       // tmam ( byshawer 3ala next element ) 
+a1++;       // error 
+
+
+-- al size byfr2 
+
+int x = sizeof(a1);  // 10*4
+int y = sizeof(pa); // 8  ,, sizeof(int*);
+

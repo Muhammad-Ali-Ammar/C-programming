@@ -1,0 +1,231 @@
+-- there are 14 # in c programming 
+
+	1-  #include
+	2-  #define 
+	3-  #pragma ( linker )
+	4-  #if
+	5-  #ifdef
+	6-  #ifndef
+	7-  #else
+	8-  #elif
+	9-  #endif
+	10- #undef
+	11- #warning
+	12- #error 
+	13- #asm 
+	14- #endasm
+	15- #line  reset the (line number) and (filename) in the code... "arbitrary "
+
+
+
+distrubited as 
+
+		 •• macro directives : #define 
+		 •• file inclusion directive : #include 
+		 •• conditional compilation directive : #if , #else ,#ifdef ,#undef , #ifndef ,#elif ,#endif
+		 •• miscellaneous directive : #error , Warning 
+		 •• other directive : #pragma , #asm , #endasm, #line
+	
+
+
+-- preprocessor directive is target indepnedant 	
+################################################################################################################################################
+
+
+
+1- 
+
+	#ifdef  = if define   // msh mohem al value ,, #define x   ,,,bs kda 
+	#ifndef = if not define 
+	#elifdef = else if define name 
+	
+	#if(condition )   // depends on value
+	#endif = end if 
+	#undef = undefined 
+	
+	// lesa dolt ma3rfhomsh
+	#error 
+	#warning  : bytl3 warning lma bt3ml compile 
+	
+	#asm #endasm
+	
+
+2- syntax of #ifdef
+
+#define x 1
+
+	#ifdef x        // if x define with any number,, msh srt tedelo rkm #define x ,, still works 
+		do_something1();
+	#else
+		do_something2();
+	#endif
+	
+	
+3- syntax of #if	  
+
+#define x 5        // lazem #define   
+		
+
+	#if (Var > 50)
+	do_something1111();
+	
+	#elif (Var == 50 )
+	do_something2222();
+	
+	#else
+	do_something3333();
+	
+	#endif
+
+Note : you cannot check on a variable because 
+	   find and replace before the compilation of the program,, but you can use it to declar function
+	   
+
+#define add 
+
+#ifdef add   
+
+int calc(int x, int y)
+{
+return x+y;
+}
+
+#endif
+	
+	   
+4- how to use undef 	   
+    #define x 100
+
+    cout(x);
+
+    #undef x
+    #define x 500
+    cout(x);
+	
+	
+	// lw 3mlt undef x ,, w mkansh fe x ,, 3adii hykml mfesh mshakil 
+	
+5- how to use warning 
+
+    #ifdef y
+		printf("tmam");
+    #else
+    #warning "undefined y"  // warning bs 
+    #endif
+	
+	
+	
+	#error , msh hy3ml compile ( error ) 
+	#error ("message")   // t2dr tseebha fadyaa #error 
+
+
+
+6- in-line assembly 
+
+	//in-line assembly   #asm  #endasm
+	#asm 
+
+	LOOP: 
+		dec x;
+		BNE LOOP;	
+	#endasm
+	
+
+7- #line 
+	
+	#line <new line number> <new file name>
+
+	..•• Example ••..
+	
+		printf("Line: %d\n",__LINE__);	// printing line number, line 7
+
+		#line 23	//reseting to 23, although next line number is line 10. 
+		printf("Line: %d\n",__LINE__);	// will print 23 3ala al ra8m da satr rkm 10 fel IDE 
+		
+		
+		
+		printf( "Line: %d, File: %s\n", __LINE__, __FILE__ ); //29 , main.c
+		
+		#line 83 "new_filename.c"
+		printf( "Line: %d, File: %s\n", __LINE__, __FILE__ );  // 83, new_filename.c
+		
+------------ Questions -----------
+
+1- the preprocessor can trap simple errors like missing declaration , mismatach of braces ? 
+	-- No , it's only replacement 
+	
+	
+2- it's neccesary that header file is .h extenstion ?
+	-- No, the header files have any kind of extension , but tradionally .h 
+	
+3- Will it result in to an error if a header file is included twice?
+    -- It is compiler dependent. 
+	
+4- where are the header files searched for ? 
+	-- <> searched in predefined include path  ( in compile path ) 
+	-- " " predefined current directory  and include path (in compile path ) 
+	
+
+5- typedef #inlcude l;  // doest it work ? 
+	-- NO , because typedef works after processing 
+	
+6- how to ensure that file include only once ? (write a code )
+
+
+	•• it's called header gurdians
+
+	#ifndef __lol_h__
+	#define __lol_h__
+
+
+
+	#endif // __lol_h__
+
+
+
+	// codeblocks 
+	
+	   name_h_included
+
+8- how to include file2.h if inside a folder named folder2 , file1.h outside  ( back directory ) 
+
+	#include "../file1.h"
+	#include "folder2/file2.h"
+	
+	
+9- 
+
+
+#ifdef x
+
+#define print printf("leeel\n")  // da kda mat3rfsh ,, 3shan mknsh lesa shayf al x ,, al preprocessor bymshii al file mn foo2 le t7t
+
+#endif // x
+
+#define x 5
+
+
+
+	int main()
+	{
+
+		print;  // error , 3shan #define b3d al ifdef 
+
+	}
+
+###############################################################################################################################################
+
+-- test compatbility 
+
+
+	#if defined(__STDC_VERSION__) && __STDC_VERSION__ >=199409L 
+	
+		/* c95 source code */
+		
+	#elif defined(__ANSI__)
+	
+	/* c89 source code */
+	
+	#endif
+	
+###############################################################################################################################################

@@ -1,0 +1,9 @@
+-- ink tktb assembly wst code c 
+
+#asm 
+
+LOOP: 
+	dec x;
+	BNE LOOP;
+	
+#endasm

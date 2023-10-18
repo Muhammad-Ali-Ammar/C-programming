@@ -1,0 +1,27 @@
+-- how to find size of array
+
+	-- int size = sizeof(arr)/sizeof(arr[0]);
+	-- int size = *(&arr+1)-arr;
+
+
+
+
+-- find size of struct 
+
+
+	typedef struct
+	{
+	char name[12];
+	int x,z;
+	float y ;
+
+	}person;
+
+
+
+
+		person *ptr = NULL;
+		ptr++;
+
+		int size = ptr;    //24
+		int size = sizeof(person);  //24

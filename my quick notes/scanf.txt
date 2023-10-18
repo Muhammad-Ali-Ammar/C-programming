@@ -1,0 +1,36 @@
+-- la7z in di by reference , fa btdeelo address 
+
+--
+	int x; 
+
+	scanf("%d", &x);
+
+
+-- char a,b;
+	scanf("%c",&a);
+	scanf("%c",&b); // msh hayktb hena 3shaan al enter bta3 a hyt7d fe b 
+	
+	solutions 
+	
+	1- scanf(" %c",&a);
+	
+	
+	2- 
+		scanf("%c",&a);
+		fflush(stdin);
+		scanf("%c",&b);
+	
+
+
+-- receive 2 inputs 
+
+	  int x,y;
+	  scanf("%d %d",&x,&y);
+	  
+
+-- int scanf( .. ); 
+	scanf btrg3 1 if successful 
+				0 if failed 
+				
+				
+	scanf("%d",&x); // lw d5lt 7rf .. hyrg3 zero 

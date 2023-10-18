@@ -1,0 +1,77 @@
+-- 5 segments in memory 
+
+
+1- stack 
+2- heap 
+3- bss (Uninitialized data segment = zero segment =Block Started by Symbol )
+4- DS (initialized data segment)
+5- text 
+
+6- 	unmapped or reserverd 
+
+
+-- stack and heap opposite to each other 
+
+
+1- stack 	
+	-- for local variables 
+	-- const local variable ,, it could be changed by pointer 
+	Note that : static local doens't be here , it's in bss or ds 
+	
+2- heap = run-time memory allocation 
+	-- free memory for app 
+	-- memory mangement for malloc 
+	
+	
+3- bss  (Uninitialized data segment = zero segment)
+
+	-- any zero variable ( Uninitialized global and static variables ) 
+	-- after change , still be in bss ( = 5 or any value ) 
+	-- since BSS holds variables that don't have any value yet , it doesn't actualy need to store
+		the image of these variable.. doesn't take up any actual space in the object file
+		
+	
+4- DS(Initialized data segment) = .data 	
+
+	-- any intial of  global and static (local or global ) 
+
+	-- there are 2 types ( RAM  , ROM ) 
+
+	-- RAM = .data
+	-- ROM = .rodata
+		
+		after cstartup-code , copy from .data(rom) to data (ram 0 
+	
+5- text 
+
+	-- feeh al code ( binary compiled ) 
+	-- read only 
+	
+
+
+
+Note that : in ROM feeh sections tanya 
+		  -- ivector 
+		  -- .rodata = const values , char * name = "lol ";
+		  -- .data  ( copied to .data in ram 
+		  -- .text 
+		  -- .cstartup
+		  -- free flash 
+		  
+		  
+
+-- static int x = y; // error , must be const because ds and bss done at semantic time not running time 
+
+-- int arr[5]={} is faster than for loop
+	3shan da msh bya5od space and done at compile time 
+	enma al tanii done in running time 
+			
+			
+-- if we define a pointer in globe scope without initilize it --> will equal to NULL 
+   if we define a pinter as local variable --> will point to random value 
+   
+   
+-- int func ()
+	{
+	
+	}

@@ -1,0 +1,16 @@
+int k =1 , l =1;
+
+if(k++ && (k ==l))
+	printf("true");
+else
+	printf("false");
+
+
+
+
+// the answer is false 
+
+// no piroity here 
+
+
+

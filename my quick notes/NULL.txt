@@ -1,0 +1,21 @@
+-- NULL Pointer points to nowhere
+-- NULL is in stdio.h 
+-- NULL is 0l or just 0 
+
+-- null string = null char = "" ; // where size of it = 1 
+-- #define NULL (void *)0
+
+-- NULL is not like '\0' 
+	'\0' = 1 byte  = empty char 
+	NULL is an address
+	
+	
+	both of them is 0, but NULL is an address, null is character where its ascii is 0 
+	
+	
+	
+	
+    char arr[]={'a',0};  // 0 is similar to '/0'
+
+    cout(strlen(arr)); //  1 
+    

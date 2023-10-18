@@ -1,0 +1,104 @@
+fe 7aga ismaha sequance points 
+
+dii btdmn in al variable 7slo write mazboot ,, bykoon behavoir defined 
+
+ int x = (operation 1 ) + (operation 2 ) ; // al '+' mlhaash behavoir mo3yn in operation 1 first or operation 2 
+
+
++ , - , * , / , Bitwise AND , Bitwise OR 
+
+
+omal aa homa al sequance points ? 
+
+	1- logical operators ( && , || ) 
+
+		j = i++ && i++ ;  // it's perfectly legal 
+		
+		i++ hy5ls 5aals w b3deen hyd5ol 3ala second condition 
+		
+		another example : 
+		
+		int main()
+		{
+			int y = 1 , x = 1;
+
+			if( x++ && (x==y))
+				cout(i);
+
+		}
+
+		// will print nothing ,, && just as ; 
+		
+		
+		
+	2- semicoloum ; 
+
+		b=1; 
+		a=2; 
+		
+		
+		hya hya 
+		
+		b =1
+		;a=2; 
+		
+		kol satr 2bl semii hy5ls al 2wl 
+		
+		
+	
+	3- condtional ? 
+	4- comma 
+
+
+
+	Note that : 
+		
+	•• 	i=i++; // 2 write operations happen in one sequance point on the same variable 
+				// so it's not defined 
+				
+				
+	••	j= ++i ; // it's defined because different variables 
+		
+		
+	••	arr[i] = i++;  // undefined behavoir
+		
+		
+	••	x = f1()+ f2 ();  // undefined behavoir
+		
+		if (a == a--) {  }  // undefined behavoir
+		
+		
+		
+    ••  {
+
+		int i = 0;
+		int j = i + ++i; // j = 2
+ 
+		// aktr mn i bs talama write mara wa7da fel i  fa 3adii ... 
+		// ++ is higher pioirty 
+		// 1 + 1 = 2 
+		
+		}
+		
+	•• j = i++ + i++;  // undefined behavoir
+	
+	•• 
+		{
+		
+		int i = 0;
+		int j = i + i++; // j = 1
+		
+		// explanation	
+		
+		// ++ higer pioirty 
+		
+		// i++ hy5ls al 2wl then the first i 
+		
+		// 1 +0 = 1
+	
+		}
+		
+	•• int functionn ( x++ , x , ++x ) ; // undefined behavoir 
+		
+	
+	

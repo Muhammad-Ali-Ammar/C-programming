@@ -1,0 +1,27 @@
+-- must watch idea channel const lectures
+
+-- using from c99 and above 
+
+-- used for pointer , and tells the compiler that the value doesn't change in output (logic ) 
+-- changing in it not generate error or anything
+
+
+void use(int* a, int* b, int* restrict c)
+{
+    *a += *c;
+ 
+    // Since c is restrict, compiler will
+    // not reload value at address c in
+    // its assembly code. Therefore generated
+    // assembly code is optimized
+    *b += *c; 
+}
+ 
+int main(void)
+{
+    int a = 50, b = 60, c = 70;
+    use(&a, &b, &c);
+    printf("%d %d %d", a, b, c);  // hena msh m7taag yshoof al value of c , la2nha ma at8yrtsh ,, 
+								  // hyshoof al a , b only , c al 2deema hya hya (logically ) 
+    return 0;
+}

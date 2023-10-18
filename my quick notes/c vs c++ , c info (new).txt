@@ -1,0 +1,54 @@
+-- what is c ? 
+	•• createed by Dennis Ritchie in 1972 
+	•• a middle level language , it combines low level access ( assembly) , higher level languages
+	•• a structure programming langauge 
+	•• it's a procedural language --> divide a task to into functions 
+	
+-- C features 
+	•• few keywords = 32 
+	•• structure union , array, pointer , macros , standard lib 
+	•• controls memory layout 
+
+
+-- C lacks 
+	•• exceptions ( divide by 0 , ... ) = run time error 
+	•• Range checking ( no limt for array maslun"overflow or underflow" arr[-1] , access 4 byte using 2 bytes ) 
+
+	•• No automatic garbage collection 
+			Automatic garbage collection : is the process of looking at heap memory, identifying which objects are in use and which are not, 
+				and deleting the unused objects
+	•• No support for OOP
+
+
+	
+
+-- c vs c++ 
+
+	•• c is better because portability , effiency , and smaller size 
+		kol da 3shaan in start-up code 
+		in c++ , by7od code oop ( classes ) , fa more size 
+
+         by2olo 3shan asembely code aktr 
+
+
+-- c is better than assembly because of portability ,, assembly depends on machine 
+
+-- what is the meaning of middle language ? 
+	-- direct access to memory through pointers
+	-- writing assembly code within c codes 
+	
+-- not all c compilers support single line comment // 
+
+-- ANSI C = American National Standards Institute = standard of C language 
+	// https://www.thecoderworld.com/difference-between-ansi-c-and-c/
+	
+	
+-- c and c++ are different languages 
+
+	char *s = malloc(100);
+
+	This is correct C code, but in C++ this code is invalid. 
+	This is because malloc() return "void *". In C you can cast void * to any other pointer type. 
+	In C++ you can not. You should cast:
+
+	char *s = (char *) malloc(100)

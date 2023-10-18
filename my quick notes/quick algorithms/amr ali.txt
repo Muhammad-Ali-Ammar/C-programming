@@ -1,0 +1,16 @@
+-- create char arr[8]= { } ; --> hatbd2 tt3aml m3aha as binary 
+
+	7od 10 wa7ed ranodmly ( binary ) 
+	
+	print table as binary 
+	
+	
+
+https://www.youtube.com/watch?v=tkavip7HY88&list=PLoUXv0yUQc1346jgxT4zKvxJsIQQGPBEE&index=60
+
+
+note that : row = number / 8;  // anhy charcter 
+			col = number  %8 ;  // anhy bit fe al character da 
+			
+			
+	 shoof al file bta3 bit array 

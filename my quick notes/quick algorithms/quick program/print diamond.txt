@@ -1,0 +1,90 @@
+// enter number of rows 
+
+//3
+
+/* 
+
+  *
+ ***
+*****
+ ***
+  *
+
+
+*/ 
+
+int main()
+{
+
+   int rows; couts("enter the number of rows "); cin(rows);
+   int odd = 1;
+
+   for(int i = 0;i<rows;++i)
+   {
+       for(int j = 0;j<rows;++j)
+       {
+           if(rows-i-1==j)
+           {
+               for(int k=0;k<odd;++k)
+                  coutc('*');
+
+               odd+=2;
+               break;
+           }
+
+           else
+            coutc(' ');
+       }
+
+       coutc('\n');
+   }
+
+
+   odd -=4;
+
+   for(int i = 1;i<rows;++i) // escape the common line and start from the next one 
+   {
+       for(int j = 0;j<rows;++j)
+       {
+           if(i == j)
+
+           {
+                for(int k=0;k<odd;++k)
+                    coutc('*');
+
+
+           odd-=2;
+           break;
+           }
+
+           else
+            coutc(' ');
+
+       }
+
+
+       coutc('\n');
+   }
+}
+
+
+
+/* another and better solution 
+
+	1- for loop al kibra 3adii
+	2- for loop slo8yra lel spaces 
+	3- for loop so8yra lel negoom w 5laas 
+	
+	for(int i = 0;i<rows;++i)  //1-
+	{
+	
+	for(int j=0;j< row-i-1;++j) printf(" "); // 2-
+	for(int j = 0;j<2*i+1;++j) printf("*"); // 3-
+	
+	printf("\n"); 
+		
+	}
+	
+
+
+*/

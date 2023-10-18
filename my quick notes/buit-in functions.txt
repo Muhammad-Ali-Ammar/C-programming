@@ -1,0 +1,25 @@
+-- rand();  to generate int random values from 0 to : INT_MAX
+
+
+-- qsort // quick sort in c 
+
+
+
+
+
+		int compare (void *a , void*b)
+		 {
+			 return (  *(int*)a - *(int*)b  );    // change casting , depends on the array 
+		 }
+		 
+		 
+		 int arr[]={5,4,3,2,1};
+
+		 qsort(arr,5,sizeof(int),compare);   //1,2,3,4,5
+		 
+
+
+
+-- log(x) ,, base e not 10 nor 2 
+   log2(x) ,, base 2 
+   log10(x),, base 10 

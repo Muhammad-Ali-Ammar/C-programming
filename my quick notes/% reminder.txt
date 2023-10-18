@@ -1,0 +1,39 @@
+   	 5%2 = 1
+
+	-5%2 = -1
+
+	 5%-2 = 1 
+
+	-5 % -2 = -1
+
+
+
+	(( a %b ,, ka2nk msh shayf ishart al b ))  
+
+
+Note that : a %b ( PROOOOOVE )
+
+	a = int(a/b) *b +R 
+
+
+	for example :
+	
+	5%2  
+	5= int(5/2) *2 + R 
+	5 = 2*2+R -->  R = 1
+	
+	
+	
+	5%-2
+	
+	5 = -2*-2+R -- > r = 1 
+
+
+	-5%2 
+	-5 = -2*2+R --- > R = -1
+	
+	
+
+
+-- in floating point : 
+	fmod(bast, mkak); 

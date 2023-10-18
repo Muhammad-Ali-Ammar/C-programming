@@ -1,0 +1,15 @@
+1- declartion 
+
+-- infrom the compiler that name exits , but no memory reserve for it 
+
+	extern int data;
+	int fun(int, char); // extern can be omitted for function declarations
+
+
+2- defination 
+
+--  to allocate storage to the variable. 
+
+
+int data ;   // garbage value 
+

@@ -1,0 +1,58 @@
+-- syntax 
+
+	void __attribute__((here)) here 
+
+-- it's different from compiler to compiler ( not standard) 
+
+-- usage : 
+
+  1- to start program not from main (constructor) , or in the end ( destructor)
+
+		void __attribute__((constructor)) fun();   
+
+			int main()
+			{
+
+			printf("second\n");
+
+			}
+
+			void fun()
+			{
+				printf("first");
+				
+			}
+			
+			
+  2- to store varible in particular data section __attribute__((section("name")) 
+  3- to make a varible or function statiic 
+  4- packing , changing alignment 
+
+	__attribute__((packed))  // = #pragma packed(1)
+	
+	struct __attribute__((packed))
+	{
+		char x;
+		int y;
+	}s1;
+	
+	
+	
+  5- to locate address of variable 
+	
+	#define _at(x) __attribute__((address(x)))
+	
+	extern volatile unsigned char 	PORTA 	_at(0xF80);
+	
+	
+	/*
+	*	it's not prefered,, 
+	*	#define PORTA 		*((volatile unsigned char*)0xF80)
+	*/
+	
+	
+	
+  6- make function always inline 
+  		__attribute__ ((always_inline)) static inline int fun(){
+															return 5;
+															}

@@ -1,0 +1,8 @@
+bt3ml struct 
+
+#define Size 5
+
+struct ArrayWrapp
+{
+int arr[Size];
+};

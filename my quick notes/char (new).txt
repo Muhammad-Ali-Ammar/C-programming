@@ -1,0 +1,62 @@
+1- 
+	char ch = "ay7aga";
+	char ch2 ;
+	char ch3 = 'a';
+	ch3="ay7aga";
+	
+	char ch4 ='a';
+	
+	printf("%c",ch); //empty 
+	printf("%s",ch); //<null>
+	
+	
+	printf("%c",ch2); //empty 
+	printf("%s",ch2); //<null>
+	
+	printf("%c",ch3); //empty 
+	printf("%s",ch3); //<null>
+	// assuming it ino hay5od last char 
+	
+	printf("%s",ch4); // crash , no null terminator in the end 
+	
+
+
+###########################
+
+2- scanf with char 
+	note that : el Enter is 2 chars ... \n \r 
+
+	-- char a,b;
+		scanf("%c",&a);
+		scanf("%c",&b); // msh hayktb hena 3shaan al enter bta3 a hyt7d fe b 
+		
+		..•• solutions ••..
+		
+		1- scanf(" %c",&a);
+		
+		
+		2- 
+			scanf("%c",&a);
+			fflush(stdin);
+			scanf("%c",&b);
+		
+
+	-- msh shart 2 scanfs ykono wara b3d ,, 3adii lw feeh fasl ,, lw first and second scanf ch .. hy7sl mshakel
+		
+		    scanf("%c",&ch);
+
+			int x = 5;
+
+			scanf("%c",&ch); // is ignored 
+
+
+3- 	-- input :  char ch = getche()= getchar();  // 7rf 
+			 : scanf(" %c",ch);
+			 
+	-- output:  putchar(ch) = putc(ch,stdout); // returns ascii code of char 
+			 : printf("%c",ch);
+			 
+	
+###############################################################################
+
+4- char ch ='\0'; // char now is empty 

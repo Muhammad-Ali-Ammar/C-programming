@@ -1,0 +1,94 @@
+1- detect if a and b have opposite signs 
+
+
+	if ( a^b >0)  // same signs
+
+-------------------------------------------------------------------------------------------
+
+2- reverse bits of number ( 8 bit ) 
+
+
+		  // 0b 0101 0011
+    for(int i = 0;i<4;++i )
+			
+		  {
+
+			  bool left = (port & (1<< (7-i) ))? 1 : 0;    // 0
+			  bool right = (port & (1<< (i) ))? 1 : 0;    //1
+
+			  if(right == left) continue;   // no need to swap 
+
+			  port = (left)?  port|(1<<i): port&~(1<<i);
+			  port = (right)? port|(1<<(7-i))  :port& ~(1<<(7-i));
+
+		  }
+
+-----------------------------------------------------------------------------------------	
+
+3- print number in binary 
+
+ 
+  for(int i = 7;i>-1;--i)
+    (port&(1<<i))? printf("1"): printf("0");
+--------------------------------------------------------------------------------------------
+
+4- Write a program to check an integer is a power of 2
+
+ if( (x-1) & x == 0) printf("Yes");
+ 
+ 
+-----------------------------------------------------------
+
+5- write a program to check endiness of architecture 
+
+		uint32_t x = 0x12345678;
+
+	    uint8_t *ptr = &x;
+
+		if( * ptr == 0x78 ) printf("little endian ");
+		else printf("big endian");
+		
+
+// lw 3mlt char check = x, logical error, l2no daymn will be least
+// da al pointer only to consider al endianess 
+
+----------------------------------------------------------------
+
+6- convert from little to big and vice versa 
+
+
+	uint32_t x = 0x12345678;
+
+	uint32_t result=0;
+
+
+	for(int i = 0;i<4;++i)
+		{
+			result=result<<(8);
+		    result|=   (x>>(8*i) &  (0xff) ) ;
+		}
+
+	printf("%x",result);
+---------------------------------------------------------------------
+7- given a,b where that b>a 
+	
+	find a &(a+1) & .... &(b-1) &b 
+	
+		long andProduct(long a, long b) {
+
+		long ans = 0;
+		int n = sizeof(a)*8;
+		for(long i = 0;i<n;++i)
+		{
+			long x = (long)1<<i;
+			
+			if( (a&x) && (b&x) && ((b-a)<x)  )
+			   ans|=x;
+		}
+		return ans;
+		}
+-----------------------------------------------------------
+
+8- convert between small and capital and vice versa 
+
+	toggle the 5th bit 

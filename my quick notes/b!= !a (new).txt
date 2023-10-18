@@ -1,0 +1,25 @@
+int main()
+{
+
+    int a = 10,b=5,c=3;
+
+    b != !a;
+    c=!!a;
+    cout(b);
+    cout(c);
+
+}
+
+
+
+
+
+
+5 
+1
+
+
+
+b!= 0 ,,,, mugrd satr msh hy7od al answer fe 7aga 
+
+c = !0 = 1 

@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define sqr (x)*(x*x)*
+
+
+
+int main()
+{
+
+int x = 2;
+int y = sqr(2);
+printf("%d",y);
+
+}
+
+
+
+
+
+// 16 
+
+
+sqr it's symbloic constant not macros like function 
+
+
+sqr === (x) *(x*x) * 
+
+

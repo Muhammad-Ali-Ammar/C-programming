@@ -1,0 +1,22 @@
+1- using #pragma
+
+
+2- void __attribute__((constructor)) fun();
+
+	int main()
+	{
+
+	printf("second\n");
+
+	}
+
+	void fun()
+	{
+		printf("first");
+		
+	}
+
+
+
+// howa hybd2 mn al fun,, w b3d ma y5ls ,, hroo7 lel main tanii 
+// lw 3ayz al function di bas ,, fel a5r a3ml exit(0) 

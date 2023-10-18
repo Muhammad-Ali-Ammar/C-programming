@@ -1,0 +1,340 @@
+1- 
+
+int main () { 
+static int x ;
+
+printf("%d",x); // 0
+
+}
+
+unintialized static is like as unintialized global value , will assigned to zero 
+
+
+
+2- 
+
+	-- int (*ptr) (char );  // ptr is pointer to function that char is an argument and return int
+	-- int *ptr (char);    // ptr is function where returns pointer to int 
+
+	-- A pointer to an array of three integers.
+	   int (*ptr) [3]
+
+
+3- 
+
+	you can't use typedef with storage classes 
+
+	typedef static int mystatic; // error 
+
+4- overflow unsigned int = modulus 
+   overflow signed int = undefined 
+       
+
+5- in macros , it's hard to debug 
+
+6- int const*a const  = const int * const a 
+
+
+8- Assignment of pointers to the same type of pointers only 
+
+9- heap is slower than stack ,, Because the heap is a far more complicated data structure than the stack.
+
+10- Is this program statement valid? INT = 10.50; 
+	YES ,, int INT;  INT=10.5; 
+	
+	
+11- all reserved words are written in lowercase ,, bs feeh NULL, FILE 
+
+12- all types are signed by default except the char ( char depends on compiler) 
+
+	char ch; = unsigned char ch  // depends on compiler
+	int x ; = signed int x ; 
+	
+	
+	
+	
+13- extern int fun();  = int fun();  // default is extern 
+
+
+14-
+	
+15- what is the name of ~ 
+	-- Tilde
+
+16- preferable at the first of the program type comments about(author , date , brief about the project) 
+
+17- sizeof() is an operator not a function 
+
+18- \t = 8 spaces 
+
+20- writing program : (memory , execution time " speed" ) 
+
+21- never ever return address of variable (return &x ) ,, // return pointer instead  
+
+
+22- 
+
+	short = short int = 2  independant  on compiler , always = 2 
+	long = long int = 4  independant on compiler  , always = 4 
+	long long = 8   
+	double = 8 ,, precision value is 15 
+	float = int = 4 .. precision value of float is 5   
+	
+	short with int only 
+	long with double and long only 
+	
+	Note that : float numbers = real numbers 
+			  : signed float x; // Error 
+			  : unsigned int or int is 2 or 4 bytes 
+			  : long double  is compiler depedant ( 8,10,12,16)
+	
+	
+			Int size depends primarily on the compiler.
+				if you have a 64-bit x86 processor, you can use an old 16-bit compiler and get 16-bit ints
+				a 32-bit compiler and get 32-bit ints, or a 64-bit compiler and get 64-bit ints
+				
+	// akwaal 2o5ra ( standard ) 
+								
+		char is not less than 1  ,, could be 2 
+		short is not less than  2 
+		long int is not less th an 4 
+		float is not less than  4 
+		double is not less than 8 
+		long double is not less than 10
+		
+		bool< char<unsigned char  < short int<unsigned short int < int < unsigned int < long <unsigned long <long long <unsigned long long < float < double < long double 
+	
+23- name of union and structure is optional 
+24- sizeof (enum ) is the same as int
+
+		enum on 8-bit processor --> 16 bit wide 
+		on 32-bit processor --> 32 bit wide 
+		
+	  
+
+
+	
+26- check if the number as a power of 3 ,, m3anaha in moda3faat al 3 msh in al power = 3 
+
+	   3 os 2 = 9 tmam 
+	   3 os 3 = 27 tmam 
+	   3 os 4 = 81
+	   
+	  not : x^3 
+	  
+27- short is not compiler depednent , is always 2 byte 
+	long is always 4 byte 
+	
+	
+28-  
+
+    •• integral literal 
+
+		3UL = 3 unsigned long 
+		3l = 
+		0x12 = hex 
+		012 = octal 
+		
+	•• float literal ( 7roof , E , f ,,, ) 
+		314159E-5 = 3.14159 
+	
+	
+29- in IF , 7ot al highest porbability 
+
+30- flow control = ( loop, if ) = bt8yer msaar al flow al taby3ii ino ykoon kolo le t7t msh yrg3 
+
+31- tool ma nta bt2sm ,, a3ml 7saabk ino momkn tkoon bt2sm 3ala zero 
+	#define ARRAY_SIZE(arr) ( sizeof(arry)==0? 0: sizeof(arr)/sizeof(arr[0]))
+	
+32- variable name lentgh is up to 256	
+
+33- 7awel ay program tst5dm structure + functions 
+
+34- complex number : 5+6j 
+
+35- codeblocks = tool chain ( preprocessor , compiler , assembler ..... ) ,, msh compiler bs 
+
+36- yosta7sn in ykoon 1 return in function 
+
+
+37- -- rational operators (6)						       						: == , != , >= ,<=,<,>  
+	   logical operators = bit wise =(and , or , not)    		    			: &&, || , ! 
+       bitwise operator(6)							       						: &, | , ^ , <<,>>,~ 
+	   arthmatic operator (5)							   						: +,-,*,/,%
+	   assign operator(10) =  equal(assignment) and compund operator 		    : = , += , +>> .... 
+ 
+ 
+	note that : compound operator is arthmatirc= and bitwise=
+				+= and ^= 
+ 
+
+38- tanzeem al coode 
+
+	if ( ) 
+	{
+	----// tseeb 4 spaces ,, 
+	}
+	
+	
+	
+	al comments : 
+	
+	fel 2wl 5als 
+	
+	
+	/****************************************************************************
+	*name of program : 
+	*purpose : 
+	*author :
+	*****************************************************************************/
+	
+	
+	
+	if you want say a hint that there's a warning 
+	
+	/**************************************************
+	**************************************************
+	*********** Warining this kza ********************
+	**************************************************/
+	
+	-- Note that:  not all c compilers support single line comment // 
+	-- Non-terminated comment
+	
+			a=b; /* this is a error 
+
+
+			a=b; /* 
+			c=d; /* works fine */ 
+
+	
+39- octets system --> ink ktkb be 8 bits 
+	4 = 0000 0100
+	
+	
+40- build and run... 
+	build = machine code = it's used for first time 
+	run = run al code 3adi 
+	
+	
+41- c style based language ,, lo8aat mabnya 3ala C programming such as ( java , c++ , c# )
+
+
+42- kol logic s7 , bymap 3ala code s7 
+	but msh kol code s7 , bymap 3ala logic s7 
+
+
+43- When double is converted to float, then the value is truncated or rounded or what ? 
+	-- it's compiler depednent
+
+44- wrap around  = overflow 
+
+45- The C99 standard allows variable sized arrays = Variable Length Arrays = VLA 
+	int size = 5 ; 
+	int arr[size ];
+	
+46- assembly is faster to run but slow to write
+
+47- /∗multiple variables initialized ∗/ ... char x=’A’ , y=’B’; 
+
+48- 
+
+	if ( condition 1)
+		
+		if (condition 2 ) 
+	
+	
+	else 
+		// statement 
+		
+		
+	
+	// al else ally hena tb3 last if not the first ,,, lw 3ayz t5leeha tb3 al 2ola ,, 7od braces 
+	
+	if  ( )
+	{
+		if (  )
+	}
+	
+	else 
+	
+	
+49- header files feeha declaration of variables and functions , user-defined variables ( structure , union , enum ) 
+	
+	benfit  : moudalrity , portability from machine to machine ,  
+	
+
+50- ay variable has 3 things : 
+
+	  1- scope 
+	  2- lifetime
+	  3- memory layout
+	  
+51- functions declaration doesn't take up any space :
+
+	  lw feeh file.c feeh 10 functions ,, w nta ast5dmt 1 function of it 
+	  al linker lma by3ml symbol table ( import , export ) --> hy5od al function dii bs 
+	  enma other 9 functions , msh hya5do size 
+	  
+52- size of int in 8bit uc is 16 bit 
+
+53-  map file is output of linker 
+	 linker script is input into linker
+	 
+
+54- double = double in size 
+55- shift is a binary operator 
+56- files doesn't necessiary be .h or .c .. it's default .c and .h 
+57- pre-condition loop = while , for
+	post-condition loop = do while 
+	
+58- goto is unconditional jump ,, can jump forward or backward 	
+
+59- bottom-up programming : work on small pieces first and write their functions first and put them together in the end 
+	top-down programming : work on higher level , start on the main function and after that move to lower level 
+	
+60- what is null statement ? 
+	
+	-- A "null statement" is a statement containing only a semicolon 
+		; 
+		for(;; ); 
+		while(condition ); 
+		if( condition);
+		do while ( bs msh 3arf azay ) 
+		
+
+61- what is SOAC ? 
+	-- Spiral Outwards Anti Clockwise .. rules to read complex declaration
+	
+62- •• 
+
+	-- rvalue (are value) al const nafso , lvalue (left value ) = address or position	
+	-- the integer k as an "object"
+	
+	K&R II (page 197): 
+	
+	"An object is a named region of storage; an lvalue is an expression	referring to an object."
+	
+63- NULL is not like '\0' 
+		'\0' = 1 byte  = empty char = nul 
+		NULL is an address
+		
+64- the "const" used as a formal parameter informs the user that the function will not modify
+	& for not being copied to memory (faster) 
+	
+65- not preferable to be there input/output operations in functions/classes, you can use it for testing only 
+66- ay 7aga logical, can be coded 
+67- while coding, think of normal cases first then think about special and exception cases 
+68 - 
+		
+		int main ()
+		{
+			int x = 5; 
+			{
+				int x = 6; // works fine 
+			}
+		}
+		
+		
+
+69- The precedence of post increment is more than precedence of pre increment
+70- unsigned x = 5; // unsigned int x =5;

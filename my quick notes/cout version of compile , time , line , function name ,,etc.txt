@@ -1,0 +1,83 @@
+
+// version of compiler
+// windows or anything else
+// directory of file .c --> return type is string
+// function name  --> return type is string
+
+// line number
+// DATE          --> return type is string
+// TIME now      --> return type is string
+
+
+
+
+1- version of compiler ,, return type is integer
+	:  __STDC_VERSION__
+	
+	•• 199409L = c95
+	•• 199901L = c99
+	•• 201112L = c11
+	
+	
+2- type of operating system : return type is integer ( boolean)
+	
+	: __STDC_HOSTED__
+	
+	•• 1 = windows 
+	•• 0 = anything else 
+	
+
+3- directory of file : returning type is a string 
+	
+	__func__
+	
+	
+4- line number of this line : returning type is integar
+	__LINE__
+	
+	// you can change the line number arbitrary 
+	
+5- DATE = taree5 : returning type is a string 
+
+	__DATE__
+	
+	
+6- TIME = hour, min ,second : returning type is a string 
+
+	__TIME__
+	
+	
+	
+		int main()
+		{
+
+
+			cout(__STDC_VERSION__); //201710 = c17 
+			couts(__func__);        // main
+			couts(__FILE__);       // directory kolo from E/ ... to main.c
+			cout(__STDC_HOSTED__); // 1 = windows
+			couts(__DATE__);        // Oct 30 2021
+			couts(__TIME__);        //20:12:08 ,, 24 hour mode
+			cout(__LINE__);
+
+		}
+
+
+
+#line 
+	
+	#line <new line number> <new file name>
+
+	..•• Example ••..
+	
+		printf("Line: %d\n",__LINE__);	// printing line number, line 7
+
+		#line 23	//reseting to 23, although next line number is line 10. 
+		printf("Line: %d\n",__LINE__);	// will print 23 3ala al ra8m da satr rkm 10 fel IDE 
+		
+		
+		
+		printf( "Line: %d, File: %s\n", __LINE__, __FILE__ ); //29 , main.c
+		
+		#line 83 "new_filename.c"
+		printf( "Line: %d, File: %s\n", __LINE__, __FILE__ );  // 83, new_filename.c

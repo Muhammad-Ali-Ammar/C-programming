@@ -1,0 +1,39 @@
+1- convert number to IEEE 
+
+	[sign] [Exponent] [ Fraction/mantisa] 
+		
+		where that Exponent = Power + Bais... Where that Bais = 127 
+		
+		
+
+2- Convert IEEE to Number 
+	
+	(-1)^n (1+value[Fraction] ) *2^Power  ..... where that power = Exponent - Bais 
+	
+	
+
+
+-----------------------------------------------------------------------------------------------------
+
+
+Example : 
+	
+	convert 2.25 
+	
+	Solution 
+	
+	
+		10.01
+	
+									| .25
+								      0 | .5
+								      1 | 1
+								      
+								      .01
+					
+					
+		1.001000 *2^1
+		
+	Sign = 0 
+	Exponent = Power + Bias = 1+127 = 128 
+	Fraction = 00100000000

@@ -1,0 +1,8 @@
+1- typedef enum {false , true } bool;
+
+2- 
+	#include <stdbool.h>  // c99 
+	
+	bool x;
+	
+	cout(sizeof(x)); // 1 byte 

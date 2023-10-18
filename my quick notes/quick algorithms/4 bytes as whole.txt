@@ -1,0 +1,26 @@
+int main()
+
+{
+    char ch = 'c';  // ascii code is 99 = 0110 0001 
+
+    int *ptr1 =  &ch;
+
+
+    printf("%d\n",*ptr1);   
+
+
+}
+
+
+
+
+
+
+	// will not print 99 
+	1010 ..... 01100001 ,, kol da as whole number not byte byte 
+	
+	
+	
+	// 99 = 0x63
+	
+	printf("%x",*ptr);  //0x 22fe47 63   

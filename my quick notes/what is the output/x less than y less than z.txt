@@ -1,0 +1,18 @@
+int main()
+{
+    int x = 10,y=20,z=5,i;
+
+    i=x<y<z;
+    cout(i);
+
+    return 0;
+}
+
+
+
+
+
+answer is : 1 
+
+
+from left to the right 

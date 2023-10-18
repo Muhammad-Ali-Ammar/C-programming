@@ -1,0 +1,39 @@
+int main()
+{
+
+    int i =-3,j=2,k=0,m;
+
+    m=++i && ++j || ++k;
+
+    cout(k);
+
+
+    return 0;
+}
+
+
+
+
+
+answer is zero ,, because of short circuit 
+
+
+
+
+
+
+2- 
+
+int main ()
+{
+
+	int i = 0,j=0;
+	if(i && (j=i+10));
+	
+	
+	cout(j);
+}
+
+
+
+/// zero /////

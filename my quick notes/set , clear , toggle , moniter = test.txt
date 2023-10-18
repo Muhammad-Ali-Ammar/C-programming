@@ -1,0 +1,39 @@
+1- set  = make it 1 
+
+   port| = 1<<bit_position ;
+   
+   
+2- clear = make it 0 = unset  // &=~ ()
+
+   port &= ~( 1<<bit_position)
+   
+   
+3- toggle = flip = invert a bit 
+
+   port ^= 1<<bit_position
+   
+   
+4- checking bit = monitor = test = getBit 
+
+  •• bool bit =   (reg>>bitPosition ) & 1 ; // better solution 
+  
+  •• bool bit =   (reg & (1<<bitPosition ) )>>bitPosition // 3 steps 
+  •• if( x & (1<<bit_position  ) ) // in checking only
+
+
+  
+  
+ 5- Write bit (0 or 1 ) 
+ #define WRITE_BIT(reg,bitPosition,value) (reg)=( reg&(~(1<<bitPosition)) | (value<<bitPosition) )
+
+################################################
+
+-- set bit position 1 and 4 
+	
+		should be ORed with  0001 0010
+		
+		(1<<1) | (1<<4) --> kol da OR with register
+		
+-- 
+	x >> y ====== x / 2 ^y
+	x << y ======== x * 2 ^y --> d5l al 2 t7t al y 

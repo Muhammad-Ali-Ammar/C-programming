@@ -1,0 +1,6 @@
+-- that causes programs to crash due to access the memory to which it doesn’t have access to.
+
+-- Dereferencing wild , dangling pointers 
+-- write in ROM 
+-- outer index of array 
+-- stack overflow ( recursion ) 

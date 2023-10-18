@@ -1,0 +1,27 @@
+--  fel main 3mlt call lel function wmakntsh mawgoda ,, hydeek error 
+	fa nta hat3ml file , wt7od feeh fucntion (weak) tmshii beeha 7alk l7d ma al sh5s al tanii yktb al function 
+	
+	
+	
+// file1.c 
+
+	__weak void printx()
+	{
+	
+	printf("ay7aga");
+	}
+	
+	
+kda fel main hysht8al ,, tb gh al ragl w 3ml file 2 
+
+// file2.c 
+
+void printx()
+{
+
+printf("line1");
+}
+
+
+
+kda al code hyhml al weak ,, w hy5od bta3t printx al 3adya ,, ( msh multiple-defination ) 

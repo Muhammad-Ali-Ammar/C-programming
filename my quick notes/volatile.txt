@@ -1,0 +1,153 @@
+-- volatile keyword : 
+
+	-- to infrom the compiler that don't optimize the variable ,each time gets value from memory to check if any change happens
+	   because the value could change anytime from outside the scope of the program (as input),,  or used for other files  ( output)
+
+	example : 
+		
+		int x = 5; 
+		while( x == 5 )
+		{
+		
+		// no change in x 
+		}
+		
+			// optimizier will put x int GPR, instead of RAM ,, and will compare always from GPR 
+			// el mafrood everytime, reads from ram --> compare 
+			// 5sosaan ino read many times temproal localilty 
+			
+			
+	
+    -- each time gets value from memory to check if any change happens 	   
+	
+	-- int x = 5;  // in register now 
+	
+		++x;	// addl
+		++x;	// addl 
+		++x;	// addl , then move to stack 
+
+			
+	••• with using volatile ,, move( stack to regsiter), addl, move to stack fel 3 maraat 
+		
+	-- x=4;
+	   x++;
+	   delay
+	   x=6;
+	   x+=7;
+	   x=2;  
+	   
+	   // howa msh hy3ml kol da,, hy3ml x = 2 bs and ignore kol ally fat 
+		
+	
+	-- used with 
+	
+		 -- registers that are modifed by hardware --> use volatile with any register definiation ( msh hatdor ) 
+		 -- global variable used inside interrupt ,, al compiler faker ino msh called--> use volatile with any global variable that used inside isr 
+		 					   ,, kda kda msh hatfr2 lw mknsh hy3ml optimize 
+		 -- resources inside a task will be needed for another task (RTOS and shared variable) = multiple thread 
+		 -- read only reg ( such as PINA in AVR ), compiler assumes never changes 
+		 -- empty for loops 
+	  
+	     ### ay 7aga tkoon sbb fe ta8yer msh mawgooda fel scope### 
+		  :address of port A in uC  *((volatile char*)0x05) = 10;
+		  :multiple files  
+	   
+ 
+	
+	: multiple thread : 2 tasks using while(1), compiler assumes will not go out of that while and inside of it 
+					 the value doesn't change, so optimize it 
+	
+Note : 
+
+	-- you can use const and volatile
+	  1) volatile char * const pcPortReg = (char *) (0x00020000);	   
+	   
+	   al pointer const : dymn byshawer 3ala address port da 
+	   al volatile 3shan kol shoya ycheck 
+	   
+	  2) volatile const u8 x = 30; // const m3nah msh hayt8er, volatile = hyt8yer 
+	  	al fikra in const momkn yt8yer 3shan fel ram ( using pointer ) 
+	  	w 7aga zy reed only register, bt3mlha const b7ees m7dsh yktb + volatile 3shan t2seer 5aragiii 
+	   
+	   
+		-- create pointer to volatile int 
+			volatile int * ptr ;
+		
+		-- create volatile pointer to int 
+			int* volatile ptr;
+		
+		-- create volatile pointer to volatile variable 
+			volatile int* volatile var;
+			
+			
+		-- create static pointer to int 
+			can't be done 
+		
+		-- create pointer to static int 
+		   static int* ptr; 
+		   
+		
+		   
+		   
+		-- usually it's used in 
+			1- memory-mapped perihperal register 
+			2- global variable modified by interrupt
+			3- global variable modifed by multiple tasks 
+			
+			
+			
+			
+		
+		## what is the difference between 
+				volatile uint8_t* var 
+				uint8_t volatile* var
+				uint8_t* volatile var 
+				
+				
+			
+			first and second are the same 
+			third : var is volatile pointer to varible ( 3nwaan al pointer kol shoya shofo howa howa wala at8yer ) 
+
+
+				
+		
+		
+	-- #define PORTC	(*(volatile uint8_t*)0xF83)
+			
+			PORTC = 0x55;
+		
+		= 
+		
+		volatile uint8_t* PORTC = (volatile uint8_t*)0xF83; 
+			
+			*PORTC = 0x55;
+			
+-------------------------------------------------------------------------------------------------------------------------------------------------
+					..•• Volatile with struct ••.. 
+					
+					
+					
+		typedef struct 
+		{	
+			volatile int x ; 
+			int y;
+		}type_t:
+		
+		
+		// x bas ally volatile,, enma al y momkn y7sl 3leeha 3q 
+		
+		
+		
+		typedef volatile struct 
+		{
+			uint8_t	var1;
+			uint8_t var2;
+		}type_t;
+		
+		
+			/* volatile used for all members of struct */ 
+		
+		
+		
+			
+		

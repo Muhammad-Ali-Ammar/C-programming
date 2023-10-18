@@ -1,0 +1,31 @@
+
+char *a[4]={"sridhar","raghava","shashi","srikanth"};
+
+
+sizeof(a) /sizeof(char *)
+
+
+******* Solutions ******** 
+
+			4
+	
+	
+	
+-----------------------------------------
+
+-- int arr[4]={1,2,3,4};
+
+
+	sizeof(arr) = 4 * sizeof(int)   = size of array * sizeof(int)
+
+-- int * arr[4] 
+
+	sizrof(arr) = 4*sizeof(int*) = sizr of array * sizeof(int*)
+
+
+
+-- sizeof("x");  // is 2 x,0 : array of char 
+   sizeof('x');  // is 4 
+   
+   char ch ='x';
+   sizeof(ch); // is 1 

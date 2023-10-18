@@ -1,0 +1,441 @@
+1-  step concept 
+
+	
+	int* p = &x;
+
+
+	p++;  // m3naha zawed 4 byte   = steps * sizeof(int) , step = 1
+
+	p+=2; // m3naha zawed 4*2 = 8 bytes , steps = 2 
+
+
+  ###############################################################################################################################
+
+	
+	int* ptr1 = &x , *ptr2 = &y;  // assume address of x = 2000 , of y =1000
+	
+	cout(ptr1-ptr2); // prints 250 not 1000 ,, prints steps only 
+					 // to make it 1000 , * sizeof(int)
+
+
+	Note that : add pointer to pointer is Error (compile time not run-time)  ( sematnic)
+			  : substract char pointer and int pointer = Error ( sematnic error )
+			  : mult and division is error ,, ptr*2 or ptr/2 = error 
+			  : ptr - 5 ; // substract from a const is fine 
+
+###############################################################################################################################
+
+2- pointer to function 
+
+
+	..** Example 1 **.. 
+	
+
+	int add ( int x , int y)  //function 1 
+	{
+		return  (x+y);
+	}
+
+
+	int exe ( int(*ptr)(int a,int b), int x , int y )
+	{  
+		// ptr is a pointer to function bta5od 2 arguments , and return integer 
+		
+		int temp = ptr(x,y);
+
+		return temp;
+	}
+
+	int main()
+	{
+
+	int x=3,y=5;
+	  printf("%d\n", exe(add,x,y)  );
+
+
+		return 0;
+	}
+
+## Note that : pointer to function , points to rom not ram ( code in rom ) 
+			   in haraved maslun : data bus 16 address bus 32 
+	
+	(* fp) ( char * );  // fp pointer to function ,, momkn yshawer 3ala 0 
+	
+	•• if(fp) { } // works file
+	•• if(fp==0) { } // works fine
+	•• if(fp == NULL) {} // sometimes it doesn't work 
+			
+			NULL = ( void*)0  ,,, 3nwaan in ram = 16 bit ,fa howa bykarn 16 msh 32 ,, mfesh casting hna 
+														   
+	
+	
+	..••Example 2••..
+	
+		double add (double x, double y) {return x+y;}
+		double mult (double x, double y) {return x*y;}
+		double power (double x, double y) {return pow(x,y);}
+
+		int main()
+		{
+			COMMANDS command[]={ {"add",add},{"power",power},{"mult",mult} };
+
+			char name[100];
+			gets(name);
+
+			for(int i = 0;i<3;++i)
+			{
+				if( strcmp(command[i].name,name) == 0)
+				{
+
+				 printf("%lf",command[i].ptr(3,4));
+
+				 break;
+				}
+			}
+
+		 }
+
+	// da a7sn bkteeer mn if kza , call_1 else if , call_2, else if call_3
+	
+	..•• Example 3 ••.. 
+	
+	// use this method instead of switch cases or if 
+	
+	double add(double x, double y) {return x+y;}
+	double sub(double x, double y) {return x-y;}
+	double mul(double x, double y) {return x*y;}
+	double division(double x, double y) {return x/y;}
+
+	int main()
+	{
+
+		double (*ptr_to_function[])(double,double)= {add,sub,mul,division};
+
+		printf("%f",ptr_to_function[0](5,6));
+
+
+
+	return 0;
+
+	}
+	
+	
+	
+	..•• Example 4 ••.. 
+	
+	what is callback function ? 
+		function1 argument is ( pointer to function2 ) , w gowa al function1 di bt3ml call mn pointer lel second function 
+	
+	
+				void func1( void (*ptr)()  )
+				{
+					printf("function 1 \n");
+					ptr();
+
+				}
+
+				void func2()
+				{
+					printf("function 2 \n");
+				}
+				int main()
+				{
+
+				   void* (*ptr)()= func2;
+
+				   func1(ptr);  
+
+				}
+				
+				
+				// will print function1 function 2 
+				
+
+	Note That : void(*ptr) (void) --> lazem yshawer 3ala nfs al input parameters w nfs al return ( mfeesh casting hena,, Always Error ) 
+###############################################################################################################################
+
+
+3- size of pointer is const for any type 
+	-- 64-bit arcituecture = 8 byte 
+	-- 32-bit arcituecture = 4 byte 
+	
+	
+	omal aa fayda mn int * ptr or float or data type of pointer? 
+		-- al pointer beshawer 3ala first byte ,, fa nta lma bt3ml access hya5od kam byte 
+			zy al int .. hy3mel access 4 bytes ,,, 
+				al char ,,, hy3ml access 1 byte 
+
+###############################################################################################################################
+
+4- void = generic pointer ,, the limit is that using casting to deference 
+
+
+	int x = 5;
+	void* ptr = &x ;
+	printf("%d",*((int *)ptr) );
+
+
+	** note that : 
+	
+	int *ptr2 = ptr; // will work fine 
+	cout(*ptr2); // will work fine 
+	
+
+   **  ++ on void pointer increase 1 byte only  
+		but lw ma3mool casting ( to int ), + = 4 bytes 
+		
+		    unsigned int arr[]={0x00000011,0x00000022};
+
+		    void *ptr = NULL;
+		    ptr = &arr[0];
+
+                printf("%x",*((unsigned int *)ptr+1)); // cast first, 0x00000022
+				printf("%x",*((unsigned int *) (ptr+1)));  // +1 first(points to next byte ), 0x22000000 
+
+	
+	
+	** momkn t3ml function bta5od void , w ta5od int datatype as an indicator ( 1 = int , 2 float w kda ) 
+	
+	** return void* ... fel main momkn tst2blo be ay 7aga w by3mlo implicit cast .. bs yosta7sn t3ml explicit cast 
+	
+		void *get_int()
+		{
+			int x = 5;
+			void *ptr = &x;
+			return ptr;
+		}
+
+
+		int main()
+		{
+			int*ptr=get_int();   // here explict cast is done
+			cout(*ptr);  // 5 
+
+		}
+	
+	
+###############################################################################################################################
+
+5- pre and post in pointers 
+
+	int arr[]= {1,2,3,4};
+
+
+	int* ptr = arr;
+
+
+	++*ptr; // {2,2,3,4} , ptr byshawer 3ala first element 
+	*++ptr; //{1,2,3,4} , ptr byshawer 3ala 2 now ,, nta 3ml access bdon ay 7aga 
+	*ptr++; // * higher pioirty than ++  ,, {1,2,3,4} ,ptr byshawer 3ala 2 
+	
+	al 2wl hat3ml access ,, w b3d kda hyzawed (al pointer ) msh al ( element ) 
+	
+	(*ptr)++; // {2,2,3,4 } , byshawer 3ala 2 , first element
+
+
+###############################################################################################################################
+
+
+6- example of dangling pointer (  points to deleted or de-allocated object)
+
+	int * func()
+		{
+			int x = 5;
+			return &x;   // howa hena by3ml return NULL
+		}
+
+
+	int main()
+
+		{
+			int *ptr = func(); // ptr = NULL
+
+			cout(*ptr);   // run-time error ( crash ) 
+		}
+		
+	// in stack ,, al 7agat lesa mawgooda( mi7tawa msh bytms7) ,, bs al address maat msh hat3rf twsl o
+	// Never ever retrn address of variable return &x
+	// to solve it , add static before int x  or return pointer ((((pointer bs ,, msh 7ata 3nwaan al array))))
+	
+	int * func()
+		{
+			int x = 5;
+			int *ptr = &x;  // mi7tawa al ptr = 3nwan al x 
+			return ptr;  // return mi7tawa ,, but address of ptr nafso is null now 
+		}
+		
+		
+	int *func()
+	{
+		int arr[3]={1,2,3};
+		
+		return arr;  // msh hysht8l ,, garbage values or crash
+		
+		int *ptr = arr;
+		return ptr; // tmaaaam 
+	
+	]
+	
+	
+	// but it's not good , it can be overwritten by another value
+		
+###############################################################################################################################
+
+7- casting in pointer 
+
+	int x ;
+	float y = 5.6;
+	
+	x = (int ) y;  // before al name , bt7od ally 2bl al x (int)
+					// the same in pointers 
+					
+			
+			
+	char * ptr = &ch;
+	
+	int *ptr2;
+	ptr2 = (int*) ptr;
+	
+ 
+ ### tricks ### 
+ 
+   •• 
+   
+	int x = 256;            /* 0000 0001  
+							   0000 0000 */
+	char *ptr = &x;  
+	cout(*ptr);				// print 0 ,,  3shan howa dlwa2tii byshawer 3ala 1 byte ( ally howa 0 )
+							// next byte ,, print 1 
+							 
+
+  •• 
+	#define NULL (void*)0 // di m3naha in address zero ,,  casting 
+	int *ptr2=(int *) number // di m3naha bt5lii al number da address 
+
+	
+	// lw 3mlt access lel klam da .. hydeek error ,, l2n nta bt3ml access le mkan unknown 
+	// access NULL , crash ,, access ptr2 = crash ,, 
+	
+	// maslun int 3rft en 3nwaan x is 2293316 ,, w 3mlt ptr2 = (int*)2293316; hysht8l tmaam 
+		example 3ala kda fe embedded system ( i/o port  )
+		
+		
+###############################################################################################################################
+
+-- what is output parameters vs output return vs outin 
+	
+	int func (int *x , int *z) ; // return = output return ,,
+		•• lw al x hatktb feeha bs ( msh mohtm kan feeha a  ) = output parameters
+		•• lw al x hatshoof feeha kam w tst5dmo w b3deen tktb feeh = outin 
+		
+###############################################################################################################################
+-- what is traversing array ? 
+
+	-- ink t3ml pointer , w bttn2l fel array 
+		int*ptr= arr; 
+		ptr++; 
+###############################################################################################################################
+
+-- write arr[7] in pointer notation 
+	
+	*(arr+7)
+	
+###############################################################################################################################
+
+-- if we define a pointer in globe scope without initilize it --> will equal to NULL 
+   if we define a pinter as local variable --> will point to random value 
+   
+
+###############################################################################################################################	
+-- dynamic allocation --> msh hat3rf tgeeb al size 
+	int *ptr =malloc(5*sizeof(int));
+	
+	int x = sizeof(ptr)/sizeof(ptr[0]) ;// doesn't work , because sizeof ptr is 8 ( size of pointer ) not 20 
+	
+
+
+-- problems with dynamic allocation
+	•• can't get size of array
+	•• memory leakage = msh bt3ml free
+	•• fragmentation problem = t3ml free fel nos w msh botst5dm 
+		solution is de-fragmentation or memory compacting ,, by5lii 7itt al fadya fel a5r wara b3d 
+
+
+
+-- struct student
+	{
+			int x;
+	};
+	
+	struct student *ptr= malloc(sizeof(struct student))
+	if(ptr==0) {printf("no memory "); return 0;}
+###############################################################################################################################
+-- example of wild pointer : 
+
+	char *ch;  // da string 5lii balk 
+	gets(ch); // error , wild pointer 
+	
+	solution 
+	
+	char *ch = malloc(1);
+	gets(ch);  // fine 
+	puts(ch); // fine 
+	
+
+###############################################################################################################################
+
+--what is callback function ? 
+		function1 argument is ( pointer to function2 ) , w gowa al function1 di bt3ml call mn pointer lel second function 
+###############################################################################################################################
+
+-- when use pointer to function 
+	-- call back function 
+	-- finite state machine 
+	-- provide polymorphism in c 
+	-- Jump table alternative : For some compilers as interrupt vector table
+	
+###############################################################################################################################
+
+-- multiple indirection, or pointers to pointers
+###############################################################################################################################
+
+-- pointer to pointer 
+
+	int x = 5; 
+	int* ptr = &x;
+	
+	int *ptr2 = &ptr;  // pointer to pointer 
+	
+	*(*ptr2)=4l // error 
+	
+	
+	// leeh error ? maslun int x = 5; 
+	// *x = 5; .. da error tmaam ? 
+	// fa *ptr2 fa howa kda wesl lel variable 5laas .. lw  ** ptr2 ,, fa da shabh *x .. fa ydeek error  
+	
+	
+	// al right solution is int **ptr2 = & ptr; 
+
+###############################################################################################################################
+
+{
+  char arr[5]={1,2,3,4,5};
+
+  char *ptr = arr;
+  char *ptr2= &arr;
+  ++ptr;
+  ++ptr2;
+
+  cout(ptr);
+
+  cout(ptr2);
+ }
+ 
+		 //  same output ,, step size of char is 1 
+		 
+		  cout(arr+1);  // steps  is 1 ,,, 1 *4= 4
+		  cout(&arr+1); // steps is 5 ,,  5*4=20
+		 
+
+###############################################################################################################################
+-- with 64K of memory total, the address of any point in memory can be contained in 2 bytes

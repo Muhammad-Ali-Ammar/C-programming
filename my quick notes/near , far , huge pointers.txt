@@ -1,0 +1,11 @@
+-- near and far pointers 
+
+	-- near pointer is 2 byte  (default)
+	-- far  pointer is 4 byte 
+	-- huge pointer is 4 byte 
+	
+		char far *s1,s2;
+		sizeof(s1); //4
+		sizeof(s2); //2
+	
+	

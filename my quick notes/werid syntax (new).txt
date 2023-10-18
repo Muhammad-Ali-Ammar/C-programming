@@ -1,0 +1,211 @@
+1- 
+
+ ***	
+	ar[5]=6;
+	=
+	5[ar]=6;
+	
+	
+ *** 
+	    printf("%c",8["gratest of all times "]);  // prints o 
+
+-----------------------------------------------------------------------
+
+2- 
+
+	int &y = x; // reference to x ( in c++ only ) 
+	
+------------------------------------------------------------------------------
+
+3- 
+
+	int* ptr2 = new int(20);  // feeha qema 20 not arry of 20 
+
+-----------------------------------------------------------------------------
+
+4- int arr[]= {1,2,3,4};
+
+
+	int* ptr = arr;
+
+
+	int z = ++*ptr; // {2,2,3,4} , ptr byshawer 3ala first element 
+		// z = 2;
+		
+	int z = *++ptr; //{1,2,3,4} , ptr byshawer 3ala 2 now ,, nta 3ml access bdon ay 7aga 
+		// z= 2
+		
+	## int z = *ptr++; // * higher pioirty than ++ , {1,2,3,4} , ptr byshawer 3ala 2 now ,, nta 3ml access bdon ay 7aga , ++ for pointer not element
+			// post-increment pointer 
+		// z= 1;	
+		
+		
+	## int z =(*ptr)++;  // {2,2,3,4}; ,, ptr byshawer 3ala first element 
+		
+		// it's equal to 
+		z=1; 
+		*ptr = *ptr + 1;
+		
+		
+	*(ptr++); // {1,2,3,4}, nta 3mlt access le 1 , pointer beshawer 3ala 2 now 
+			  // post-increment
+	
+	
+	int z = ++(*p); // pre-increment {2,2,3,4}, pointer beshawer 3ala first element
+	
+		*p = *p+1;
+		z = *p;
+	
+	*ptr++=6; //{6,2,3,4}, pointer beshawer 3ala second element
+	
+
+    
+	
+	
+	so, post increment pointer : 
+	1- *ptr++
+	2- *(ptr++)
+	
+	
+	pre-increment sahla 
+	
+	
+	++*ptr = (*ptr)++
+	*ptr++ = *(ptr++)
+----------------------------------------------------------------------------
+ 
+5-  // K&R syntax
+
+
+	int fun(aa)
+	float aa;
+	{
+		return aa;
+	}
+
+---------------------------------------------------------------------------------------
+
+6- functions is not a must to define the return (not void nor int )
+	
+	main()
+	{
+	print();
+	}
+	
+	print()
+	{
+	//..
+	}
+	
+---------------------------------------------------------------------------------------
+
+7- what is the output 
+
+		int main()
+		{
+			int i = 5 ;
+
+			printf("%d%d",++i,++i);
+
+			return 0;
+		}
+
+
+
+
+** the answer is : 
+
+
+	it differs from compiler to compiler 
+
+	77 on my compiler 
+
+---------------------------------------------------------------------------------------
+	
+8- #define print(int) print(#int"%d =",int);
+
+	int x = 5;
+	print(x);  // x = 5
+	
+	#int = "#int" string 
+	printf("int""%d =" ) = printf("int %d =")
+	
+	
+9- #define str(x) #x // by bt3mlha stringing 
+
+
+10- int arr[3][3]={1,2,3,4,5,6,7,8,9}; works fine ,, if 1 ,2 ,3 -- others are zeros 
+
+11- int arr[100]={[49]=50};  // kol 3naser = 0 ma3da 49 = 50 
+
+12- "x" "y" ="xy"
+	char arr[20]="ay" "7aga";  ="ay7aga";
+	
+---------------------------------------------------------------------------------------
+13- 
+	int main()
+	{
+
+		int x = 5, y =10 ;
+
+		cout(x+++y);  // x++ +y  = 15 
+		
+		cout(x+++ +y); // still 15 ,, x++ + +y ( postive y) ,, zy -y 
+		
+		cout(x++++y); // error 
+		
+		int a = x++ +++y; // error 
+		
+		// 3 +++ post is fine 
+		// 3 +++ pre is error 
+		
+
+	
+	}
+
+
+
+---------------------------------------------------------------------------------------
+
+14 - 
+
+••  	{
+
+		int i = 0;
+		int j = i + ++i; // j = 2
+ 
+		// aktr mn i bs talama write mara wa7da fa 3adii ... 
+		// ++ is higher pioirty 
+		// 1 + 1 = 2 
+		
+		}
+		
+	
+•• 
+		{
+		
+		int i = 0;
+		int j = i + i++; // j = 1
+		
+		// explanation	
+		
+		// ++ higer pioirty 
+		
+		// i++ hy5ls al 2wl then the first i 
+		
+		// 1 +0 = 1
+	
+		}
+		
+-----------------------------------------------------------------------
+
+15 - float f1 = 22.442e2; // 10^2 
+   - float f1 = 22.442e-2; // 10^-2 
+		
+	
+16- Floating point has a precision of 6 digits 
+	double is 14 digits.
+	
+	Precision describes the number of significant decimal places that a floating values carries
+	
+17- unsigned long x= 3UL; unsigned long value

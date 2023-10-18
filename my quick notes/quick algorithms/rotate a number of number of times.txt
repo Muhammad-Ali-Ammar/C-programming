@@ -1,0 +1,34 @@
+int main()
+
+{
+    unsigned char dir ,i ,x;
+
+    printf("enter the number ");
+    scanf(" %i",&x);
+    printf("\nenter the number of shifting");
+    scanf(" %i",&i);
+
+    printf("\nif the direction right 0 , left 1");
+    scanf(" %i",&dir);
+
+
+
+
+    while(i--)  // number of shifting
+    {
+
+
+    // if right
+	
+    if(dir==0)  // 0101 1000 -->  0010 1100
+       x= (x& 1)? (x>>1 | 1<<7)  : x>>1;
+
+    else  // left 
+        x= (x& ~ 1<<7)?  (x<<1 | 1)  : x<<1;
+
+    }
+
+        printf("%d",x);
+}
+
+

@@ -1,0 +1,25 @@
+int main()
+{
+   unsigned int a = 10; 
+
+   a = ~a;   
+
+   printf("%d",a);    
+
+}
+
+
+// answer is -11
+
+// explaination
+
+
+
+a=   0000 1010
+~a = 1111 0101    // one's complement 
+
+
+
+printf(signed value of 1111 0101 ) ; // hyt3aml m3aha as 2's complement
+
+-(0000 1011) = -11

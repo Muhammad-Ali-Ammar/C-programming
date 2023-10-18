@@ -1,0 +1,84 @@
+1- why can't initialize a static by variable inside any function ? 
+
+
+2- 
+	int *func()
+	{
+		int arr[3]={1,2,3};
+		
+		return arr;  // msh hysht8l ,, garbage values or crash
+		
+		int *ptr = arr;
+		return ptr; // tmaaaam   ,, leeh m3 in hya hya 
+	
+	]
+	
+	
+	
+
+3- int *ptr = malloc(3); // kda m3naaah aa ba2a 
+
+
+4- step size of function pointer 
+
+
+
+5- 
+
+int main()
+{
+    int y = 1 , x = 1;
+
+    int z = x++ && (x==y );
+
+    cout(z);
+
+}
+
+
+
+
+int j = (i++) + (i++) ; 
+
+
+
+
+
+
+6- The precedence of post increment is more than precedence of pre increment
+	could someone give an example to illustrate that point ? 
+	
+	
+7- how processor knows the address of a variable (fetching x from memory ) 
+
+
+8- 
+	free (NULL); // nothing happesn, msh al mafrood error ( byms7 al mkaan bta3 al 0 ) ? 
+	
+9-
+	int *ptr = malloc(0);
+	*ptr=5; // works fine, why? 
+	
+	
+10- 
+    int *ptr = malloc(5*sizeof(int));
+
+    *ptr = 5;
+
+    free(ptr);
+
+    if(ptr ==NULL) printf("asd"); // won't print it , why? 
+	// what is the meaning of free ? 
+	
+	
+	
+11- 
+
+  int *ptr = malloc(2*sizeof(int));
+  int *ptr2=realloc(ptr,4*sizeof(int));
+
+    ptr[0]=5;
+    free(ptr);
+
+    cout(ptr[0]);   // garbage value
+    cout(ptr2[0]);	// garbage value but not equal to ptr[0]

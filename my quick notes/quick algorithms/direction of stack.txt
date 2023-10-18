@@ -1,0 +1,9 @@
+void fun (int *ptr)
+{
+    int x ;
+
+
+    if(ptr >= &x) cout<<"downward"<<endl;
+    else cout<<"upword"<<endl;
+}
+

@@ -1,0 +1,22 @@
+-- both of them for integer 
+-- they are the same in printf 
+
+
+-- in scanf , %i can be used for any base ( hex , octal , decimal ) 
+
+
+-- example : 
+
+	scanf("%i",&main);
+
+	printf("%d",main);
+	
+
+input  : 0xf
+output : 15
+
+input  :017
+output : 15
+
+input  :15
+output :15

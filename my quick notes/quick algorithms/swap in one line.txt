@@ -1,0 +1,19 @@
+swap in one line without temp 
+
+	int a = 5 , b = 3 ;
+
+	a^= b^=a^=b;
+	
+	
+	
+	
+	
+
+
+momkkn bl gm3 ,, bs al xor a7sn 
+
+
+
+because : 
+	1- overflow might be happened 
+	2- xor is faster 

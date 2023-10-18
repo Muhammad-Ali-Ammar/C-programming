@@ -1,0 +1,16 @@
+int main()
+{
+
+    int var = 010;
+    cout(var);
+
+}
+
+
+
+
+answer is 8 
+
+
+
+010 is octal system -->  10 =    001 0000 

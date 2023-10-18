@@ -1,0 +1,181 @@
+1- syntax
+
+	union student 
+
+	{
+	int x;
+	double y ;
+	};
+	
+####################################################################################################################
+	
+2- The memory equivalent to the largest item is allocated commonly for all members. ( double  = 8 ) 
+   sizeof(student ) = 8 ;
+   same bytes of memory
+   
+
+####################################################################################################################   
+3- student s1;
+	s1.x = 5 ;  // y is garabge 
+	s1.y = 6.7;  // x is garbage now 
+	
+	
+
+####################################################################################################################
+
+4- *************** initilaization ****************
+
+		typedef union student
+		{
+			int x;
+			float y;
+		} STUDENT;
+
+
+		int main()
+		{
+
+		  STUDENT s1 ={.x=5, .y=20.00};   // x is garabge, y is 20.00
+		  
+		   ST s2 = {5}; // fine 
+		   ST s3 = 5; // error 
+
+		  printf("%f",s1.y);
+		  
+		}
+
+
+
+5- ************** union in Embedded System ************
+
+	
+		typedef union
+		{
+			struct
+			{
+				char b0:1;
+				char b1:1;
+				char b2:1;
+				char b3:1;
+				char b4:1;
+				char b5:1;
+				char b6:1;
+				char b7:1;
+			}bit;
+
+			char byte;   // same location of bit 
+
+		}port;
+
+
+		int main()
+
+		{
+			port a;  // a has 2 member (bit , byte ) 
+			
+			a.byte=7;
+			cout(a.byte);  // 7 
+			a.bit.b0=0;
+			cout(a.byte);  // 6
+		} 
+
+
+		#define TRISC_REG	((volatile port *)0xF8B)
+		
+		TRISC_REG->byte= 7;
+		
+		
+		##### note that : TRISC_REG->b0 = 1;  // ERROR 
+						  TRISC_REG->bit.b0 = 1; // fine 
+						  
+						  
+						  to use TRISC_REG->b0 = 1; lazem tsheel bit mn struct nfso 
+		  struct
+			{
+				char b0:1;
+				char b1:1;
+				char b2:1;
+				char b3:1;
+				char b4:1;
+				char b5:1;
+				char b6:1;
+				char b7:1;
+			};
+			
+	--------------------------------------------------------------------------
+	
+			typedef union
+		{
+			struct
+			{
+				char b0:1;
+				char b1:1;
+				char b2:1;
+				char b3:1;
+				char b4:1;
+				char b5:1;
+				char b6:1;
+				char b7:1;
+			}bit;
+			
+			struct
+			{
+				char TRISB0:1;
+				char TRISB1:1;
+				char TRISB2:1;
+				char TRISB3:1;
+				char TRISB4:1;
+				char TRISB5:1;
+				char TRISB6:1;
+				char TRISB7:1;
+			}TRIS;
+			
+			char byte;   // same location of bit 
+
+		}port;
+	
+####################################################################################################################
+
+-- how to create Non-Homogenous array = array with different data types  = hatergenous 
+
+	•• create array of union 
+	
+	
+	union data {
+		int I_data ; 
+		float F_data ;
+		char * c_data;
+	
+	};
+
+
+
+	union data arr[100];
+	
+	arr[0].I_data = 5;
+	arr[1].F_data = 6.5;
+		
+	// kda first element integer 
+	// second element flaot 
+	
+	
+	
+	****** improvment ***** 
+	
+	
+	typedef enum { INT,FLOAT,STRING} check;
+	
+	struct non_hom
+	{
+			union data d;
+			check t;
+	};
+	
+	
+	struct non_hom arr[100];  
+	
+	arr[0].d.I_data=4;
+	arr[0].t=INT; 
+	
+	// kda nta 3arf kol noo3 feeh aa mn check type ( enum ) 
+	

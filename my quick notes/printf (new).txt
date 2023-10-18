@@ -1,0 +1,223 @@
+1- to print address 
+
+	 int x=5;
+
+	printf("%p",&x);  // prints in hex (usually used in pointer )
+	printf("%d",&x);  // address bardo 
+	
+	
+    char *ch = "lol";
+    printf("%p",ch); // 0x00403024
+	
+
+---------------------------------------------------------------------
+2- 
+	printf("x[%d]",i);  // x[5]
+
+---------------------------------------------------------------------
+
+3- print floating point 
+
+	-- printf("%.1f",5.75555); // only 1 digt after radix (.) ,, will make it round = 5.8
+	
+	-- printf("%.0f",5.6);  // round(5.6) = 6 
+---------------------------------------------------------------------
+
+4- print string 
+
+	char *x[]={"ali", " ahmed"};
+
+	printf("%s",x[0]); 
+	
+	puts(x[0]); //puts(string1);
+	
+	
+
+	note that : 
+	
+	char arr[]="asdasd";
+
+	printf(arr);  // no need for %s 
+	
+---------------------------------------------------------------------
+5 -- number before format  = number of 5anaat that prints 
+
+
+
+	print("%5s","ali); //--ali ,, 2 spaces in the first
+	print ("%2d",x); // print it in 2 5ana 
+	
+	•• the same in all types ( float , int .. ) 	
+	
+		## float data = 1.2;
+			printf("%f,data); // 1. 200 000  ,, 6 digtis after .
+			
+			printf("%9f",data);  //al data nafsha 1.500 000  ( 6 digits after radix ) 
+			//9f , = 9 5anat ,, ya3nii just 1 spaces
+			
+			-1.500000  , - = 1 sapce
+
+			
+	   ## printf("%4d",567); // -567
+							   // 1space 567
+	
+	..••  Example 3  ••.. 
+
+	  ## printf("%6.2f",65.123456);  // 6 = number of 5anaat 
+							   // .2 = rkbmeen b3d al decimal point 
+							   // fa nta kda 3ndk rkmen +. + rkmen (65) = 5 digits 
+		-65.12   			   // so 1 space and 65.12
+  
+	..••  Example 4  ••..
+	 ## printf("%.3d",5);  //005
+
+
+	••  Usage of * in scanf 
+
+	..••  Example 1  ••..
+	
+    int pos = 14;
+    float data = 1.2;
+    printf("%*f",pos,data); // * is similar as setw,, 14digit  ,, pos hyt7d mkaan *
+
+
+	6 spaces 1.200 000
+	------1.200000	
+	  
+	  
+	..••  Example 2  ••..
+	 
+	 printf("this is : %*c\n",5,'x');  // ----x  = 4spaces x
+	 
+	 
+	 -- lw al rkm negative , msh nta 3ndk 5anaaat w by7otaha fel a5r wl fadii byd7t fel aw2l ? 
+				hena al 3aks ,, hyt7d fel a2wl w b3deeen fadii 
+				
+	..••  Example 3  ••..
+	
+		printf("this is :%*clol\n",-5,'x');  //this is :x    lol  ( 4 spaces)
+											// this is :x----lol 
+	
+
+	..•• how to make round of floating number ••..
+	
+	printf("%.f",987.6); // it will be 988
+
+--------------------------------------------------------------------
+
+
+6- int x = printf("hi");  // x = 2; 
+   int x = printf("hi\n");  // x = 3 
+
+for example : 
+
+     int a = 0;
+		while(a < printf("HI"))
+		{
+			++a;
+		}
+	
+ // prints hi 3 times 
+
+----------------------------------------------------------------------------------
+
+7- printf("ay""7aga") = printf("ay 7aga")
+   printf("%%");  prints % only
+   
+   printf("%d",7.6); // strange number = bit hacking 
+   printf("%f", 7); // zero ,,, bit hacking,0x000000000007 , sign + exp + fraction 
+   
+   
+	{
+   scanf("%f %f", &x, &y);
+   printf("%f, %d", x, y);  // x fine , y junk value 
+   }
+
+   
+--------------------------------------------------------------------------------
+
+8- printf("asd",%d");  // just asd
+   printf("%s","%s");  // %s
+   printf("%s","Apple","banana");   // just Apple 
+   printf("C programming %s", "Class by\n%s Sanfoundry", "WOW");      // c programming Class By
+																		 Sanfoundry
+   
+
+--------------------------------------------------------------------------------
+
+9- char x = 97;
+
+	printf("%d",x); // 97
+	print("%c",x) ; //a 
+	
+	// ensa 5als mawdoo3 al c++ , howa byt3amel m3 al integer 3adii
+		in c++ cout<<x; 3shan char , fa kan bytb3 7rf 
+		
+------------------------------------------------------------------------------
+
+10- escape sequance (6) : 
+
+	\' = single quotation 
+	\'' = double quotation
+	\t = 8 spaces = horizontal space 
+	\v = vertical space ( not working don't know why ) 
+			printf("hello\vworld")
+					hello 
+							world 
+	\r = return back to first char of the line 
+	\\ = back slash
+	\a = beep  
+	
+	
+	format specifier : 
+	
+	•• %d = integer 
+	•• %c = char
+	•• %f = double ...  no specifier for float ,, howa by3ml promotion lel float by5leeh double = dymn 6 digits after point 
+			example : float f2 = 5.6; printf("%f",f1); // f1 will be promoted to be  double  
+				
+	%Lf = long double in printf  = double in scanf [ hya hya f fel scanf] 
+			in printf .. you should use (#define printf __mingw_printf ) for long double 
+			
+	%Le = long double in exponent 
+	%u =unsigned int
+	%i = integer ( hex 0x , 012 octal , decimal ) 
+	%x = small hex fa
+	%X = capital hex FA
+	
+	%o = octal 
+	%e = rkm fe os 10 = float only = 6.500000e+001 = 6.5*10 = 65 ( not that 6 digits after radixal point and 3 digits after e  ) 
+	%E = rkm fe os 10 = float only = 6.500000E+001
+	
+	printf("%o",10);  //12
+	
+	
+	Notes : extra format with int and float
+	L for long double 
+	l for long int 
+	%h for short int = %hd 
+	
+	%lld for long long int 
+	
+	
+	%g = if you want to disply float number without extra zeros ( 10.5000000)  = 10.5 
+
+------------------------------------------------------------------------------
+
+
+11-  char x,y;
+
+	printf("%d", x+y); 
+
+	blash t3ml kda ,, lw hy3ml overflow , hy7sl mshakel ( undefined behaviour ) 
+	
+	talma x+y in range ,, tmaam 7otaha fe printf 
+	else ,, char result = x+y; ,, cout(result)
+	
+
+-------------------------------------------------------------
+
+
+12- printf is not used in Embedded systems .. ( Muhammad Embabiii )
+	
+	but i used it once in pic (send serial data ) 

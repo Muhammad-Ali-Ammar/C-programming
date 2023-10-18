@@ -1,0 +1,130 @@
+•• strlen : msh by7sb al null character ( 7roof bas 3ala tool ) 
+•• sizeof : by7sb al null character 	
+•• blash t7dd al 3add ,, 5leek char name [] = "kza ";
+
+•• char name []="hello"; = {"hello"}; = {'h','e','l','l','o',0}; // lazem null 
+•• manual copy string to string using for loops , lazm t7d al null 
+•• char name[100]="hello"; // in memory h e l l o null ,,, al ba2ii msh hytshaaf ( lw 3mlt puts maslun ) 
+
+############################################################################################################################################
+
+-- lma t3ml char name []={'a','b','c',0}; ,, lazem t7d al null character ,, 8eer kda hy5rf 
+
+
+
+-- char name [3] = {'a','b','c'};
+
+	puts(name); // hy5rf m3aak 
+
+
+--   char name1 []={'a','b','c',0};
+     cout(strlen(name1)); //3
+
+     char name2 []="abc";  // implicit zero hena
+     cout(strlen(name2)); // 3
+
+
+	
+
+######################################################################
+
+
+-- char name []= "12345";
+	
+	sizeof(name)/sizeof(name[0]); // 6 
+	
+######################################################################
+
+-- in for loops , for(int i = 0 ; name[i];++i)
+
+######################################################################
+
+
+-- char *name = new char;
+   cin.get(name , size , '&');
+
+
+######################################################################
+	
+-- 	void fun(char name[] )
+	
+	{
+	   int size = strlen(name);  // fine 
+	
+	}
+	
+
+######################################################################
+--	"x" "y" ="xy"
+	 char arr[20]="ay" "7aga";  ="ay7aga";
+
+
+######################################################################
+
+-- manual copy string to string 
+
+	int i;
+	for(i = 0;arr1[i];++i)
+	{
+		arr2[i]=arr1[i];
+	}
+	
+	
+	arr1[i]=0;
+	
+	
+######################################################################################################################################
+
+  char arr[]="bhmed ali ammar";
+
+  --arr[0];
+
+  puts(arr);  // ahmed ali ammar 
+  
+
+######################################################################################################################################
+ 
+
+-- array of char as argument 
+
+		int main()
+		{
+
+		  func("looooool"); // works fine 
+		}
+
+		void func( char name[])
+		{
+			puts(name);
+		}
+
+######################################################################################################################################
+
+-- array of const 
+
+   const char name[]="ay7aga";
+   name[0]='s'; // error 
+   
+ ######################################################################################################################################
+ 
+ -- what is the difference between :
+	
+	char name[]="ali";
+	char *name = "ali";  
+	
+	1- 
+	
+	first one, only 4 bytes in memory (a,l,i,'\0')
+	the second one, 4 bytes + size of pointer itself   
+	
+	note that : in the first, &name[0] is the address of the first character 
+	
+	2- ram and rom 
+	3- *name is a variable pointer , name[] is a const pointer 
+	
+	
+	
+	// reference : tutorial on pointer page 26 
+	
+
+ 

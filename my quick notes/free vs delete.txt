@@ -1,0 +1,17 @@
+1- free
+
+-- to free block of memory created by malloc or calloc 
+
+int *ptr = malloc (5*size);
+
+free(ptr);
+
+
+
+
+2- delete 
+
+-- to delete block which's created by new 
+
+delete [] a; ---> for new [] 
+delete a ; --> for new  

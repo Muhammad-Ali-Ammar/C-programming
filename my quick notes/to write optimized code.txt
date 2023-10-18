@@ -1,0 +1,114 @@
+-- if condition : 
+
+	1- Break things into a binary fashion like
+	
+			if(a==1){
+			}
+			else if(a==2) {
+			} . .
+			else if(a==8) {
+			}
+			
+			
+		/*it can be done as the following*/
+		
+			if (a<=4){
+			if(a==1){
+			}
+			else if(a==2){
+			}
+			. . .
+			}
+			else{
+			if(a==5){
+			}
+			else if(a==6) {
+			}
+
+			// numbers of check ql 
+			
+
+
+-- types :
+
+	1-  Unsigned int instead of int
+	2- 	No float:
+		• Because the hardware must support floating point calculations (rarely to find in embedded systems ) 
+	3- No integer : 
+		Because there is no rule for integer size, some compilers define integer numbers as 16 bits
+		others define them 32 bits
+	
+
+-- arrays : 
+	1- Using arrays instead of switch ... arrays are faster than switch 
+	
+		..•• example 1 ••..
+		
+			switch (queue){
+			case 0:letter ='E'; break;
+			case 1:letter ='O'; break;
+			case 2:letter ='S'; break;
+			case 3:letter ='S'; break;
+			case 4:letter ='K'; break;
+			}
+			
+			/* can be written as */ 
+			
+			char classes[] ="EOSSK";
+			letter =classes[queue];
+			
+			// but switch is better in memory 
+			
+			
+		..•• example 2 ••.. 
+		
+			double add(double, double);
+			double sub(double, double);
+			double mul(double, double);
+			double div(double, double);
+			switch(oper) {
+			case '+': result = add(op1, op2); break;
+			case '-': result = sub(op1, op2); break;
+			case '*': result = mul(op1, op2); break;
+			case '/': result = div(op1, op2); break;
+			
+			
+			/* can be written as */ 
+			
+			double add(double x, double y) {return x+y;}
+			double sub(double x, double y) {return x-y;}
+			double mul(double x, double y) {return x*y;}
+			double division(double x, double y) {return x/y;}
+
+			int main()
+			{
+
+				double (*ptr_to_function[])(double,double)= {add,sub,mul,division};
+
+				printf("%f",ptr_to_function[0](5,6));
+
+
+
+			return 0;
+
+			}
+
+			
+-- operations : 
+
+	1- miltiplication is faster than division (i.e. *.5 instead /2.0)
+	2- addition is quicker than multiplication
+	3- pre-increment is faster than post increment
+	4- x++ is faster than x+=1 , because in assembly , there is instruction called inc 
+	
+	
+	
+
+-- functions 
+
+	-- recieve array : int func( int array[],unsigned int size);
+	
+	
+-- loops : 
+	
+	-- while (*source) is faster than while (*source != '\0')

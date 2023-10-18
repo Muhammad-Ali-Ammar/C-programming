@@ -1,0 +1,50 @@
+-- child = al parent + 7agato howa 
+
+
+-------------------------------------------------------------
+class A
+{
+public:
+    void print()
+    {
+        cout<<"parent"<<endl;
+    }
+};
+
+class B : public A
+{
+public :
+
+};
+int main()
+{
+
+B a1;
+a1.print();   // hytb3 parent
+
+-----------------------------------------------------------------------
+
+class A
+{
+public:
+    void print()
+    {
+        cout<<"lol"<<endl;
+    }
+};
+
+class B : public A
+{
+public :
+    void print()
+    {
+        cout<<"child"<<endl;
+    }
+
+};
+int main()
+{
+
+B a1;
+a1.print();          // hytb3 child 
+

@@ -1,0 +1,92 @@
+	char name[20] = "ay 7aga";
+
+	name[0]='s';  // fine 
+
+
+
+but
+
+
+	char *name = "ay 7aga ";
+	name[0]='s';  // error ,, because it's in ROM memory , can't be modified 
+	
+	
+to modifiy it 
+
+
+	1- name = strdup(name);  // In ram NOW 
+
+
+		// strdup = dynmaic array in heap ,, you can do free(name); now
+
+
+
+
+	2- char *ch;
+
+		ch="asd"; // works fine because it points to another pointer,,still in rom
+		printf(ch);
+
+
+		ch[0]="sd";  // error 
+
+
+
+
+
+-- char *ch ='a';
+	
+	printf(ch); // error .. why? 
+	
+	
+	*ch = "string "; // al string dii btt5zn fel rom w byrg3 address of this location 
+	*ch= 'a'; // ch byshawer 3ala address of a = 97 ,, access this location that is often reserved for the Operating System.
+	
+	
+-- char *N[]={“ali”, “ahmad”,”sami”};
+	N[1]+1; //hmad 
+	
+	
+	
+-- to copy 2 strings ( naive way ) 
+
+	while(*string1 != '\0') 
+	{
+		*string2++ = *string1++;   //* is higher than ++ , access first then increment 
+	}
+	
+		*string2 = '\0'; /* line C (see text) */
+		
+		
+		
+-- what is the difference between :
+	
+	char name[]="ali";
+	char *name = "ali";  
+	
+	1- 
+	
+	first one, only 4 bytes in memory (a,l,i,'\0')
+	the second one, 4 bytes + size of pointer itself   
+	
+	note that : in the first, &name[0] is the address of the first character 
+	
+	2- ram and rom 
+	3- *name is a variable pointer , name[] is a const pointer 
+	
+	
+	
+	// reference : tutorial on pointer page 26 
+	
+
+ 
+ 
+ --     char *ch = "lol";
+
+    printf("%p",ch); // 0x00403024
+	
+	
+	
+
+
+-- typedef char* string

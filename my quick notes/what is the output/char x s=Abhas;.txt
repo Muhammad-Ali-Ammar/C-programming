@@ -1,0 +1,14 @@
+int main()
+
+
+{
+
+
+char s=Abhas;
+printf("%s\n",s+ 2);
+
+}
+
+
+
+will print has

@@ -1,0 +1,8 @@
+1- waste memory , due to no OS 
+2- slow 
+3- infinity loop , tends to do the same thing
+
+
+
+
+,, RTOS using software dynamic memory ,, 

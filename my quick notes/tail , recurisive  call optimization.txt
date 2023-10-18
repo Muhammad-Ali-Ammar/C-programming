@@ -1,0 +1,42 @@
+-- tail call optimization : in new function btst5dm al stack mkan old function 
+-- space complexity O(1)						  
+-- the only condittion is : the last instruction is calling  , and you don't need the result 
+
+-- lw nta fe f1 function  
+
+	w gowaha 3mlt call f2 function ( at the end of f1)  ,,, 
+	
+	
+	•• witout optimization main --> f1 --> f2 
+	•• wit  main --> f1 becomes main --> return to main --> f2 
+	
+
+		
+-- int fac(int n)
+	{
+		if(n<1) return 1;
+		return n*fac(n-1);
+	}
+	
+	// note that optimization doesn't happen here 
+	
+	why?? 
+	
+   int fac(int n)
+	{
+		if(n<1) return 1;
+		int acc = fact(n-1);
+		return n*acc;  // last instruction isn't call function , it's the muliplication 
+	}  
+	
+
+
+-- int always_zero (i)
+	{
+		if(i==0)
+			return 0;
+		return always_zero(i-1);
+	}
+
+ // hyna hy7sl al optimization 3shan mfesh 7aga hat3mlha b3d al return ,, mfesh maslun numbuer * return
+

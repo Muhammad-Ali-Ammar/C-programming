@@ -1,0 +1,19 @@
+-- pure function 
+
+		-- return exact number with same arugmenets , such as sqrt 
+		-- impure such as rand()
+	
+	
+
+
+note that : 
+
+int x=7;  // global 
+int foo(int y){return x+y;}  // it is not a pure function , l2n al x hatt8yer msh sabta ,, fe al result msh sabta
+
+
+
+
+int x=7;
+function foo(int y,int z){return y+z;}
+foo(x,6);  it is a pure function and the global variable value is passed to it

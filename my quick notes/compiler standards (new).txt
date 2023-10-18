@@ -1,0 +1,48 @@
+1- K&R 
+2- ANSI C  = c89
+3- C90
+4- C95
+5- C99 
+6- c11 
+
+
+
+in c89 : 
+-- for(int i = 0 //.. ) error , lazm i bara 
+-- warnning if you didn't write return 0; 
+-- The C89 standard doesn't allow variable sized arrays = Variable Length Arrays = VLA 
+	int size = 5 ; 
+	int arr[size ]; // error ,,, works fine in c99 
+
+
+in c11:
+
+-- Adds new features generic macros, anonymous structures, improved Unicode support, atomic operations, multi-threading, and bounds-checked functions.
+• It also makes some portions of the existing C99 library optional, and improves compatibility with C++.
+
+
+in Embedded C:
+• Includes features not available in C like fixed-point arithmetic, named address spaces,and basic I/O hardware addressing.
+
+
+in (K&R ) :
+
+• in the original C,(Kernighan & Ritchie, 1st Edition) it was not possible to pass a structure, only a pointer to a structure could be passed. 
+• malloc, calloc return char* not void* ,, where you needed to cast it to int for example ,, but void* no need for that 
+
+########################################################3
+
+-- test compatbility 
+
+
+	#if defined(__STDC_VERSION__) && __STDC_VERSION__ >=199409L 
+	
+		/* c95 source code */
+		
+	#elif defined(__ANSI__)
+	
+	/* c89 source code */
+	
+	#endif
+	
+	

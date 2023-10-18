@@ -1,0 +1,69 @@
+-- How is fopen() used ?
+
+
+		FILE *fptr =fopen(filename , mode); 
+		 
+		Mode : 
+
+		“r” for read operation
+		“w” for write operation
+		“a” for append operation
+		“r+”,”w+”,”a+” for update operation
+
+		Text mode is used to save/load human ((readable textual data)) ... examples are .txt files, source files (.c and .h), etc...
+		Binary mode is used to save/load     (( binary data (in raw format)))... examples are .mp3, .wav, .mpg, etc
+		
+		
+-- functions to write 
+	
+	•• fprintf(); // fprintf(fptr,"number is %d", 1);
+	•• fputs()    // string
+	•• fputc(ch,fptr)   // character
+	•• fwrite()
+	
+	
+	
+	
+-- functions to read 
+   •• fscanf(); 
+   •• fgets(str,SIZE,fptr); // string
+   •• ch= fgetc(fptr); // character
+   •• fread();
+   
+   
+   
+ -- templete code :
+
+
+	FILE * fptr = fopen("file.txt" , "r");
+	
+	if( fptr == NULL) {return -1;}
+	
+  	
+	// to read all char of file 
+	
+	    while(!feof(fptr))
+		   c=getc(fptr);
+    
+	// to read number of char of file using fputs 
+		if( fgets (str, SIZE, fptr)!=NULL ) {// do smth }
+		
+	// to write in file 
+		putc( ch,fptr);
+	
+	// to close a file 
+	
+		fclose(fptr);
+		
+
+
+*************************************************************************
+
+-- What is the purpose of ftell ?
+
+
+		ftell(fptr);
+		returns a long integer value representing the current file ((position)) of the file pointed by the file pointer fp.
+		If an error occurs ,-1 is returned.
+		
+		

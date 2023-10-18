@@ -1,0 +1,36 @@
+-- written in assembly by tool chain by default
+-- in section called .init 
+
+
+
+	-- startup code runs in run-time (first thing )
+	
+	## it initialzes the volatile memory (RAM) 
+		•• it copies data from .rodata to .data 
+		•• .bss ram to zero values (or any other value ) 
+		•• sp to start of the stack ( note that : in arm, that's done by hardware ,, first value of vector table is the address of SP )  
+		•• pc to main function
+		•• initialzes vector table ( if it's dynamic vector ) 
+		
+		-- then calls main 
+
+			notes : you can change name of main funciton 
+
+	## bootloader is not start-up code 
+		-- da program tanii 
+		-- lw nta 3ayz tdeef new hex file, bdl ma t3ml burn, btb3to 3n taree2 communication protocol (wire/ less ) 
+			wel bootloader da using internal programmer, by7otlk al hex da 
+example : 
+	https://www.youtube.com/watch?v=xACe_ZYuwH4&t=349s
+	
+	
+	
+	
+	-- reset vector = first address of flash 
+	
+	
+	
+	
+-- start-up code then main then finalizing code 
+	
+	finalizing code = while(1); 3shan pc maysra7sh w hyroo7 fe memory ybawez al system 

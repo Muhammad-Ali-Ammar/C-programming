@@ -1,0 +1,54 @@
+inline int fun(int x)
+{
+return 5*x;
+}
+
+
+
+	in each call , informs the compiler to replace the call with the body function 
+
+	similar to macro 
+
+	but macro is pre-processor ( replacement ) , inline compiler 
+
+-- saving the overhead of function invocation and return (register saving and restore) by avoiding a jump to a sub-routine
+	so, inline is faster than normall functions .. but more memory 
+		10 times an inline function called --> will be 10 copies of function inserted in the code 
+		
+
+-- in c programming ,, 
+	•• lazm t3ml prototype first 
+		int func(int x);
+		static inline int func( int x){
+		}
+		
+		
+	•• or use static inline int fun ( int x) 
+
+	
+-- compiler could ignore inline , it's just a suggesstion from you 
+	and vice versa ,, momkn howa y3ml function 3ala inha inline 
+
+	•• you could make it always (in GCC compiler only )
+	
+		__attribute__ ((always_inline)) static inline int fun(){
+															return 5;
+															}
+
+	
+-- inline can be recursivied 	
+	many compilers have #pragmas to specify the depeth or how many calling 
+	
+	
+-- msh hyb2a mawgood fel symbole table 
+
+
+
+
+-- inline vs macros 
+	
+	1- in macro , inefficiency due to re-evaluation of arguments and order of operations =  unexpected output 	mac(1+2) 
+	2- inline is better in type checking
+	3- inline can use return , macros can't use return and the last expression invoked inside 
+	4- in debugging : macros is harder ,, 3shan type checking and 
+	5- recursive can be done in inline , typically illegal in macros 

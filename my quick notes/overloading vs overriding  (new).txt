@@ -1,0 +1,24 @@
+-- overloading (depends on arguments only)
+
+
+	void fun(int x);
+	void fun(float y);
+
+	Note that : C doesn't support Function Overloading.
+
+-- overriding , in case of inheritance only ( same function ) 
+
+	class parent {
+
+	//.. 
+
+	void print();
+	}
+
+
+	class student : public parent {
+
+	// ..
+	void print();
+
+	}

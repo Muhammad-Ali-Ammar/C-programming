@@ -1,0 +1,22 @@
+-- speed of the flasha various with time 	
+-- liner vs non-liner lists 
+
+
+
+## linked list sort insert 
+## get front and back 
+## destory list 
+## fe malloc fel atmega
+## implement deleting of double linkedlist using search 
+## insert before, after data 
+## reverse linkedlist--> linkedlist *reverse(linkedlist list ) 
+					     void reverse(linkedlist)
+
+
+## datastructure of my old book 
+## int pop not void ( return item ) 
+
+
+
+
+

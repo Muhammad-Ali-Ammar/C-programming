@@ -1,0 +1,10 @@
+!= Exclamation  is used as binary  ( 0 or 1 ) 
+but ~= tilda is used to invert all bits
+
+
+
+char x = 5;        0000 0101
+
+y = !x ;  // y = 0 now 
+y = ~x;   // y = 1111 1010   = -6  ,,, one's complement not 2's 
+

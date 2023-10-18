@@ -1,0 +1,48 @@
+•• gcc --help  ,,, feeh kol al commands of GCC ( gcc - o w kol da ) 
+•• dir				// btgeeb names of files 
+
+
+
+
+
+
+•• gcc file_name.c 
+	a.out       // to run it 
+	
+	or 
+	
+	gcc file_name.c -o output.out  // .exe tmam bardo 
+	output.out
+	
+ 
+
+•• cls = clear window 
+
+
+
+•• to compile 2 files and merge them in one file
+
+	gcc file1.c file2.c -o out.exe
+	
+	
+•• gcc --version 
+	
+	to know the version 
+	
+
+•• md file 
+	
+	to create folder 
+	
+•• to change directory 
+
+	-- cd desktop
+	-- cd..     ( go back ) 
+	-- cd ../..   ( lw 3ayz trg3 5twteen ) 
+	-- :d           ( goes to d ) 
+	
+
+•• to change name of shell ( m:\user ... )
+
+	prompt name
+	prompt hello: 

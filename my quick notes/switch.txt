@@ -1,0 +1,255 @@
+*** switch ( controlling expression ) ***
+*** number of cases labels is limited (1023 in c11 ) 
+
+
+*** in switch, goes first to cases , then default ***
+*** only use int or char valuees 
+	case 5 :
+	
+	const int b = 5;
+	case b :  // it's error , must be const not variable  , even if it was const 
+			 // 3shan al compiler by3ml jump or control table .. fe lazem al values tkoon m3aroofa msh fel runtime 
+	
+	
+*** enum can be used too 
+
+	enum {false , true};
+	switch(c)
+	{
+		case false : 
+		// works fine 
+	}
+
+*** unique values only 
+
+*** How to check Range in switch ***  
+	
+	1- 
+	
+	switch(x)
+	{
+		case 1:
+		case 2:
+		case 3:
+		
+		printf("between 1 and 3\n");
+		break;
+	
+	}
+
+	2- 
+	
+	-- it's not c standard 
+	
+	switch(x)
+	{
+		case 1 ... 9:
+		
+		printf("between 1 and 9 ");
+		break;
+	
+	}
+	
+	
+-- case and check swich(check) can't be float 
+	swich(5.6) //  Error 
+	
+	
+-- label : lazem ykoon b3deeh statement , maynf3sh declaration or definition 
+
+-- it's prefered to be like that 
+	
+	switch(x) 
+	{
+		case 1:
+			// space 
+			// remaining of the block 
+		
+		case 2:
+			// second space 
+			// second block 
+	
+	}
+	
+########################################################################################################################################################################################
+
+what is the output of next programs 
+
+	
+1- 
+		int main()
+		{
+
+		 int x = 5;
+
+		 switch(x)
+		 {
+		 default:
+			printf("line 1 \n");
+
+		  case 5:
+			  printf("line2 \n");
+			  break;
+		 }
+
+
+
+		///// the answer is line2 //////
+
+
+
+
+2- 
+
+
+
+	int main()
+	{
+
+	 int x = 5;
+
+	 switch(x)
+	 {
+	 default:
+		printf("line 1 \n");
+
+	  case 4:
+		  printf("line2 \n");
+		  break;
+	 }
+	 
+	 
+	 //// the answer is line 1 line 2 ////////
+	 
+	 
+	 // howa hena hyro7 lel cases al 2wl ,, lw msh true ,, hyroo7 lel deafult ,, b3d kda hykml tanii le t7t 
+	 // lw al default last thing ,, msh lazem break ,, l2n mfesh statement after that
+	 
+	 
+3- 
+
+
+
+    int a = 5;
+
+    switch(a)
+    {
+        printf("line1\n");
+
+        
+    case 1:
+        printf("line2\n");
+    }
+
+
+
+	// prints nothing ,, msh bymshii sequancly ,, kol 7aga conditions hena 
+	
+	
+	
+4- 
+
+		    int a= 5 ;
+
+			int b = 6 ;
+
+			switch(a)
+			{
+			case b:
+				printf("lol");
+			}
+
+
+
+	/// error , because b 
+	
+	
+	
+
+5- 
+
+
+    int x = 5;
+
+    switch(x)
+    {
+        case 5:
+        printf("line1\n");
+        break;
+
+        case 6:
+        printf("lol");
+        break;
+
+
+        case 5:
+        printf("line3");
+        break;
+    }
+
+
+
+// error , duplicated value 5 in the code 
+
+
+
+6- 
+	Note that : lw ktkbt default 8lt = label ( goto)
+	
+		switch(6)
+		{
+		case 5 :
+
+				printf("line1");
+				break;
+
+		defaul:
+
+				printf("line2");
+				break;
+				
+				
+		case 8:
+		
+				printf("line3");
+	
+	
+		}
+		
+		
+		goto defaul;
+		
+		//prints nothing , 3shan defaul dii aslun tb3 case 5 ,, de mugard label in case 5 
+		// you can use goto ,, hyd55ol al switch 3adii ( lel label bs , prints line2 , then break switch msh hyroo7 le case 8 )
+		
+		
+		
+7- 
+
+
+	int x = 5;
+	swich(x)
+	{
+		case 5 : 
+			int y= 6; 
+			//...code .. 
+			break;
+	
+	}
+	
+	
+	// Error ,, maynf3sh declaration or definition 
+	
+	solutions : 
+		•• add {  } 
+		•• add ; 
+		
+		
+		case 5 : 
+			{
+				int y = 6 ; // works fine 
+			}
+			
+		
+		case 5 : ;
+			int y= 6; // works fine too 

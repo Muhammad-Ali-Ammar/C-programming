@@ -1,0 +1,6 @@
+
+
+int x = 5;
+
+
+int twos = ~x + 1 ; // one's +1 

@@ -1,0 +1,47 @@
+-- MISRA C is a subset of C language for critical systems where that critical systems are the systems in which people might die due to software bugs
+
+-- MISRA is stands for Motor Industry Software Reliability Association.
+
+-- its advantage : 
+
+		 Can force the developer to avoid features in C that could  cause problems like	Execution Error.
+			-out of bounds array reference
+			-divide by zero
+			-uninitialized variable usage
+
+
+-- in function , just 1 return 
+
+
+-- if condition , use { } if it were 1 statement 
+
+-- MISRA C Rule 5.2
+	Identifiers in an inner scope shall not use the	same name as an identifier in the outer scope
+		
+		Int total;
+		Int foo (int total ){
+		return 3* total;
+		}
+
+
+
+
+####### Ammar Rules ######
+
+
+
+1- fel 2smaa ,, a3ml 7saab al divide by zero 
+
+2- fel gam3 wl multiplication ,, a3ml 7saab al overflow 
+
+3- lma tb3t le function.. ab3t by reference and make it const ,, 3shan may3mlsh (overhead of making a copy ) 
+
+4- lma t3ml malloc,realloc,etc ,, check if the returned address is NULL or not (fe mkan w at7gz wala la2)
+
+	if(pDyArray=(int*) malloc(size*sizeof(int))==NULL) return 1;//terminate the program
+	if(arr=realloc(arr, elements * sizeof(int))== NULL) {return 1;}
+	
+	
+5- blaash t3ml funtion btrg3 void, 5leeh int 3shan ykoon indication 
+
+6- not preferable to be there input/output operations in functions/classes, you can use it for testing only 

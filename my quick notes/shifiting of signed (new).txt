@@ -1,0 +1,49 @@
+-- 2 rules 
+
+	•• depends on binary notation, not math 
+	•• if the operand is sign, then shift right= arthmatic shift 
+
+
+int a = -2;   // 0b 11111111111110
+
+
+
+-- cout(a<<1);  // -4  --> 0b1111111100
+-- cout(a>>1); // -1   --> 0b1111111111
+
+-- cout(a>>1); // still -1  7sb al binary notation, not math 
+
+	1111 1111 ,, shifting is 1 here
+	
+	maynf3sh tl3b fel al sign directly 
+	
+	
+
+
+
+
+-- char x = 0b01111111;
+
+
+x<<=1;
+
+cout(x); // 11111110 = -2
+
+
+
+-- char x = 0b10111111;
+
+x<<=1;
+cout(x); // 01111110
+
+
+-- shifting float is error 
+	float x = 5;
+	x<<=1; // error 
+	
+	
+-- char x = 128;  //10000000
+    unsigned int i = x;  // i = 0b11111111111111111000000 , a5r wa7d bytkrr b8d al nazr for signed or unsigned integer 
+
+
+		   printf("%u",i);

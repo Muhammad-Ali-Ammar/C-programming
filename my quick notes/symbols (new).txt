@@ -1,0 +1,62 @@
+ & = ampersand 
+ # = hash 
+ * = asterik  = deference 
+ ! = exclamation 
+ ~ = tilda 
+ ()= round bracket 
+ {}= curly bracket 
+ []= bracket =subscriptor  = array subscribing 
+ -> = arrow operator 
+ 
+ 
+ 
+-- ASCII =	American Standard Code For Information Interchange
+what is SOAC ? 
+	-- Spiral Outwards Anti Clockwise .. rules to read complex declaration
+	
+	
+--     rational operators (6)						       : == , != , >= ,<=,<,>  
+	   logical operators = bit wise =(and , or , not)    	   : &&, || , ! 
+       bitwise operator(6)							       : &, | , ^ , <<,>>,~ 
+	   arthmatic operator (5)							   : +,-,*,/,%
+	   assign operator(10) = bit wise + arthmatic		   : = , += , +>> .... 
+ 
+ ################################################################################3
+ 
+ \ay7aga = 2 things ( format specifer , escape sequance ) 
+ 
+ 
+	 escape sequance (6) : 
+
+		\' = single quotation 
+		\'' = double quotation
+		\t = 8 spaces
+		\r = return back to first char of the line 
+		\\ = back slash
+		\a = beep  
+		
+		
+		format specifier : 
+		
+		%d = integer 
+		%c = char
+		%f = float 
+		%lf = double
+		%u =unsigned int
+		%i = integer ( hex 0x , 012 octal , decimal ) 
+		%x = small hex fa
+		%X = capital hex FA
+		
+		%o = octal 
+		%e = rkm fe os 10 = float only = 6.500e+001 = 6.5*10 = 65
+		%E = rkm fe os 10 = float only = 6.500E+001
+		
+		
+		
+		printf("%o",10);  //12
+		
+		
+		
+
+
+unsigned long x= 3UL; unsigned long value

@@ -1,0 +1,51 @@
+A) sign magnitude problems 
+
+
+1- 2 values for zeros 
+	0 000 0000  = + zero 
+	1 000 0000  = - zero 
+	
+	
+2- summation , for example -1 +1 = 0
+
+	1 000 0001
+	0 000 0001 
+	----------------
+	1 000 0010   = -2 not zero 
+	
+	
+	
+B) one's comp
+
+
+1- 2 values for zeros 
+	
+	0 000 0000  = + zero 
+	1 111 1111  = - zero 
+	
+	
+
+Note that : summation is solved here 
+	
+	0 000 0001
+	1 111 1110
+	---------------
+	1 111 1111 = - zero ( foo2 ) 
+	
+	
+C) two's comp
+
+
+	-- Just 1 value for zero  0000 0000
+
+	-- summation is solved 
+		
+		0000 0001
+		1111 1111
+		------------
+		0000 0000
+
+
+
+	
+	

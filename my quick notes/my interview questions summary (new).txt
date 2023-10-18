@@ -1,0 +1,354 @@
+
+
+
+2- DMA : i/o operations exchange directrly with memory without going through the processor 
+
+
+3- compiler vs interperter 
+
+	-- compiler entire program , interperter single instruction 
+	-- compiler generete object code ( assembly , machine code ) , interperter doesn't 
+	-- compiler needs more memory , interperter less memory ( 3shan object code )
+	-- conditional control statements excute faster in compiler 
+
+
+4- 3 types of RTOS 
+
+	1- hard real time : arwaa7 
+	2- firm real time : result after missing deadline is zero , such as prediction wethear after it happens
+	3- soft real time : result after missing the deadline ain't zero , printers print 98 insted of 100 per min 
+
+
+5- How to contact more than one MCU together
+
+	1- spi ( full duplex) , I2c ( half)  , uart ( serial ) ,can ( half ) 
+	2- wireless ( bluetooth , wifi ) 
+
+
+
+6- byte addressable vs word addressable
+
+	-- word addressable : 
+	mkan 0 --> 32 bit  (40 f3 07 88)
+	mkan 1 --> 32 bit  
+
+	fa nta hena s3b t3ml access le maslun byte 88 
+
+	-- word addressable : 
+
+	mkan 0 --> 32 bit (40 f3 07 88)
+	mkan 4 --> 32 bit 
+
+	fa 0 = 88
+	we 1 = 07 
+	we 2 =f3
+
+	fa bt3rf taccess byte byte 
+
+
+7- size of pointer is const for any type ,even the void pointer .. it varies with the architecture 
+  -- 32 bit architecture = 4 byte 
+  -- 64 bit architecture = 8 byte 
+
+
+8- wild ,NULL , dangling pointers 
+
+	-- wild pointer: unintialized pointer 
+	-- NULL pointer: points to nowhere 
+	-- dangling pointer : pointer mat , ( free or al lifetime 5ls ) 
+
+
+9- volatile keyword : 
+
+	-- to infrom the compiler that don't optimize the variable 
+	   because the value could change anytime from outside the scope of the program
+
+10- re-entered fucntion vs non-reentered fucntion 
+
+	-- reentrant function is one that can be used by more than one task concurrently without fear of data corruption
+	--  A reentrant function can be interrupted at any time and resumed at a later time without loss of data
+	--  a non-reentrant function is one that cannot be shared by more than one task 
+		 unless mutual exclusion to the function is ensured either by using a semaphore or by disabling interrupts
+	-- example of non-reentered : printf();
+
+11- not advisable to use printf in ISR 
+
+	-- because it's non-reentered functions (not thread safe , can't be shared ) 
+	-- it's slow 
+
+
+13- type of IPC 
+
+	-- ipc is inter-process communication (2 process communicate such as fork : parent and child ) 
+	-- shared memory , message passing 
+	-- pipes , semaphore , socket 
+	
+14- types of statements in c 
+	1- selections ( switch , if )
+	2- iterations ( while ,for , do-while, goto)
+
+15- what is variable ?
+
+	-- pre-defined variable = primitive : decimal (char , int) ,floating (float , double) ,void 
+	-- user-defined: struct , class , enum 
+	-- derivied : pointer ,array, function 
+
+16- when use const ? 
+	-- for const values 
+	-- in function for referenced arguments instead of making copies ( time and memory )  
+	
+17- why use pointers ? 
+    -- to pass large data by reference (reduce memory size , return multiple output from function ,.. ) 
+	-- linked list 
+	-- dynamic array 
+	-- gpio registers 
+	
+18- why use pointer to pointer 
+	-- multi-dimensional array  = int (*ptr) [3]
+	-- array of string = char *argv[ ]
+	
+	
+18- when use pointer to function 
+	-- call back function 
+	-- finite state machine 
+	-- provide polymorphism in c 
+	-- Jump table alternative : For some compilers as interrupt vector table
+	
+	
+20- types of Endianess
+	-- little ,, so8yer fel so8yer 
+	-- big 
+	-- bi-endian (has 2 options configured to big or little ) 
+	
+21- List the different types of C tokens?
+	• Constants
+	• Identifiers
+	• Keywords
+	• Operators
+	• Special symbols
+	• Strings
+	
+22- What are the different types of c instructions?
+	--There are basically three types of instructions in C are :
+	
+	• Arithmetic Instruction
+	• Control Instruction = flow control = ( 3 loops, if ,switch,goto, break, continoue) = bt8yer msaar al flow al taby3ii ino ykoon kolo le t7t msh yrg3 
+	• Type Declaration Instruction
+
+
+
+
+24- what is identifer , qualifier , specifier  , modifer
+
+	(i)dentifer : names ( variable names , functions name ,, ) there are 2 types ( internal = local , external=otherwise ) 
+	(S)pecifier : char , int , float , double 
+	(Q)ualifier : const , volatile 
+	 modifer (size,+,-) : singed , unsigned , long, short , long long 
+	 
+	 
+	 literal modifer    : is adding a suffix to the value 
+	 
+							u or U =unsigned , L or l  = long , F or f = float 
+							25u or 25U 
+							25L or 25l ( L is preferred ) 
+							unsigned long may be combined ... order of it doesn't matter ( ul or Lu  =  ) 
+		 
+	 -- Note that : you can't use signed, or unsigned with float ,, compile error 
+	 -- No order  : unsigned short int , short unsigned int 
+	
+25- what is compound statements ?
+	{
+	statement 1;
+	statement 2;
+	}
+	
+26- What are printf and scanf, call by reference or call by value?
+	
+	printf = by value 
+	scanf  = by referenec
+	
+27- What is modular Programming?
+	
+	--If a program is large, it is subdivided into a number of smaller programs that are called modules or subprograms
+		files .h , .c .... functions 
+
+28- What is an incomplete type?
+	
+	 -- A type (pointers) that describes an identifier but lacks information needed to determine (((the size of))) the identifier
+	 
+		such as (array, struct, union,void pointer) without listing the memmbers 
+		example : char a[]; 	
+				  void *ptr;
+				  
+				  struct student;			  
+				  student *ptr;
+				  
+29- What is the invalid pointer arithmetic?
+
+	i) adding ,multiplying and dividing two pointers.
+	ii) Shifting or masking pointer.
+	iii) Addition of float or double to pointer
+	
+30- What is difference between .com program and .exe program?
+
+	Both .com and .exe program are executable program but .com program executes faster than .exe program
+	
+31- Describe turbo c Compiler?
+	-- it's based on DOS operating system , used for 8086 microprocessor 
+	
+32- global variables avalible to all functions. does exist a way to make it avalible to some and not to others?
+	-- NO 
+	
+33- what is the translation unit ? 
+	it's the preprossing process,, replace # and headers 
+	
+34- can continoue use in switches ? 
+	-- No , only in loops
+	
+35- can function be defined inside another function ? 
+	-- NO 
+	
+36- main function can be recurisved true or false ? 	
+	-- True 
+	
+37- you can change main name to greatest , yes or no ?
+	-- Yes, in start-up code 
+	
+
+	
+39- internal names vs external names 
+	-- internal names : any locl variable 
+	-- external names : other wise ( function name , global ,... )
+	
+	in c99 standard , first 63 characters for internal names for 2 different names 
+					  first 31 characters for external names for different names
+
+					  
+40- Why do variable names beginning with the underscore is not encouraged?
+	--  To avoid conflicts since library routines (built in functions ) use such names 
+	
+41-  Variable name resolution= number of significant characters for the uniqueness of variable depends on
+	-- compiler and linker 
+	
+42- what is optional in funciton declartion (mcq) {return type , number of parameters , parameters name , data types of parameters)
+
+	-- parameters names 
+	
+	
+43- what is output parameters vs output return vs outin 
+	
+	int func (int *x , int *z) ; // return = output return ,,
+		•• lw al x hatktb feeha bs ( msh mohtm kan feeha a  ) = output parameters
+		•• lw al x hatshoof feeha kam w tst5dmo w b3deen tktb feeh = outin 
+		
+	
+44- Automation vs Automotive 
+	-- Automation : al msan3 btshta8l automation 
+	-- Automotive : 3arbyaaaaaaaaaaaaaaaaaaaaaat
+	
+45- what is headers gurdian 
+
+	-- it's to gurante that only included one time
+	
+	#ifndef __filename_H__
+	#define __filename_H__
+		
+		//code 
+		
+	#endif
+	
+	// this problem is called multiple incursion 
+	
+
+46- ascii code stands for : 
+	American Standard Code For Information Interchange
+	
+	
+47- what is entry controlled loop and exit controlled loop 
+	-- entry = for, while
+	-- exit = do while 
+
+48- what is abstraction ? 
+	-- means hiding system level detials 
+	-- high degree of abstraction = less effort on to the user = more friendly = c++ 
+		lower level = assembly language 
+		
+		so c programming is middle language which is neither high nor low .. 
+
+49- what is the meaning of middle language ? 
+	-- direct access to memory through pointers
+	-- writing assembly code within c codes 
+	
+	
+50 - Which of the following typecasting is accepted by C?
+
+	-- Widening & Narrowing conversions
+	
+
+51- is there variable re-defination in c programming ? 
+	
+	-- You could re-declare any variable in your outer scope, but you couldn’t declare 2 variables with the same name in the same scope.
+
+		
+52- ay variable has 3 things : 
+
+	  1- scope 
+	  2- lifetime
+	  3- memory storage 
+	  
+53-	why copy data from .data from ROM to RAM ? 
+	-- because it's faster in access 
+	
+54-	why we put that into rom first then copited to RAM ? 
+	-- because after powering off ,, the initial value backs again .. 
+	
+	
+55-	can .text copied to RAM ? 
+	-- yes , it will be von-neuman ... bandwidth will be slow .. DATA and CODE 
+
+56- what is the consequence of convert a code from little endian to big endian
+	
+		1- union (int , char ) --> same first or last 
+		2- bitfield ( first or last ) bit of variable 
+		3- char pointer to int ( first or last ) 
+		4- fee kteer 
+
+
+57- is it a must for files to be .h or .c ? 
+	-- no .. files doesn't necessiary be .h or .c .. it's default .c and .h 
+
+58- Why do we use Embedded C?
+	-– Because Embedded Systems are not like general purpose computers since we have limited hardware resources 
+
+59- what is null statement ? 
+	
+	-- A "null statement" is a statement containing only a semicolon 
+		; 
+		for(;; ); 
+		while(condition ); 
+		if( condition);
+		do while ( bs msh 3arf azay ) 
+
+
+-------------------------------------------------------------------------------
+## RTOS 
+
+1- deadlock 
+
+## idea course recap 
+## static vs dynamic linking 
+## What is dynamic memory fragmentation : https://aticleworld.com/c-interview-questions/2/
+## memmove vs memcpy 
+## can vs lin 
+## Time division multiplexing
+
+## differences between getchar() and scanf() 
+## deal with file interview book 1
+## What is a normalized pointer
+## fread and fwrite function
+## int a = i++ * i++ ; // undefined behavour , but i++ && i++ is legal ,, // test your skills page 16 
+## what is memory mangement unit (MMU ) 
+
+## procedural programming vs oop programming vs functional programming
+## clrscr(); 
+## gotoxy(row,colom);https://ocjp.in/gotoxy-in-c-language-formatted-output/

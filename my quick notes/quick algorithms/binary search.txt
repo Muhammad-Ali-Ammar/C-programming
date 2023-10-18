@@ -1,0 +1,18 @@
+int binarysearch(int* A,int size,int x)
+{
+    int start=0,end=size-1;
+    while(start<=end)
+    {
+        int mid=start+ (end-start)/2;  // (s+ e)/2   
+        if(x==A[mid]) return mid;
+        if(x<A[mid]) end=mid-1;
+    else start=mid+1;
+    }
+    return -1;
+
+}
+
+
+
+// O(log n) 
+// it must be sorted 

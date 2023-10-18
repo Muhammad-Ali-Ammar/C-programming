@@ -1,0 +1,368 @@
+0- #### Rules ##### 
+
+			#define SIZE 5 
+
+		    •• static int x = SIZE; // works fine , no problem 
+			•• static int x = y; // error , must be const 
+			
+			•• case in switch: 
+			case SIZE : // works fine 
+			
+			•• it's prefered identifiers of macros is CAPITAL letters  
+			•• it's prefered not to put ; in the end of it , 3shan momkn yst5dm fe size al array , if statement 
+			•• macros like function = paramatiezd 
+			•• object like macro = #define size 5
+			•• it's prefered to put it between () , #define div(x,y) ((x)/(y)) 
+			•• #define work with function names 
+				
+				#define LED_ON fun
+				
+				fun()
+				{
+				
+				}
+				
+				
+				int main ()
+				{
+				LED_ON();  // works fine;;
+				}
+			
+			•• doesn't follow to scope rule , al file kolo shafyo ( inside file not other files ) 
+			•• no space after the name : 
+				#define sqr (x) (x*x) // error 
+				#defien sqr(x) 
+
+
+
+
+1- multiple lines 
+
+#define SUM_A(x, y)                                     \
+({                                                      \
+    float answer;                                       \
+    if ((x) == 0 || (y) == 0) {                         \
+        answer = 0;                                     \
+    } else {                                            \
+        answer = ((float)((x)*(x)) / ((x)+(y))) * (y);  \
+    }                                                   \
+    answer;                                             \
+})
+
+
+
+-- each line with   \ , except the last one 
+
+
+#########################################################################################################
+
+2- Compareing with function (time , memory , data types) 
+
+	•• hard to debug , but faster than functions 
+	•• needs more memory 
+	•• don't need to know the type , not like functions
+		int fun(int x) {  } ; // low b3t float , msh hysht8l 
+		
+		#define fun(x) {}  // low b3t float , tmam 3adi 
+
+
+
+3- note that 
+   5++; // error , pre-increment for values only 
+   
+ 
+	#define sum(x) (x++;)
+
+	sum(5);  // error , it's equivliant to 5++;
+
+
+4- 
+
+	#define sqr(x) (x*x)
+
+	int main()
+	{
+
+		cout (sqr(2+3));
+
+
+	}
+	
+	// will print 11 not 25 
+	//2+3*2+3 = 11
+	
+	// it's recommended in macros to do this 
+	
+	sqr(x) ( (x) * (x) ) // still sometimes produce unexpected results 
+	
+		#define sqr(x) ( (x) *(x) ) 
+		
+		int SQR (x)
+			return x*x;
+			
+		int a = 5;
+		
+		sqr(a++); // 30 = undefined behaviour
+		
+		SQR(a++); // 25 = defined 
+	
+
+5- int as argument
+
+
+		#define mac(a,b,c) (ct; t=a,a=b,b=t;)
+
+		int main()
+		{
+
+		int x=3,y=5;
+
+		mac(x,y,int); 
+
+
+
+		}
+		
+	// error because (int t ,,,) can't declare in ( ) 
+	// #define mac(a,b,c) c t;t=a,a=b,b=t; ,,, will work fine 
+	
+	
+6- watch out the ; 
+
+
+		#define cir(r) (3.14*r*r);
+
+		int main()
+		{
+
+		 float r=1.0;
+
+		 if(cir(r)==6.28)   // if ((3.14*1*1); == 6.28) ,, ERROR 
+			printf("ay7aga");
+
+
+
+		}
+		
+		
+		// error 
+		
+		
+7- int in preprocessor = replacement 
+
+	#define print(int) printf("%d",int);
+
+
+	int main()
+	{
+		int x = 5;
+
+		print(x);
+
+
+	}
+
+	// will print 5 , no problem 
+	// int keyword in compilation not in preprocessor
+	
+
+8- 
+	#define print(int) printf("int= %d",int);
+
+
+	int main()
+	{
+		int x = 5;
+
+		print(x);
+
+
+	}
+
+	// will print int = 5 , no problem it's in string not argument
+	
+	
+9- modifiy 8 to prient x=5
+
+	#define print(int) print(#int"%d =",int);
+	
+	
+10-  
+     ****** multi-line problem *******
+	
+	#define printx(x,y) printf("%d\n",x); \
+				    	printf("%d",y)
+
+
+	int main()
+
+	{
+		unsigned int x = -2;
+		char z = *((char *) (&x));
+
+		if(x>0)
+			printx(x,z);
+		else
+			printf("else \n")  ;
+
+	}
+
+
+// error , because replacement will be 
+	if(x>0)
+		printf("%d\n",x); 
+		printf("%d",y);
+		
+	else 
+		printf("else \n");  
+		
+		
+		// lazem t7od { } b3d al if 
+		// al output in {} will be -2 , -2  {1111 1110}
+		
+		// note that : { } in #define ,, 
+			fel replacement hykoon 
+			{
+			
+			};
+			
+			else // still error ,, because ; is a statement between if and else 
+			
+		•• ansb 7l ink t3ml { } b3d al if 
+		•• another solution : do while(0) ,
+			do
+			{
+			
+			}while(0) // howa hyna hydeef ; 
+		
+		
+11- 
+		#define x z
+		#define z 10
+
+		int main()
+
+		{
+			cout(x); // 10 3adii ,, 
+		}
+		
+		
+		// sheel kol x w 7od z 
+		// sheel kol z w 7od x ,, 
+
+
+12- 
+
+	**** you can use #define twice ,, but gives you warning ****
+
+		#define x 10
+		
+		int main ()
+		{
+			#define x 20 // mn 2wl hena hyt3aml 3ala inha 20 ,, not error 
+						 // it's prefer to use undef 
+		}
+
+#########################################################################################################
+	
+13- 
+
+	define macro that return content of address and go to next address by 2 in one line 
+	
+	#define ptr *((ptr+=2)-2)  // assign first , then substarct and deference 
+	
+#########################################################################################################
+
+14-  int x = 4;	
+	 float a = 3.14;
+	 char ch ='A';
+	
+ 	 how to print using only one macro 
+ 	 debug: x = 4
+	 debug: y = 3.140000
+	 debug: ch = A
+	
+	
+   	solutions 
+ 	
+ 	#define DEBUG(int,fmt) printf("DEBUG:"#int " = " #fmt"\n",int)
+	
+	// #fmt = "%d" ,, hya nfsa btb2a string
+
+
+	int main()
+	{
+	int x = 5;
+	float y = 3.14;
+	char ch = 'A';
+	DEBUG(x,%d);
+	DEBUG(y,%f);
+	DEBUG(ch,%c);
+
+	}
+
+
+15- Variable lentgh of arguments in macros 
+
+
+	#define print(...) printf(__VA_ARGS__)
+
+	int main()
+	{
+
+	print("loool"); // tmaam 
+	}
+
+
+	// second type 
+	
+	
+	#define print(a,...) printf("%d " #__VA_ARGS__,a)
+
+	int main()
+	{
+
+
+		print(5, integer); //5 integer
+	}
+
+
+
+
+########################################################################################################
+
+16- create difinition of function using macros 
+
+	#define make_fun(return_type,name,argument_type) return_type name(argument_type x) {return x*x;}
+
+	make_fun(int,fun1,int); // note that the definition of function is global ,, can't be local 
+	/*
+
+	int fun1(int x)
+	{
+		return x*x;
+	}
+
+	*/
+
+	int main()
+	{
+
+
+		cout(fun1(5)); // 25 
+	}
+	
+
+########################################################################################################
+
+17 - can't use #define struct Student st 
+
+	3shan al space 
+	
+	
+########################################################################################################
+
+18- #define str "hello World" 
+
+	// will work fine ,, 
+

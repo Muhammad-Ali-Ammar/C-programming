@@ -1,0 +1,12 @@
+    uint32_t  u32 = 1000;
+uint64_t  u64 = 1000;
+int64_t s64 = -1234567;
+ int64_t     value = s64/u32;
+printf("%lld\n", value);
+value = s64/u64;
+printf("%lld\n", value);
+
+
+
+/* first no problem */ 
+/* second = issue */ 

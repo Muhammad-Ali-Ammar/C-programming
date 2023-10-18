@@ -1,0 +1,22 @@
+1- log (10) (x)
+
+
+log 100 = 2 
+log 1000 = 3 
+
+
+f nta momkn t7sb 3dd al digits 
+
+int x = 5564; 
+
+int NumOfDigits = log(10)( x) +1 ;
+
+
+
+2- log (x)  ( base 2 ) 
+
+bt3rf msb of 1 in binary number 
+001010 ,, first 1 is at 3 digit 
+
+log(10) = 3 
+

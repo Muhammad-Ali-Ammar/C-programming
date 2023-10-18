@@ -1,0 +1,65 @@
+-- int x = abs(-5); // x= 5 
+	
+	// manual : 
+	
+	  int x = -5;
+
+	  int y = ( x>>(sizeof(x)*8-1 ))? (~x +1) : x;  // to get negative of a number --> 2's complement
+
+	  cout(y); // 5
+	  
+	  
+
+-- double floor (double x) 
+	
+	// gets smallest-closet int of the number  
+	
+	floor(5.9); // 5 
+	floor(5.1); // 5 
+	floor( -5.6) // -6  ( -5 or -6 ? the smaller ) 
+	
+	
+-- double ceil (double x) 
+	
+	// gets largest-closet int of the number 
+	
+	
+	ceil(5.9); //6 
+	ceil(5.1); // 6 
+	ceil(-5.6); // -5 (-5 or -6? the largest) 
+	
+
+-- double round ( double x) 
+   float roundf (float x)
+   long double roundl(long double x) 
+	
+	round(5.9); //6 
+	round(5.1); // 5 
+	round(-5.6); -6 
+	round(-5.4); // -5 
+	
+	
+-- int rand(); // return 0 : RAND_MAX 
+			  // RAND_MAX varies but it's granted to be at least 32767 
+			  
+	cout(RAND_MAX); // 32767
+	
+	
+	•• how to get random value between range 
+	int r=  (rand % (MAX-MIN+1)) + MIN; 
+	
+	
+	
+	note that : 2wl mara al random value is 41 
+			    to change it, use srand() first 
+				
+				
+				void srand(unsigned int ) ; // returns void, but it's the starting point to rand 
+				
+				srand(5); 
+				rand(); // different value from 5 
+				// default of srand (using rand without srand) is 1 
+				
+				
+				srand(1);
+				rand(); //41 

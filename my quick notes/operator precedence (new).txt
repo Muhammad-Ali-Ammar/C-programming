@@ -1,0 +1,18 @@
+int main()
+{
+
+    int a = 10,b=5,c=5;
+    int d= b+c == a;
+    cout(d);
+
+}
+
+
+
+
+
+
+/// answer is 1 ///
+
+// + is higher than ==
+

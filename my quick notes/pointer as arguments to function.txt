@@ -1,0 +1,75 @@
+-- example 1 
+
+	int func (int *ptr1)
+	{
+	int b = 5;
+	ptr1 = &b;
+
+	}
+
+
+
+	int func2 (int *ptr2)
+	{
+	int b = 6;
+	*ptr2= b;
+
+	}
+
+	int func3(int **ptr3)
+	{
+	int b = 10 ;
+	*ptr3=&b;
+	
+	}
+
+
+	int main ()
+	{
+	
+		int *ptr, a = 1;
+		
+		func(ptr);   // *ptr stril = 1
+		func2(ptr);  // *ptr = 6 now ;
+		func3(&ptr); //  *ptr = 10 now ;
+		
+	}
+	
+	
+	1- in func 1 ,, ptr1 is copy to ptr ,, howa pointer beshawer 3ala nfs al 7aga 
+		b3d kda meshii b2a byshawer 3ala 7aga tani lwa7do ,, al tanii still zy ma howa
+		
+	2- in func2 ,, ptr1 copy ,, al atneen byshawroo 3ala nfs al 3nwaan ,, f lma bt3ml access 
+		fa nta kda asrt 3ala al asly 
+		
+	3- ba3t 3nwaan al ptr ,, * ptr 3 = ptr al aslya ,, *ptr3 = &b ; fa kda still tmam w hatnf3 
+		
+		
+		
+-- example 2 
+
+	void fun1(char*s1 , char*s2)
+	{
+		char* temp;
+		temp = s1;
+		s1= s2;
+		s2=temp;
+	}
+	
+	
+	void fun2 (char**s1, char**s2)
+	{
+		char**temp;
+		temp=*sr1;
+		*s1=*s2;
+		*s2=temp;
+	}
+	
+	int main ()
+	{
+		char *str1 ="hi", *str2 = "bye";
+		fun1(str1,str2);  // still hi , bye
+		fun2(&str1,&str2); // bye ,hi 
+	}
+	
+	}

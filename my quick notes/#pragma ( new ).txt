@@ -1,0 +1,94 @@
+•• it varies from one compiler to another 
+	if the compiler doesn't recognize particular pragma , it simply ignores it without showing any errors ( just a warning or a hint that it ignores)
+	and execute whole program assuming that pragma doesn't exist 
+
+
+•• msh bttshal fel preprocessor step ,, fel linker 
+####################################•• usages :########################################################
+	
+ 
+1- for packing 
+
+
+#pragma pack(1)  // = struct tag __attribute__((packed)){
+
+														};
+
+-- inta bt2olo in memory size kam 
+-- m3naha y3ml access byte byte ,, lw memory width kan 2 byte , fa da kda wi7sh 
+	for all memory , not only structure 
+	
+-- not perferable to use it 
+
+
+-- int 4 bytes,,, hygeeba 3ala 4 maraaaaaaaaat ,, ya5tiiiiiiii
+
+
+
+###################################################################################################
+
+2-  you can make optimization off 
+
+3- dissable warnings 
+
+###################################################################################################
+
+4-  you can use it to make the program start at another function rather than the main or in the end after the main done 
+	
+	((((( but it's not supported in GCC compiler ))))
+	
+	
+
+
+	-- #pragma startup function_name [prioity] ,,, to start before main 
+	-- #pragma exit function_name [prioity]    ,,, to be called after main 
+	
+	
+		•• prioity is optional 
+		•• it varies from 64 to 255 (( 0:63 reserverd for c libiries))
+		•• default prioity is 100
+		
+		•• in setup,, lower value = higher prioity = execute first 
+		•• in exit ,, higher value = higher prioity = execute first 
+		
+		
+		
+			void func1();
+			void func2();
+
+			#pragma startup func1 120
+			#pragma startup func2 
+			#pragma exit func2
+			#pragma exit func1 120
+
+			int main()
+			{
+
+
+				couts("in main\n");
+
+			}
+
+
+			void func1()
+			{
+				couts("in func1\n");
+			}
+
+
+			void func2()
+			{
+				couts("in func2\n");
+			}
+			
+			
+			// output is 
+			
+			/*
+				in func2
+				in func1 
+				in main 
+				in func1
+				in func2 
+	
+			*/

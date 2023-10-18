@@ -1,0 +1,52 @@
+0- floating point = real numbers
+
+1- 0.7 ,, da double msh float  
+   0.7f ,, da float kda 
+   
+   
+   
+2- float a = 0.1;
+	if(a<0.1) printf("ay7aga"); 
+	
+	
+	blf3l hytb3 ,, 
+	(float<double) , double more preceission , 
+	
+	
+	In float 
+	=> (0.1)10 = (0.00011001100110011001100)2
+	
+	
+	In double without promotion ... (2)
+	=> (0.1)10 = (0.0001100110011001100110011001100110011001100110011001)2
+	3shan msh base 2 ,, fa bykrr 
+	
+	
+	to solve it 
+	
+	if(a<0.1f) 
+	
+3- lw mfesh FPU ( floating point unit ) , how to calculate floating point operations ? 
+	-- using software library , code size bykbr 
+	
+4-  float       = 4 bytes  = 6  decimal places
+	double 		= 8 bytes  = 15 decimal places
+	long double = 10 bytes = 19 deciaml places 
+
+
+5- signed float x; // Error 
+
+-- IEEE calculator online 
+	https://www.h-schmidt.net/FloatConverter/IEEE754.html
+	
+6  - float f1 = 22.442e2; // 10^2 
+   - float f1 = 22.442e-2; // 10^-2 
+   
+   
+7-  Floating point has a precision of 6 digits 
+	double is 14 digits.
+	
+	Precision describes the number of significant decimal places that a floating values carries
+	
+	
+8- double = double in size 

@@ -1,0 +1,380 @@
+-- usage of function : 
+	
+	-- reuseability at different places of the code 
+	-- easier in maintaince and debugging 
+	-- infomation hiding .. giving paramters and receive output ( black box ) 
+
+
+1- msh shart t3rf al type bya3 al return 	
+		main()
+		{
+		
+		}
+		
+		// works fine 
+
+ 
+ // al defult btaa3 al return int type 
+
+	•• 
+		test()
+		{
+			return 5;
+		}
+		 
+			// works fine 
+			
+	
+	•• lw msh kateb return value ,, hy3ml return random value 
+		test()
+		{} 
+		
+		
+		
+	•• momkn t3ml cast lel return 
+	
+	int func () 
+	{	
+		return 5;
+		
+	}
+	
+	int main ()
+	{
+		(void) func(); // kda msh hy3ml return 
+	}
+	
+2- 
+
+	void fun()
+	{
+	printf("ay7aga");
+	}
+	
+	
+	
+int x = fun(); // error ,, because it's void
+
+
+
+3-
+
+	int fun()
+	{
+		printf("ay7aga");
+		
+		return 5;
+	}
+	
+	
+	
+fun();  // fine ,, msh shart tstlm al return ,, zy maslun if(!eof( ) ) ; 3ayz tstlmo peace
+
+
+4-
+
+	int fun()
+	{
+	  printf("ay 7aga");
+	  // no return  ,, byrg3 value random or garabge 
+	} 
+	
+	
+5- 
+
+	void func (void)
+		{
+			printf("ay7aga");
+		}
+
+	int main()
+
+	{
+
+		func(5);
+
+	}
+	
+	// error , too many arguments 
+	
+6- 
+
+	int main()
+	{
+
+		void f();  // declartion 3adi i
+		f();
+
+		return 0;
+	}
+
+
+	void f(){printf("ay7aga");}
+	
+	
+	// gonna print ay7aga 3adi 5als 
+	
+	
+
+7- ternary with return 
+
+
+    return( a>20? 5:6);  // it's fine 
+
+
+ x > y ? printf("%d", z) : return z ; // it's error 
+
+
+
+
+9- recusion is hard in dubeggung 
+   -- takes much memory and might occur stack overflow 
+   -- hard to read and to understand 
+
+
+10- implcit function momkn ykoon t7t al main 3adii 
+
+
+	int main()
+
+	{
+		printx();
+	}
+
+
+
+	void printx()
+	{
+		printf("lol");
+	}
+
+11- what happens when calling a function 
+
+	•• calling function = context switching 
+			return from fucntion = recovery context switching
+
+	•• main calls func1 (int x );
+	 
+		### calling function ### 
+		
+	at stack creates a frame of func1 
+	
+	1- parameters (x) ,, created by main ( caller) 
+	2- link register ( return address to main )  ,, created by func1 
+	3- frame pointer (frame pointer =start of the frame ) ,, created by func1 
+	4- cpu registers (saved old ones to use them at the callee function ) ,, created by func1 
+	5- local variables of the function 
+	6- sp grows ba2a 
+	
+	### returning from function ### 
+	
+	btsheeel  mn t7t le foo2 
+	1- delete local variables
+	2- store old values of registers to registers
+	3- 
+	4- pc = link register 
+	5- delete parameters 
+	
+	
+	
+12- what's the private function ? 
+	-- private function : static void func() { //..code..}  ,, means no one can see it 
+
+
+13- the useage of functions 
+	1- resue of the same code ( reduce size of code ) , or to another project  
+	2- moduality ( bt5leeh 3obara 3n modules , fa sahl maintainability)
+	3- readability and abastraction 
+	
+14-  •• invoke = calling al function 
+	 •• signature = al arguments ( al return type mlhoosh da3wa bl mawdoo3 ) 
+								 fun (int , int ) 
+								 fun2( int ,float ) // different signature kda 
+								 
+	
+15- who calls main function 
+	1- if desktop = OS
+	2- embedded system = bootloader = startup code 
+	
+	
+16- what is formal arguments vs actual arguments
+
+
+	•• Formal arguments  = parameters
+    	da al arguments fel declaration or defination 
+	
+		void func ( int x )   // formal arguments
+		{
+		
+		}
+		
+	
+	
+	
+	•• actual arguments 
+
+	 da lma bt3ml call fel main maslun
+		func(5);  // actual arguments	
+		
+
+
+17 - mfeash default paramter ,, da fel c++ 
+
+	void func(int x=6)
+	{
+		cout(x);
+	}
+
+
+18- note that void * func() vs void func()
+	void * = btrg3 pointer to void
+	void   = msh btrg3 7aga
+	
+			
+		void *get_int()
+		{
+			int x = 5;
+
+			void *ptr = &x;
+			return ptr;
+		}
+
+
+		int main()
+		{
+			int*ptr=get_int();   // here explict cast is done
+			cout(*ptr);  // 5 
+
+		}
+
+
+19- array of char as argument 
+
+		int main()
+		{
+
+		  func("looooool"); // works fine 
+		}
+
+		void func( char name[])
+		{
+			puts(name);
+		}
+
+
+
+20- print name of function 
+
+	printf("%s",__FUNC__);
+	
+	
+	
+21- lw katb prototype w msh katb al implementation = linker error 
+
+22- yosta7sn in ykoon 1 return in function 
+
+	if kza 
+		return 
+	else 
+		return kza 
+		
+	da msh 7lw ,, 5lii  just 1 return 
+	
+	
+23- by defult , functions are extern 
+	
+	static int fun( ) { } ; // static , can't be seen by other files 
+	
+24- Argument name in the function prototype is optional, only the argument type is a must.
+
+	
+	short myFunc(char);
+	
+25- there are two methods for passing parameters for a function : ??? msh 3arf a da lesa 
+	
+	-- Stack 
+	-- register 
+	
+	
+26- lazm t3ml declaration lel function before calling it except fe 7ala dii 
+	  : in ykoon al arguments int or mfeesh --> hy3ml implicit declaration .. 8eer kda error 
+	  
+																						 
+	  int main()					•			int main ()                              •     int main ()
+	{								•		{                                            •	{
+									•                                                    •		int x = fun(5.6); // error , floating type in formal argument
+	   int x= fun(10.0); // fine 	•			int x = fun(); // fine because empty     •
+	}								•		}                                            •	}
+									•                                                    •
+									•                                                    •
+									•                                                    •
+	int fun(int a)					•		int fun()                                    •	int fun(float x) // here's the reason 
+	{								•		{                                            •	{
+		return 5;					•			 return 5;                               •			return 5; 
+	}								•		}                                            •	}
+	
+	
+	
+27- which order functions  would be called .. 
+	int a =f1(23,14)*f2(12)+f3(); 
+	
+	-- it's undefined , not like normal arthmatic 
+	
+	
+28- as long as the variable is global, all functions can see it 
+
+
+	
+
+	void func();  // declared  before the declaration of the global variable 
+	int x = 5;
+	
+	int main()
+	{
+
+		func(); // works fine 
+
+	}
+
+	void func()
+	{
+		cout(x);
+	}
+
+
+
+
+
+	void func();  // declared after the declaration of the global variable
+	void func()
+	{
+		cout(x);
+	}
+
+
+	int x = 5;
+
+
+	int main()
+	{
+
+		func();  // error 
+
+	}
+
+
+
+29- void func ( int arr[5] );
+	
+	// size of the array is not required (int arr[] )
+	// if it's included, the compiler checks that it's not negative, otherwise, works properly 
+	
+		void func ( int arr[0] ); // fine 
+		void func (int arr[-1] ); // compiler error 
+		
+		
+30- if you want to pass array by value, not by reference 
+	
+	1- put it into structure 
+	2- pass it element by element 
+		func (arr[0] ); // copy not reference 

@@ -1,0 +1,25 @@
+-- C has 4 kinds of scopes:
+
+
+		1- function scope 
+			// main () {  }
+
+		2- block scope  
+			// switch , for loops or compound block 
+			
+			{
+			int x = 5;
+			}
+			
+
+		3- file scope  
+			// global variable maslun 
+			
+	
+
+
+			
+		4- function prototype scope 
+			// formal arguments ,
+			
+			int f(int n,int a[n]); // n is in scope and refers to the first parameter

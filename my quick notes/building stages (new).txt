@@ -1,0 +1,205 @@
+	preprocesoor --> compiler --> aseembling --> linking --> loading  (flashing on microcontroller)
+.c--> [preprocesoor] .i(intermediate) --> [compiler].asm -->  [aseembling] .obj --> [linking] .ELF and .dwarf --> [loading] .exe or .  (flashing on microcontroller)
+
+1- preprocesoor : = tranlsation unit 
+
+-- anything with # are replaced  ( except #pragma , # (space) = by2olk al directory bta3 kol library  ) 
+-- merge continued line '\' .. 
+	printf\
+	("Hello World ");
+	
+-- remeove any comments 
+-- .c to .i  ( source code to intermediate file ) 
+-- if 3 files .c ,, will generate 3 file.i,, any .h will be replaced
+-- gcc -E file.c -o out.i   (comand line)
+-- cpp file.c > file.i  ((cpp == channel preprocesoor)
+-- gcc -E -P file.c -o out.i (command line ) ,, hyshel #space ,, 
+
+
+2- compiler : 
+
+-- c code to assembly code (.s)
+-- .i to .s  (intermediate file to assembly)
+-- if 3 files .i ,, will generate 3 file.asm... 
+-- generate virtual and symbol table
+-- gcc -S file.c -o out.asm
+
+
+## 3 compilation stages before assembly code ,, (front-end, middle-end, back-end) ## (look at 5 types of error file ) 
+
+•• compilation process ( file.i is input , [ remove spaces , tokens , parsing ], [semantic, optimization] , to assembly(local) + generate virtual and symbol table(global va ) 
+										   [
+	
+
+-- compiler is target dependant 
+
+
+3- assembly
+
+	-- assembly to object files ( relocatable object file ) 
+	-- each file are object files now 
+	-- .s to .obj 
+	-- gcc -c file.c -o out.o
+
+	## object file contains ( .bss , .ds, .rodata,.reloc,.txt,debug info, export, import ) 
+		•• export : y3ni nta 3amel function hatdeeha le file tani ( provided ) , variables
+		•• import : y3ni nta m7taag function , variables 
+			bi5tsaar al symbol table 
+		
+		•• .reloc : stores info required for relocating the image while loading 
+
+	## msh hat3rf t2raah lw ft7to using notepad++, fe tool ismaha objdump.. byfok al shafra dii w 
+		w bt3rf tshoof al symbol table 
+
+
+
+	object File has  : 4 section ( name, content, logical address, length )  
+		
+		1- .text 
+			code 
+			
+		2- .data 
+			initialized global and static variable 
+			
+		3- .bss 
+			uninitialized global and static variable
+			
+		4- .rodata 
+			read only data 
+
+ 
+	
+################################################################################################################################
+
+4- linking
+
+-- linking all object (files) to one executable code 
+-- .obj to ((.ELF )) = executable loctable/linkable format or ((.DWARF)) = qzm or so8yer, .bin,   (.exe for computer ) or (.hex for uC) 
+-- it generates 2 files ( exe and map) 
+-- gcc file.c -o out.exe
+
+-- compile will generate logical/virtual addresses for memory segments ( stack and so on ) 
+		linker will map it to physical addresses using LMA(load memory address ) and VMA (vertuial memory addresses)
+
+-- kol file hyb2a leeh variables bta3t .bss maslun,, al linker hy7ot kol da fe .bss wa7d bs 
+	w by3ml al 7dood bta3t kol segment of memory 
+
+
+
+
+-- there are 3 types of linkage ( external , internal , none ) 
+
+-- what stage to give hex file ? 
+	after linker 
+
+-- .elf msh hat3rf t2raah bardo,, lazem ta7wilo to .exe 
+
+
+..••Linker steps ••.. 
+
+	1- symbol resolution using symbol table (byshoof ay import w bydor 3ala provided bta3ha) 
+		•• every needed object is provided in another one --> undefined reference to ... 
+		•• every provided object is provided only once 	  --> multiple declaration of .. 
+		
+	2- join (files)  text codes with each other
+	
+		// start-up code 
+	3- section location in memory ( ram or rom ) 
+	4- intialization data (copied to ram  from rom " shadows values") on start-up
+
+..•• external vs internal vs non linkage ••..
+
+	## external linkage : if there was extern variable ,global ,function 
+	## internal linkage : if there was static variable 
+	## none linkage : nothing ( neither external nor static ) 
+
+	note that : static local variable ( not global ) such as inside functions or class : is none linkage
+			  
+
+
+•• linker error :   multiple defination  .. 2 x and used extern (which one ?) 
+				    :   undefined reference to x  ... used extern x , and there's no x in other files  
+					:	in-sufficent memory 
+
+
+•• linker control : to control linker by command line or LCF (linker control file ) 
+				  : btt7km hardware memory section located  ( physical ) 
+
+•• some notes : 
+	linker is writing by scripting language ( not assembly ) 
+	linker script msh byt7t 3ala microcontroller 
+	linker script is the configuration for linker 
+	
+	startup file written in assembly
+	startup byt7t 3ala microcontroller
+	
+	
+	-- linker is independant target, but linker script is target dependant
+	-- each linker has different script language 
+	
+•• why copy data from .data from ROM to RAM ? 
+	because it's faster in access 
+
+••	why we put that into rom first then copited to RAM ? 
+    because after powering off ,, the initial value backs again .. 
+
+
+•• can .text copied to RAM ? 
+	yes , it will be von-neuman ... bandwidth will be slow .. DATA and CODE
+
+•• functions declaration doesn't take up any space :
+
+	  lw feeh file.c feeh 10 functions ,, w nta ast5dmt 1 function of it 
+	  al compiler lma by3ml symbol table ( import , export ) -->al linker hy5od al function dii bs 
+	  enma other 9 functions , msh hya5do size, and sure the variables don't take any space up in the stack yet 
+	  
+•• does linker do optimization ? 
+	yes, remove unrequired variables, function lw mat3mltsh call bttshal and so on,
+		but it understands that ISR would be in specific location ( not deleted )  
+		you can use __attribute__(use) void func(){  }; 3shan mattshalsh lw m7dsh 3amlha call (code in 3arabya msh 3ayzo ytms7, and used if the custmor paied ) 
+	
+	note that : there are 2 optimizers 
+			1- in compiler 
+			2- in linker 
+			
+••   map file is output of linker 
+	 linker script is input into linker
+	 
+		-- Allocatable section : section will remain in Flash (.text, .rodata)  using LMA (load memory address ) 
+		-- loadable section    : section will be loaded from flash in RAM ( .bss, .data ) using VMA (virtual memory address)
+
+
+
+•• example of linker script 
+	https://www.youtube.com/watch?v=V5E9-qQX5tk&t=232s
+	
+	
+•• linker script in ARM 
+	
+	-- momkn t8yer fel memory 
+		  FLASH (rx) : ORIGIN = 0x08000000, LENGTH = 64K  --> momkn t5leeha 32K 
+			
+			lw 3da al memory dii --> hy2olk insufficient memory , m3 ino fel 7a2e2a fe mkan 
+
+################################################################################################################################################		  
+5- loading : 
+	-- flashing on microcontroller ( burning ) 
+	-- .hex vs .bin vs .elf 
+		
+		-- .bin = data only that burns on uC
+		-- .hex = .bin + extra info such as addresses and so on 
+		-- .elf = .bin + extra info for debugging 
+		
+		
+		
+##############################################################################################################################
+
+•• to compile 2 files and merge them in one file
+
+	gcc file1.c file2.c -o out.exe
+	
+•• gcc --help  ,,, feeh kol al commands of GCC ( gcc - o w kol da ) 	
+	
+##############################################################################################################################
+IDE = integrated development environment 
+	 = tranlsation unit + compiler + assembler + linker + loader 

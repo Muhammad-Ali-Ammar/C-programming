@@ -1,0 +1,303 @@
+-- just 1 variable , but use bits of it 
+
+typedef struct port
+{
+    unsigned char pin0:1;
+    unsigned char pin1:1;
+    unsigned char pin2:1;
+    unsigned char pin3:1;
+    unsigned char pin4:1;
+    unsigned char pin5:1;
+    unsigned char pin6:1;
+    unsigned char pin7:1; // lw 3mlt  3 bits ,, hydeek error exceeded memory  
+} PORT;   // kolohm just 1 char 
+
+
+
+int main()
+{
+
+	PORT A ;
+	A.pin0=0;
+	A.pin7=8;
+
+	cout(A.pin7);  //100(0)   = 0 
+	
+	
+
+		return 0;
+}
+
+--------------------------------------------------------------------
+
+// can't make arr[] in struct 
+
+
+struct sData
+{
+    unsigned int a: 2;
+    unsigned int b[5]: 2;  // error 
+};
+
+
+ -- int or char or short .. 
+ -- it can't be array , nor float , nor double 
+
+-------------------------------------------------------------------------
+•• you don't have to name each bit-field 
+	An unnamed bit-field may be of any size, but they can't be initialized or referenced.
+
+
+
+struct status_type
+{
+	
+	unsigned char :4;
+	unsigned char cts:1;
+
+}status;
+
+
+
+  A special unnamed bit field of size 0 is used to force alignment on next boundary. For example consider the following program.
+  
+  #include <stdio.h>
+ 
+	// A structure without forced alignment
+	struct test1 {
+		unsigned int x : 5;
+		unsigned int y : 8;
+	};
+	 
+	 
+		// A structure with forced alignment
+		struct test2 {
+			unsigned int x : 5;
+			unsigned int : 0;        // be5lii next bit field yb2a from boundary 
+			unsigned int y : 8;
+		};
+	 
+	int main()
+	{
+		printf("Size of test1 is %lu bytes\n",
+			   sizeof(struct test1));   // Size of test1 is 4 bytes
+
+		printf("Size of test2 is %lu bytes\n",
+			   sizeof(struct test2));  // Size of test2 is 8 bytes
+
+		return 0;
+	}
+
+-------------------------------------------------------------------------
+-- mynf3sh tgeeb address of bit field ( pointer ) ... &obj.b0 = error 
+	because one address can hold many variables (1 bit, 2 bit of other variable)
+-------------------------------------------------------------------------
+
+•• it's valid to mix normal data types with bit-field
+
+	struct tag
+	{
+		short int  x;
+		
+		unsigned char b0:1;
+		unsigned char b1:1;
+		unsigned char b2:1;
+		unsigned char b3:1;
+		unsigned char b4:1;
+	
+	}obj1;
+	
+	
+	cout(sizeof(obj1)); // 4  muda3fat al short 
+	
+	
+•• note that : 
+	
+	typedef struct port
+	{
+		 unsigned int d:5;
+		 unsigned int m:4;
+		 unsigned int y;
+	} PORT;
+	
+		// sizeof(port) is 8 not 4 
+		
+		
+	unsigned int y:32-5-4; 
+	//sizeof(port) is 4 now not 4 
+-------------------------------------------------------------------------
+
+************** bitfield with union in Embedded System ************ 
+			           struct in union
+ 
+	
+		typedef union
+		{
+			struct
+			{
+				char b0:1;
+				char b1:1;
+				char b2:1;
+				char b3:1;
+				char b4:1;
+				char b5:1;
+				char b6:1;
+				char b7:1;
+			}bit;
+
+			char byte;   // same location of bit 
+
+		}port;
+
+
+		int main()
+
+		{
+			port a;  // a has 2 member (bit , byte ) 
+			
+			a.byte=7;
+			cout(a.byte);  // 7 
+			a.bit.b0=0;
+			cout(a.byte);  // 6
+		} 
+
+-------------------------------------------------------------------------
+		**** bit array using bit field ***
+		
+-- bit array , y3ni kol element 1 bit 
+
+
+		typedef struct port
+		{
+			unsigned char pin0:1;
+
+		} PORT;   // kolohm just 1 int
+
+
+
+		int main()
+
+		{
+			PORT x[5];
+
+			cout(sizeof(x));   //5 
+		}
+
+
+	// bit field msh by3ml padding
+	// 5 * 1 = 5 bytes ( not bits ) 
+		
+		
+		
+		
+---------------------------------------------------------
+
+-- Bit fields should only be declared with explicitly signed or unsigned integer type ,char ,, //  Other types may or may not be legal 
+
+-- You cannot know, from machine to machine, whether the fields will run from right to left or from left to right;
+		have some machine dependencies
+		
+--------------------------------------------------------------------
+// unsigned = unsigned int 
+
+
+typedef struct port
+{
+     unsigned ch:1;
+} PORT;
+
+
+int main()
+{
+
+    cout(sizeof(PORT)); // 4 
+    
+}
+
+
+
+
+---------------------------------------------------------
+
+
+	typedef struct port
+	{
+		signed char pin0:1;
+		unsigned char pin1:1;
+		signed char pin2:1;
+		signed char pin3:1;
+		signed char pin4:1;
+		signed char pin5:1;
+		signed char pin6:1;
+		signed char pin7:1; 
+	} PORT;   
+
+
+	int main()
+	{
+
+		PORT A;
+		cout(sizeof(A)); // 1 
+	}
+
+
+
+
+----------------------------------------------------------------------
+
+	typedef struct port
+	{
+		signed char pin0:1;
+		unsigned int pin1:1;
+		signed char pin2:1;
+		signed char pin3:1;
+		signed char pin4:1;
+		signed char pin5:1;
+		signed char pin6:1;
+		signed char pin7:1; 
+	} PORT;   
+
+
+	int main()
+	{
+
+		PORT A;
+		cout(sizeof(A)); // 12 
+		//4 first char 
+		// 4 int 
+		// 4 for second char 
+	}
+
+
+----------------------------------------------------------------------
+
+typedef struct port
+{
+    signed char pin0:1;
+    signed char pin1:2;
+    signed char pin2:1;
+    signed char pin3:1;
+    signed char pin4:1;
+    signed char pin5:1;
+    signed char pin6:1;
+} PORT;   
+
+
+int main()
+{
+
+    PORT A;
+    A.pin0 = 1;
+    A.pin1 = 1;
+    cout(A.pin0); //-1
+    cout(A.pin1);  //1
+}
+
+
+
+// byt3aml signed --> 2's complement 
+// pin1 --> is equal to 1 --> 01--> extension is 000000000000001 
+// pin0 --> is equal to 1--> 1  (ally hya sign bit )--> extension is 1111111111111 = -1 
+
+
+//that's why unsigned is used 

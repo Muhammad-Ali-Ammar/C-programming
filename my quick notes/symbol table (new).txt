@@ -1,0 +1,61 @@
+-- symbol table : da table by3mlo al compiler by3rf feeh maslun x , address , value 
+					w bysa3d lel linker bywad7 lw fe 7d 3ayz 7aga ( global and private symbols ) 
+				
+
+
+
+-- kol file has its own symbol table 
+
+
+
+file1.c :                              file2.c :                                main.c
+
+void func1(); // prototype   		  void fun1()								void func1(); // prototype
+int x = 5 ;                             {										
+												
+										// implementation 		
+										
+										}
+										
+										extern int x ; 
+										static int y; 
+										
+										
+
+--------------------------------- Symbol Table ---------------------------------
+
+									
+func1() : needed 				 func1() : provided							func1(): provided
+x 		: provided 				 x 		 : needed 						 	
+
+
+
+note that : 
+			•• provided bydeeha 
+			•• needed : 3ayzha mn 7d bykoon provided : such as x 
+			•• static variable : msh byt7ad fel symbol table 
+			•• inline function : msh byt7ad fel symbol table
+			•• lw 3ndk needed ,, 2 provided mn nfs al 7aga = linker error = multiple-defination 
+			•• lw 3ndk needed ,, 0 prototype mn nfs al 7aga = linker error = un-defined variable 
+			
+
+
+
+		    •• functions declaration doesn't take up any space :
+
+				  lw feeh file.c feeh 10 functions ,, w nta ast5dmt 1 function of it 
+				  al linker lma by3ml symbol table ( import , export ) --> hy5od al function dii bs 
+				  enma other 9 functions , msh hya5do size 
+				  
+				  
+			•• symbol table : 
+				-- provided / needed 
+				-- name and value 
+				-- logical address 
+				-- size 
+				-- line number ( for debugging purpose ) 
+
+https://www.geeksforgeeks.org/symbol-table-compiler/
+
+
+-- static Doesn't show up in Symbol table 

@@ -1,0 +1,3 @@
+A breakpoint is a point in the program where the code will stop executing.
+The breakpoint would force the algorithm to stop running each time the loop reaches line 5.
+ 

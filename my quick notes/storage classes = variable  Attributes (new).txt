@@ -1,0 +1,145 @@
+there are 4 types of storage classes  = variable  Attributes ( scope + visiblity)
+
+1- auto 
+2- static = data hiding
+3- extern = data sharing 
+4- register 
+
+
+
+1- auto : default bta3 declaration 
+	 -- int x = 5;  = auto int x = 5; ( local variable , in stack ) 
+	 -- can't be used with global , because it's stored in stack only not bss or ds 
+
+2- static (3 things : global , inside function , inside class ) "" can't be used inside struct "" 
+
+	-- in function ,, only declared one time 
+	-- in class ,  one variable for all objects 
+
+	-- global static means the visiblity of the variable on this file one 
+
+	-- unintialized static variable = 0 , even if they are arrays elements 
+	-- you can't initialize it by variable ( static int x = y; // error ) 
+		
+		static int x = 5;
+		
+		x = y; // tmaam , just only the initialization
+	-- can't be used inside struct 
+	
+	-- lifetime whole project , msh bymoot 
+	-- private function : static void func() { //..code..}  ,, means no one can see it 
+	-- static Doesn't show up in Symbol table 
+	
+	
+    -- create pointer to volatile int 
+		volatile int * ptr ;
+	
+	-- create volatile pointer to int 
+		int* volatile ptr;
+		
+	-- create static pointer to int 
+		can't be done 
+	
+	-- create pointer to static int 
+	   static int* ptr; 
+
+3- extern : 
+
+	-- maslun 3amel int x = 5; 
+	   fe file tanii ,, t3ml extern int x ; ( bt3ml emtedaat lel x al aslya )
+	   lw 3mtl cout(x)  // hytl3 5 
+	   	lma t8yer fel x, hysm3 everywhere cuz it's global 
+	   
+	-- if int x ;
+	   exter int x ; 
+	   cout(x); // hytb3 zero 
+	   
+	-- no memory , just a mirror 
+	-- can't use extern with static value , static = scope this file only 
+	-- extern of global values only , lw m3rf x in local , w 7awlt t3ml mno extern , hydeek error
+	-- lw 3ndk 2 x in 2 files , 3mlt extern in the third file ? linker error ( which x you want ) 
+	-- you can't assign value during declaration ,, extern int x = 50 ; //Error, some people say it's compiler dependant 
+
+
+4- register : 
+
+	-- variable should be stored in cpu instead of RAM 
+	-- for faster access 
+	-- it's just suggestion for the compiler , doesn't guranteed to be stored in register 
+	-- can't be used with global variable , only with local and arguments of function 
+	-- can't be used with poiners , because pointers points to memory , register doesn't have address 
+		
+				int main()
+				{
+
+					register int x = 5;
+
+					int *ptr = &x;   // error 
+				} 
+
+	-- it's preferable to be
+		: low size 
+		: too many calling 
+		: examples ( index of for loop , )
+
+------------------------------------------------------------------------------------------------
+-- unintialized variable in static and extern = 0 ; 
+
+-------------------------------------------------------------------------------------------------------
+-- al global ,, kol al files shyfaaah bs mat2drsh tst5dmo mn 8eer extern 
+
+	file 1.c 
+	int x=50; 
+	
+	void func() { printf("%d",x); }
+	
+	
+	main.c
+	
+	int x =20;
+	int main ()
+	{
+	 func(); // Error because multiple-definiation 
+			// lw mfesh int x= 20,, w 3mlt x++ hydeek error bardo , lazem extern 
+			// lw 7ateet static int x = 20 ,, kda hytb3 50 3adii, static in main only and no confeussion
+	}
+	
+	
+
+-------------------------------------------------------------------------------------------------------
+remember in c++ 
+
+for(auto i : arr) 
+  
+
+int arr[ ]={1,2,3,4,5};
+for(auto i : arr)
+
+    i*=i;  // 1 , 4 , 9 , 16 , 25 
+ 
+
+-----------------------------------------------------------------------------------------------
+
+you can't use typedef with storage classes 
+
+typedef static int mystatic; // error 
+
+------------------------------------------------------------------------------------------
+
+-- static da mkan fel . data dymn 
+
+int main ()
+{
+	static int i = 5;
+	if(--i)
+	{
+		main();
+		printf("%d",i);
+	}
+}
+
+
+// output is :0 0 0 0 
+	howa just one i in the memory 
+	
+	note that : lw mfeesh static,, infinity recursion = run-time error 

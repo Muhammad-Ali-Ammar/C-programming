@@ -1,0 +1,24 @@
+-- Heap vs Stack ( share same memory ) 
+
+
+
+int main()
+{
+    int x = 5 ;   // stack 
+
+    int *ptr = new int ;  // heap 
+
+    cout<<"stack is "<< &x<<endl;
+    cout<<"heap is "<<ptr<<endl;
+
+    cout<<abs(ptr-&x)<<endl;    
+    
+    
+	
+}
+
+
+
+
+
+2- using data pattern ,, bs m3rfsh a da 

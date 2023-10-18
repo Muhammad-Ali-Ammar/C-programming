@@ -1,0 +1,110 @@
+1- it's good to make the name capital 
+	const int ID = 5;
+	
+	
+2- why use const ? 
+	
+	1- const paremeters called by reference 
+		int find( const int * ptr ,,,) // not copy which mean faster and smaller size but don't change it 
+	
+	
+	
+3- const local variable stored in stack (depends on c tool chain ), can be changed by pointer ,, 
+   const global variable stored in rodata ( flash) , can't be changed by pointer 
+   
+   note that : 
+   
+    const int x;
+    scanf("%d",&x);
+    cout(x);
+   // will work fine 
+   
+   
+4- 2 ways to load data of const ,, int const x = 5; int a = x+x;
+
+	1- ya2ma  hy3ml read from memory 
+	2- ya2mii hy3mel addi ( imeddiate addressing ) , in Arm if const less than 10 bits 
+	
+	
+5- in #define you can change the value of x 
+	
+	#define x 5
+	#undef x
+	#define x 10
+	
+	
+6- const isn't for optimizaiton 
+
+	const int x =0;
+	int y ;
+	
+	for(int i = 0;i<10;++i)
+		{
+		foo(&x) ; // where foo(int *ptr);
+		
+		y +=x;  // msh ha2olk da daymn b zero , w const , fa optimizaiton 
+				// l2n const momkn yt8er using pointer ,, fa msh damn howa 
+				
+		}
+
+
+
+
+7- const indication for compiler only ,, 
+
+
+	int main()
+	{
+
+		const int x= 5;   // low 8yert fe da mubasher = error 
+		const int *ptr = &x; // low 8yert fe da mubasher = error 
+
+		func(ptr);
+		cout(x);  //10 
+	}
+
+
+	void func (int *ptr)     // dlwatii ally shaylo ptr 3adi msh nost 
+	{
+		*ptr= 10;       // works fine 
+	} 
+
+
+
+8- array of const 
+
+   const char name[]="ay7aga";
+   name[0]='s'; // error 
+   
+ 
+9- const int x  = int const x 
+
+10- const int x ;
+	x = 5; // it's compiler error not runtime error 
+	
+	
+	
+11- 
+
+const int print() 
+{
+	return 0;  // will work fine 
+	
+	const int x =10;
+	return x ;  // will work fine 
+	
+	
+	int x = 20;
+	return x; 	// will work fine 
+]
+
+
+
+al return 3adii ynf3 t8er feeh ,, 3alla 7asb hatstlm fe a 
+	
+	int main ()
+	
+	{int x = print();
+		
+		x *=5;  // works fine 
+		}

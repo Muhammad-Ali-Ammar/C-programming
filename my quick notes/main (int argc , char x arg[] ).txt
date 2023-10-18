@@ -1,0 +1,8 @@
+int main ( int argc , char *argv [] )
+
+1- using command line to run the script ( linux maslun , windows ) 
+
+fruit.exe 1 2
+
+-- argc = number of arguments = 3 ( fruit.exe , 1 , 2 )
+-- argv[0] = fruit.exe , argv[1] = "1" ( in string not integer ) 

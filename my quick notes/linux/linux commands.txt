@@ -1,0 +1,17 @@
+•• ls = tree		// btgeeb names of files 
+•• nano main.c  	// byft7 al code 
+
+
+
+
+
+
+•• gcc file_name.c 
+	./a.out       // to run it 
+	
+	or 
+	
+	gcc file_name.c -o output.out
+	./output.out
+	
+•• rm a.out   // to remove it 

@@ -1,0 +1,14 @@
+column must be known
+
+
+
+
+
+1- void fun ( int x [][6] );
+
+2- void fun ( int (*x) [6] ) ;  // note if int *x [6] ; will cause an error 
+
+
+(*x) is a pointer to array of 6 elements 
+
+int *x[6]  , x is array of elements to int pointer 

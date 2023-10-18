@@ -1,0 +1,30 @@
+int main()
+{
+
+
+const int x = 7;
+
+int *p = &x;
+
+*p = 50 ;
+
+
+printf("%d",x);
+
+
+
+
+    return 0;
+}
+
+
+
+****** answer is 50 *******
+
+
+
+notes : 
+
+	-- const global in rodata (ROM , can't be changed)
+	-- const local variable in stack ( RAM , can be changed by using pointer)
+	

@@ -1,0 +1,253 @@
+1- ********* INPUT/OUTPUT ********
+
+	#### gets(name)#####
+	#### puts(name)#####
+	#### fgets(name)#####
+	
+	char str[100];
+	
+	1- gets(str); 			   // lw da5lt atkr mn 100 ,, hy3ml crash
+	2- puts(str);   
+	3- fgets(str,100,stdin); // more safer 
+	4- scanf("%[^\n]s",str); // ly8ater \n ,, bs lw 3da al 100 crash ,, without [^\n] , a5rk space 
+	
+	5-   char arr[]="asdasd";
+		 printf(arr);  // no need for %s 
+	
+	
+
+   // note that , char *name;  in rom noow 
+   //  gets(name); is error ,,can't be changed  
+
+
+	..•• char ••..
+	
+	1- char ch = getche()= getchar();  // 7rf 
+	2- putchar(ch) = putc(ch,stdout); // returns ascii code of char 
+
+
+
+2-  ********* COPY ********
+
+
+
+	#### char * strcpy(dest, source);###
+	// returns pointer to dest 
+	
+	
+	char ch[20]="ay 7aga";
+	char ch2[20]="akbr mn ay7aga";          // al size ma3roof 
+
+	strcpy(ch2,ch);
+
+	printf("%s",ch2);   // ay 7aga ( bas ,, al ba2i bytshaaal)
+	printf(strcpy(ch2,ch)); // works fine 
+	
+	•• lw b3d intialization char x[20]; w 3ayz tktb ahmed 
+		x = "ahmed"; // msh hynf3 ,, fa a3ml strcpy	
+			
+			strcpy(x,"ahmed");
+	
+	
+	
+  ### dest = strdup(source) ; #####
+  
+	char ch[20]="ay 7aga";
+	char *ch2;        // pointer 
+
+	ch2 =strdup(ch);
+
+	printf("%s",ch2);
+
+	ch2[0]='s';
+
+	printf("%s",ch2);    // fine 
+	
+	// strdup = dynmaic array in heap ,, you can do free(name); now
+	
+	
+  ######### memcpy ##############
+  
+  (dest, src, size_in_bytes ) 
+
+
+3- ******** COMPARE *********
+
+
+       ##### int x = strcmp(string1 , string 2 );#######
+
+		int x =strcmp("AA","aa");  // x = negative 
+
+		x = 0 ; equal 
+
+		x = 1 ;  string 1 is greater than 
+
+		x = -1 ; string 1 less than 
+		
+		
+	  #### int x= stricmp(string1,string2);###### 
+	  
+		hena msh hyfr2 A mn a (( msh case senstive )) 
+		
+		int x = stricmp("A","a"); // x =0 ,, mitsaweeen 
+			
+	
+	 ###### memcmp #######
+	 
+		 (dest, source , size) 
+
+	
+
+4- ***********Size*********
+
+
+    ##### int size = strlen(string); ######
+
+	char *name = "ab";
+	
+	int size = strlen(name);  // size = 2 
+	
+	
+	note that : 
+	
+	void fun(char name[] )
+	
+	{
+	   int size = strlen(name);  // fine 
+	
+	}
+
+
+	char name[]={'\0','a','b'};
+	int size = strelen(ch); // zero 
+5- *********concatenate two strings // append ******
+
+
+	##### char* strcat(dest,source)####
+	
+	
+	char * str1 = "Muhammad";
+    char str2[5] = "ana ";
+
+    strcat(str2,str1);  // ana Muhammad
+    pri(strlen(str2)); // 12
+
+    puts(str2);
+
+6- ***** convert numbers to string **********
+
+      // int 
+	  
+	atoi = string   to integer
+	itoa = integer  to string 
+	
+	   // long
+	   
+	atol = string   to long int
+	
+	   // float 
+	   
+	gcvt = floating to string (by3ml round)
+	atof = string   to floating points
+	
+	-- int x = atoi("77") ; // x= 77
+	
+	-- gcvt(float point , number of digits wzout . , dest string);
+	   gcvt(1234.56, 5,ch); //1234.6
+	   
+	-- itoa (integer , dest string , base ) ; // base = 10 decima ,, 2 = binary , 16 = hex
+	
+		itoa(55,ch,10);
+	
+
+
+	•• lw failed ,, hyrg3 zero 
+	
+		    char ch[]="asd1asd";
+
+			int x = atoi(ch);
+
+			cout(x);  // zero 
+			
+			
+		-- note that : char ch[]="12asd"; // hyn2ol fel x 12 l8ayet ma y2bl 7rf ,, kda x = 12
+		
+
+
+7- ************* changing string case ( upper to lower and otherwise) ***************
+	•• strlw(string1);
+	•• strupr(string2);
+	
+	
+    	char name[]="ahmed";
+		strupr(name);
+		puts(name);  // AHMED
+			
+8- ********** toupper for single char *********
+
+
+	char ch[]="abc";
+
+    for(int i = 0;i<strlen(ch);++i)
+          ch[i]=toupper(ch[i]);   //ABC 
+		  
+
+
+9- ******* FInd if string is a part of  string2 ***********
+
+
+	##### strstr(string1,part);#####
+	
+	    char * name1 = "java c++";
+        char * name2 = strstr(name1,"c++");  // retuern address of first character of matching 
+
+	   if(name2==NULL) printf("ay7aga");
+
+	   int index = name2-name1; // 5 
+	   
+	   
+	   
+9- ********* Tokinize******
+
+	##### char * name = strtok(char *str, const char *delim) ######
+	
+	char str1[]= {"this is - the greatest of all times-tmam? "};
+	
+	char *token = strtok(str1,"-");  // str1 now is "this is "  ,, token now is "this is "
+									 // ba2i al string btt5zn fel strtok nfsaha
+	while(token != NULL)	
+	{
+		printf("%s\n",token);           
+		token = strtok(NULL,"-");    // by2f l7d - ,, token now is " the greatest of all times"
+	
+	}
+	
+	
+	
+	output is : 
+	this is
+	 the greatest of all times  ( 1 space first)
+	tmam
+	
+	
+10- *********** memset *********  // mabda2yn with char only in c
+ 
+	-- memset(arr,source,number_Of_Bytes);
+	
+		char arr[3];
+		memset(arr,'a',sizeof(arr));
+
+
+	
+11- *********** strchr************************
+
+	-- strchr( ) function returns pointer to the first occurrence of the character in a given string.
+	
+	-- char *strchr(const char *str, int character);
+	
+		char arr[] = "this";
+		char *temp = strchr(arr,'i'); // returns NULL if not exist
+		
+		if(temp==NULL) couts("not exist  ");
+		
+		int pos = temp -arr;

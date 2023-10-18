@@ -1,0 +1,31 @@
+-- how to name an identifier  (mfeesh ka3da mo3yna ) 
+		 
+	•• Variable Names on the Stack + functions name + enum tag 
+	
+		use all lower case letters
+		use '_' as the word separator.   gas_sensor 
+		
+		
+		#define  = ALL IN CAPS 
+		ENUM const ( ally gowa ENUM ) = all in CAPS with _ 
+
+		
+	•• typedef , pointer = CamelCase 
+
+
+
+-- int *p, *name;
+
+
+		Gas_Sensor = under_bar
+		gasSensor = lowerUpper 
+		GasSensor = CamelCase 
+		
+		fNum = float number
+		dNum = decimal or intergral number
+		
+		can't start with number 
+		
+		underscore can be a name 
+		int _ = 5 ;
+		cout(_);

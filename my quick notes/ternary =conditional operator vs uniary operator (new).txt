@@ -1,0 +1,94 @@
+ -- unary operator 
+ 
+	The operators that act upon a single operand to produce a new value are known as unary operators.
+	(++,--, ~ , ! , - ( to get negative ) , sizeof , & (address of ) )
+	
+	Example : 
+
+		i++;
+		cout(-x);
+	
+
+-- binary operator 
+	
+	x=y+z; 
+	shift is a binary operator 
+
+-- ternary operator = conditional operator = inline conditional  = one-line condition
+
+	-- a3tbrha inha bt3ml return ,, w fe 7aga btst2blhaa 
+	
+
+1-  int x = (y)? 5 : 7;
+ 
+ 
+2- what is the output 
+
+		int main()
+		{
+
+
+			unsigned int a = 10,b;
+
+			a-=20;
+
+
+			(a>=5)? b=100:b=200;
+			
+			printf("%d",b);
+
+
+
+			return 0;
+		}
+
+
+
+
+	//// error ///// 
+
+  
+   (a>=5)? b=100: (b=200) ; // true ,, must be in parenthese
+   
+ 
+3- a<=20? b=30 : (c=30); .... re-write it where 30 is used only once
+
+
+
+	*( (a<=20)? &b:&c ) = 30;
+	
+	
+	
+4- ternary with return 
+
+
+	return( a>20? 5:6); // hyreturn 5 fa ye returnaha mn function b3d kda 
+	
+	
+5- what is the output 
+	
+	    int x = 1 , y = 0,z=3;
+		x > y ? printf("%d", z) : return z ;
+		
+		
+		
+		
+		//// Error //// ,, mafrood z bs ,, hyt3mlha return   === return return z ;
+		
+
+6- how to use
+	if ( ) {
+	}
+	else if( ) {
+	
+	}
+	else {
+	
+	}
+	
+	in ternnay operator ? 
+	
+	
+	condition ?  ( True ) : ( condition2?  (True) : (False) );
+	
+

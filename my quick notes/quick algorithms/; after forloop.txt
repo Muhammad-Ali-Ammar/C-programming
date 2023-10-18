@@ -1,0 +1,16 @@
+int main()
+
+{
+    for(int i = 0;i<3;++i);
+    {
+        printf("lol\n");
+    }
+
+}
+
+
+
+
+will print lol only once 
+
+this is logical error 

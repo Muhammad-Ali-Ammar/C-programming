@@ -1,0 +1,38 @@
+5 types of     error 
+
+		1- compilation error ( syntax) = front-end 
+		4- run-time    error ( crash ) (infinity loop , out of index , scanf without & .. ) 
+		5- logical     error , calculations btt7sb 8lt ( math )  , ; after while or if 
+		3- linker      error (This may be due to wrong function prototyping, incorrect header files ) 
+		2- semantic    error = middle-end (the statements written in the program are not meaningful to the compiler.) 
+								•• a+b =c
+								•• scope 
+								•• in-compatible types (struct object + int)
+								•• add pointers 
+								•• char c; c = "string "; .. semantic error not compile ( alcompiler fahem da ) 
+									
+									 
+	
+	•• run-time and logical can be found using debugging 
+	
+	•• linker error :   multiple defination  .. 2 x and used extern (which one ?) 
+				    :   undefined reference to x  ... used extern x , and there's no x in other files  
+					:	in-sufficent memory 
+					:	lw katb protoype of function bs msh 3aml leha implementation 
+					
+	•• fe nas bt5li semantic , compile error 7aga wa7da 
+					
+	
+
+################################################################################################################################
+
+-- in software testing : 
+	semantic , compile , linker errors = error 
+	logical  = bug = ally howa byrun 
+	run-time  = crash = failure 
+	
+	
+	failure = y3nii daymn fe bug 
+			bas lw fe bug , msh shart ykoon fe failure 
+			
+	bug a22l mn al failure 
