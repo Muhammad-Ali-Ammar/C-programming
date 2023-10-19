@@ -50,8 +50,25 @@ struct student a3; // stil works fine
 
 ••Structure is not a variable declaration, but a type declaration. 
 ---------------------------------------------------------------------
-•• the only way to access all elements in on line at initialization only 
+•• access all elements in on line at initialization 
+ 
 	student a2={5,7.5};
+	
+	
+	or using casting 
+	
+	typedef struct{
+
+		    int x;
+		    int y;
+		    char arr[100];
+
+		}adelType;
+		
+	adelType adelObject;
+
+  	  adelObject = (adelType) {1,2,"It works"}; // casting to struct
+
 -----------------------------------------------------------------------
 
 •• static can't be used inside struct ( ynf3 fe c++ not c ) 
